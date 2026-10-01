@@ -12,41 +12,47 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 
   <style>
+    /* ==========================================================================
+       LUXURY EDITORIAL LINEN DESIGN SYSTEM (Matching Madeira & Fisherman's)
+       ========================================================================== */
     :root {
-      --bg-dark: #0a0d14;
-      --bg-surface: #121722;
-      --bg-surface-elevated: #1a2232;
-      --bg-glass: rgba(18, 23, 34, 0.75);
+      --bg-dark: #f8f9fa;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #f1f5f9;
+      --bg-glass: rgba(248, 249, 250, 0.92);
       
-      --text-main: #f1f5f9;
-      --text-muted: #94a3b8;
-      --text-dim: #64748b;
+      --text-main: #0f172a; /* Slate 900 */
+      --text-body: #334155; /* Slate 700 */
+      --text-muted: #64748b; /* Slate 500 */
+      --text-dim: #94a3b8; /* Slate 400 */
       
       /* Trail Theme Colors */
-      --fishermans-primary: #0284c7;
-      --fishermans-accent: #38bdf8;
-      --fishermans-glow: rgba(56, 189, 248, 0.25);
-      --fishermans-bg: rgba(2, 132, 199, 0.1);
+      --fishermans-primary: #0f766e; /* Atlantic Teal */
+      --fishermans-accent: #0284c7;  /* Ocean Blue */
+      --fishermans-glow: rgba(2, 132, 199, 0.15);
+      --fishermans-bg: rgba(15, 118, 110, 0.06);
       
-      --madeira-primary: #10b981;
-      --madeira-accent: #34d399;
-      --madeira-glow: rgba(52, 211, 153, 0.25);
-      --madeira-bg: rgba(16, 185, 129, 0.1);
+      --madeira-primary: #c2410c;    /* Terracotta Orange */
+      --madeira-accent: #059669;     /* Island Emerald */
+      --madeira-glow: rgba(5, 150, 105, 0.15);
+      --madeira-bg: rgba(194, 65, 12, 0.06);
       
-      --gold: #f59e0b;
-      --gold-glow: rgba(245, 158, 11, 0.2);
+      --gold: #b47b2c;               /* Champagne Gold */
+      --gold-glow: rgba(180, 123, 44, 0.2);
       
-      --border: rgba(255, 255, 255, 0.08);
-      --border-strong: rgba(255, 255, 255, 0.16);
+      --border: rgba(15, 23, 42, 0.08);
+      --border-strong: rgba(15, 23, 42, 0.14);
+      --border-gold: rgba(180, 123, 44, 0.35);
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
       --radius-full: 9999px;
       
-      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
-      --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.5);
-      --shadow-glow-madeira: 0 0 30px var(--madeira-glow);
-      --shadow-glow-fishermans: 0 0 30px var(--fishermans-glow);
+      --shadow-sm: 0 4px 14px rgba(15, 23, 42, 0.04);
+      --shadow-md: 0 10px 24px rgba(15, 23, 42, 0.06);
+      --shadow-lg: 0 16px 36px rgba(15, 23, 42, 0.07);
+      --shadow-glow-madeira: 0 10px 30px rgba(5, 150, 105, 0.12);
+      --shadow-glow-fishermans: 0 10px 30px rgba(2, 132, 199, 0.12);
       
       --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-heading: 'Playfair Display', Georgia, serif;
@@ -65,14 +71,14 @@
 
     body {
       background-color: var(--bg-dark);
-      color: var(--text-main);
+      color: var(--text-body);
       font-family: var(--font-body);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
-    /* Ambient Background Gradients */
+    /* Ambient Background Gradients (Subtle Porcelain Glow) */
     .bg-ambient {
       position: fixed;
       top: 0;
@@ -80,9 +86,9 @@
       right: 0;
       bottom: 0;
       background: 
-        radial-gradient(circle at 15% 20%, rgba(2, 132, 199, 0.08) 0%, transparent 45%),
-        radial-gradient(circle at 85% 75%, rgba(16, 185, 129, 0.08) 0%, transparent 45%),
-        radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.03) 0%, transparent 60%);
+        radial-gradient(circle at 15% 20%, rgba(15, 118, 110, 0.04) 0%, transparent 45%),
+        radial-gradient(circle at 85% 75%, rgba(194, 65, 12, 0.04) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(180, 123, 44, 0.03) 0%, transparent 60%);
       pointer-events: none;
       z-index: 0;
     }
@@ -102,7 +108,7 @@
       z-index: 100;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      background: rgba(10, 13, 20, 0.85);
+      background: rgba(248, 249, 250, 0.94);
       border-bottom: 1px solid var(--border);
     }
 
@@ -125,11 +131,12 @@
       width: 36px;
       height: 36px;
       border-radius: 10px;
-      background: linear-gradient(135deg, var(--fishermans-primary), var(--madeira-primary));
+      background: linear-gradient(135deg, var(--fishermans-accent), var(--madeira-accent));
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 18px;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
     }
 
     .brand-text {
@@ -141,13 +148,13 @@
     }
 
     .brand-text span:first-child {
-      color: #fff;
+      color: var(--text-main);
     }
 
     .brand-text span:last-child {
       font-size: 0.72rem;
-      color: var(--text-muted);
-      font-weight: 500;
+      color: var(--gold);
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
@@ -167,7 +174,7 @@
     }
 
     .nav-links a:hover {
-      color: #fff;
+      color: var(--text-main);
     }
 
     .nav-cta {
@@ -190,27 +197,27 @@
     }
 
     .btn-fishermans {
-      background: rgba(2, 132, 199, 0.15);
-      color: var(--fishermans-accent);
-      border-color: rgba(56, 189, 248, 0.3);
+      background: rgba(2, 132, 199, 0.08);
+      color: #0369a1;
+      border-color: rgba(2, 132, 199, 0.25);
     }
 
     .btn-fishermans:hover {
-      background: var(--fishermans-primary);
+      background: #0284c7;
       color: #fff;
-      box-shadow: 0 4px 16px var(--fishermans-glow);
+      box-shadow: 0 4px 16px rgba(2, 132, 199, 0.25);
     }
 
     .btn-madeira {
-      background: rgba(16, 185, 129, 0.15);
-      color: var(--madeira-accent);
-      border-color: rgba(52, 211, 153, 0.3);
+      background: rgba(16, 185, 129, 0.08);
+      color: #047857;
+      border-color: rgba(16, 185, 129, 0.25);
     }
 
     .btn-madeira:hover {
-      background: var(--madeira-primary);
+      background: #059669;
       color: #fff;
-      box-shadow: 0 4px 16px var(--madeira-glow);
+      box-shadow: 0 4px 16px rgba(5, 150, 105, 0.25);
     }
 
     /* Hero Section */
@@ -225,8 +232,8 @@
       gap: 8px;
       padding: 6px 16px;
       border-radius: var(--radius-full);
-      background: rgba(245, 158, 11, 0.1);
-      border: 1px solid rgba(245, 158, 11, 0.3);
+      background: rgba(180, 123, 44, 0.1);
+      border: 1px solid var(--border-gold);
       color: var(--gold);
       font-size: 0.82rem;
       font-weight: 700;
@@ -242,7 +249,7 @@
       font-weight: 800;
       letter-spacing: -0.02em;
       margin-bottom: 20px;
-      color: #ffffff;
+      color: var(--text-main);
     }
 
     .hero-title .highlight-blue {
@@ -256,7 +263,7 @@
     .hero-subtitle {
       max-width: 780px;
       margin: 0 auto 40px;
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       color: var(--text-muted);
       line-height: 1.7;
     }
@@ -281,28 +288,28 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      box-shadow: var(--shadow-sm);
     }
 
     .live-deck-card:hover {
       transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
     }
 
     .card-fishermans {
-      border-top: 4px solid var(--fishermans-primary);
+      border-top: 4px solid var(--fishermans-accent);
     }
 
     .card-fishermans:hover {
       border-color: var(--fishermans-accent);
-      box-shadow: var(--shadow-glow-fishermans);
     }
 
     .card-madeira {
-      border-top: 4px solid var(--madeira-primary);
+      border-top: 4px solid var(--madeira-accent);
     }
 
     .card-madeira:hover {
       border-color: var(--madeira-accent);
-      box-shadow: var(--shadow-glow-madeira);
     }
 
     .card-header-badge {
@@ -329,7 +336,7 @@
       font-family: var(--font-heading);
       font-size: 1.85rem;
       font-weight: 700;
-      color: #fff;
+      color: var(--text-main);
       margin-bottom: 12px;
       line-height: 1.25;
     }
@@ -357,16 +364,16 @@
 
     .meta-label {
       font-size: 0.75rem;
-      color: var(--text-dim);
+      color: var(--text-muted);
       text-transform: uppercase;
       letter-spacing: 0.05em;
       margin-bottom: 4px;
     }
 
     .meta-value {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 700;
-      color: #fff;
+      color: var(--text-main);
     }
 
     .card-footer {
@@ -399,8 +406,8 @@
 
     /* Executive Verdict Banner */
     .verdict-banner {
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(2, 132, 199, 0.12));
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: #ffffff;
+      border: 1px solid var(--border-gold);
       border-radius: var(--radius-lg);
       padding: 36px 40px;
       margin: 40px 0 80px;
@@ -408,12 +415,13 @@
       grid-template-columns: 240px 1fr;
       gap: 36px;
       align-items: center;
+      box-shadow: var(--shadow-sm);
     }
 
     .verdict-badge {
       text-align: center;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.35);
+      padding: 22px;
+      background: #f8fafc;
       border-radius: var(--radius-md);
       border: 1px solid var(--border);
     }
@@ -425,25 +433,27 @@
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 6px;
+      font-weight: 700;
     }
 
     .verdict-main {
       font-family: var(--font-heading);
       font-size: 1.6rem;
       font-weight: 800;
-      color: #fff;
+      color: var(--text-main);
       line-height: 1.2;
     }
 
     .verdict-content h3 {
       font-size: 1.3rem;
       font-weight: 700;
-      color: #fff;
+      color: var(--text-main);
       margin-bottom: 10px;
+      font-family: var(--font-heading);
     }
 
     .verdict-content p {
-      color: var(--text-muted);
+      color: var(--text-body);
       font-size: 0.98rem;
       line-height: 1.65;
     }
@@ -473,7 +483,7 @@
     .section-title {
       font-family: var(--font-heading);
       font-size: clamp(2rem, 3.5vw, 2.8rem);
-      color: #fff;
+      color: var(--text-main);
       line-height: 1.2;
       margin-bottom: 16px;
     }
@@ -510,20 +520,22 @@
     .matchup-title {
       font-size: 1.15rem;
       font-weight: 700;
-      color: #fff;
+      color: var(--text-main);
       display: flex;
       align-items: center;
       gap: 12px;
+      font-family: var(--font-heading);
     }
 
     .matchup-round {
       font-family: var(--font-mono);
       font-size: 0.75rem;
       font-weight: 700;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(180, 123, 44, 0.12);
       padding: 4px 10px;
       border-radius: var(--radius-full);
       color: var(--gold);
+      border: 1px solid var(--border-gold);
     }
 
     .matchup-winner {
@@ -537,21 +549,21 @@
     }
 
     .winner-madeira {
-      background: rgba(16, 185, 129, 0.18);
-      color: var(--madeira-accent);
-      border: 1px solid rgba(52, 211, 153, 0.3);
+      background: rgba(16, 185, 129, 0.12);
+      color: #047857;
+      border: 1px solid rgba(16, 185, 129, 0.25);
     }
 
     .winner-fishermans {
-      background: rgba(2, 132, 199, 0.18);
-      color: var(--fishermans-accent);
-      border: 1px solid rgba(56, 189, 248, 0.3);
+      background: rgba(2, 132, 199, 0.12);
+      color: #0369a1;
+      border: 1px solid rgba(2, 132, 199, 0.25);
     }
 
     .winner-draw {
-      background: rgba(245, 158, 11, 0.18);
+      background: rgba(180, 123, 44, 0.12);
       color: var(--gold);
-      border: 1px solid rgba(245, 158, 11, 0.3);
+      border: 1px solid var(--border-gold);
     }
 
     .matchup-body {
@@ -568,11 +580,11 @@
 
     .side-fishermans {
       border-right: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(2, 132, 199, 0.03) 0%, transparent 100%);
+      background: linear-gradient(180deg, rgba(2, 132, 199, 0.02) 0%, transparent 100%);
     }
 
     .side-madeira {
-      background: linear-gradient(180deg, rgba(16, 185, 129, 0.03) 0%, transparent 100%);
+      background: linear-gradient(180deg, rgba(16, 185, 129, 0.02) 0%, transparent 100%);
     }
 
     .side-destination {
@@ -595,9 +607,10 @@
     .side-headline {
       font-size: 1.25rem;
       font-weight: 700;
-      color: #fff;
+      color: var(--text-main);
       margin-bottom: 12px;
       line-height: 1.3;
+      font-family: var(--font-heading);
     }
 
     .side-image-wrapper {
@@ -606,6 +619,7 @@
       overflow: hidden;
       margin-bottom: 16px;
       height: 240px;
+      background: #0f172a;
     }
 
     .side-image-wrapper img {
@@ -624,7 +638,7 @@
       bottom: 10px;
       left: 10px;
       padding: 4px 10px;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(15, 23, 42, 0.8);
       backdrop-filter: blur(8px);
       border-radius: var(--radius-sm);
       font-size: 0.75rem;
@@ -633,7 +647,7 @@
     }
 
     .side-text {
-      color: var(--text-muted);
+      color: var(--text-body);
       font-size: 0.92rem;
       line-height: 1.6;
     }
@@ -669,13 +683,13 @@
     }
 
     .comparison-table th.col-fishermans {
-      color: var(--fishermans-accent);
-      border-top: 3px solid var(--fishermans-primary);
+      color: #0369a1;
+      border-top: 3px solid var(--fishermans-accent);
     }
 
     .comparison-table th.col-madeira {
-      color: var(--madeira-accent);
-      border-top: 3px solid var(--madeira-primary);
+      color: #047857;
+      border-top: 3px solid var(--madeira-accent);
     }
 
     .comparison-table tr:last-child td {
@@ -683,18 +697,18 @@
     }
 
     .comparison-table tr:hover td {
-      background: rgba(255, 255, 255, 0.02);
+      background: #f8fafc;
     }
 
     .feature-name {
-      font-weight: 600;
-      color: #fff;
+      font-weight: 700;
+      color: var(--text-main);
       font-size: 0.95rem;
     }
 
     .feature-detail {
       font-size: 0.8rem;
-      color: var(--text-dim);
+      color: var(--text-muted);
       display: block;
       margin-top: 2px;
     }
@@ -709,18 +723,21 @@
     }
 
     .badge-blue {
-      background: rgba(2, 132, 199, 0.18);
-      color: var(--fishermans-accent);
+      background: rgba(2, 132, 199, 0.1);
+      color: #0284c7;
+      border: 1px solid rgba(2, 132, 199, 0.2);
     }
 
     .badge-green {
-      background: rgba(16, 185, 129, 0.18);
-      color: var(--madeira-accent);
+      background: rgba(16, 185, 129, 0.1);
+      color: #059669;
+      border: 1px solid rgba(16, 185, 129, 0.2);
     }
 
     .badge-gold {
-      background: rgba(245, 158, 11, 0.18);
-      color: var(--gold);
+      background: rgba(180, 123, 44, 0.1);
+      color: #b47b2c;
+      border: 1px solid var(--border-gold);
     }
 
     /* Financial Ledger Section */
@@ -736,6 +753,7 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 28px;
+      box-shadow: var(--shadow-sm);
     }
 
     .ledger-card-header {
@@ -751,7 +769,7 @@
       font-family: var(--font-heading);
       font-size: 2.2rem;
       font-weight: 800;
-      color: #fff;
+      color: var(--text-main);
     }
 
     .ledger-row {
@@ -759,7 +777,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 12px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid var(--border);
       font-size: 0.92rem;
     }
 
@@ -774,7 +792,7 @@
     .ledger-item-val {
       font-family: var(--font-mono);
       font-weight: 700;
-      color: #fff;
+      color: var(--text-main);
     }
 
     /* Reddit & Community Reviews */
@@ -792,11 +810,12 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      box-shadow: var(--shadow-sm);
     }
 
     .review-quote {
       font-size: 0.95rem;
-      color: var(--text-main);
+      color: var(--text-body);
       font-style: italic;
       line-height: 1.65;
       margin-bottom: 20px;
@@ -810,7 +829,7 @@
       position: absolute;
       top: -24px;
       left: -12px;
-      color: rgba(255, 255, 255, 0.08);
+      color: rgba(15, 23, 42, 0.08);
       pointer-events: none;
     }
 
@@ -841,17 +860,17 @@
 
     .author-name {
       font-weight: 700;
-      color: #fff;
+      color: var(--text-main);
     }
 
     .author-source {
-      color: var(--text-dim);
+      color: var(--text-muted);
     }
 
     /* Decision Engine / Quiz Section */
     .quiz-card {
       background: var(--bg-surface);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 40px;
       box-shadow: var(--shadow-lg);
@@ -874,7 +893,7 @@
     .question-title {
       font-size: 1.1rem;
       font-weight: 700;
-      color: #fff;
+      color: var(--text-main);
       margin-bottom: 16px;
       display: flex;
       align-items: center;
@@ -885,7 +904,7 @@
       width: 26px;
       height: 26px;
       border-radius: var(--radius-full);
-      background: rgba(245, 158, 11, 0.2);
+      background: rgba(180, 123, 44, 0.12);
       color: var(--gold);
       display: flex;
       align-items: center;
@@ -893,6 +912,7 @@
       font-size: 0.8rem;
       font-family: var(--font-mono);
       font-weight: 700;
+      border: 1px solid var(--border-gold);
     }
 
     .options-grid {
@@ -902,7 +922,7 @@
     }
 
     .quiz-option {
-      background: var(--bg-surface-elevated);
+      background: #f8fafc;
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
       padding: 16px 20px;
@@ -915,26 +935,28 @@
     }
 
     .quiz-option:hover {
-      border-color: rgba(255, 255, 255, 0.25);
+      border-color: rgba(15, 23, 42, 0.25);
+      background: #ffffff;
       transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
     }
 
     .quiz-option.selected-fishermans {
       border-color: var(--fishermans-accent);
-      background: rgba(2, 132, 199, 0.15);
-      box-shadow: 0 0 16px var(--fishermans-glow);
+      background: rgba(2, 132, 199, 0.08);
+      box-shadow: 0 0 16px rgba(2, 132, 199, 0.15);
     }
 
     .quiz-option.selected-madeira {
       border-color: var(--madeira-accent);
-      background: rgba(16, 185, 129, 0.15);
-      box-shadow: 0 0 16px var(--madeira-glow);
+      background: rgba(16, 185, 129, 0.08);
+      box-shadow: 0 0 16px rgba(16, 185, 129, 0.15);
     }
 
     .opt-label {
       font-weight: 700;
       font-size: 0.95rem;
-      color: #fff;
+      color: var(--text-main);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -950,7 +972,7 @@
       margin-top: 36px;
       padding: 28px;
       border-radius: var(--radius-md);
-      background: var(--bg-surface-elevated);
+      background: #f8fafc;
       border: 1px solid var(--border-strong);
       text-align: center;
     }
@@ -958,7 +980,7 @@
     .result-meter {
       height: 16px;
       border-radius: var(--radius-full);
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(15, 23, 42, 0.08);
       margin: 20px 0;
       overflow: hidden;
       display: flex;
@@ -996,12 +1018,12 @@
       font-family: var(--font-heading);
       font-size: 1.7rem;
       font-weight: 800;
-      color: #fff;
+      color: var(--text-main);
       margin-bottom: 12px;
     }
 
     .result-verdict-body {
-      color: var(--text-muted);
+      color: var(--text-body);
       font-size: 0.95rem;
       max-width: 650px;
       margin: 0 auto 24px;
@@ -1011,7 +1033,7 @@
     /* Footer */
     footer.site-footer {
       border-top: 1px solid var(--border);
-      background: #06090e;
+      background: #f1f5f9;
       padding: 60px 0 40px;
       margin-top: 80px;
     }
@@ -1024,7 +1046,7 @@
     }
 
     .footer-brand p {
-      color: var(--text-dim);
+      color: var(--text-muted);
       font-size: 0.88rem;
       margin-top: 12px;
       max-width: 360px;
@@ -1035,7 +1057,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      color: #fff;
+      color: var(--text-main);
       margin-bottom: 16px;
     }
 
@@ -1054,17 +1076,17 @@
     }
 
     .footer-col a:hover {
-      color: #fff;
+      color: var(--text-main);
     }
 
     .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-top: 1px solid var(--border);
       padding-top: 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 0.8rem;
-      color: var(--text-dim);
+      color: var(--text-muted);
     }
 
     /* ==========================================================================
@@ -1076,15 +1098,17 @@
       border-radius: var(--radius-lg);
       padding: 32px;
       margin-bottom: 48px;
+      box-shadow: var(--shadow-sm);
     }
 
     .itinerary-intro-box h3 {
       font-size: 1.4rem;
       margin-bottom: 12px;
-      color: #fff;
+      color: var(--text-main);
       display: flex;
       align-items: center;
       gap: 12px;
+      font-family: var(--font-heading);
     }
 
     .rhythm-grid {
@@ -1095,7 +1119,7 @@
     }
 
     .rhythm-card {
-      background: var(--bg-surface-elevated);
+      background: var(--bg-surface);
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
       padding: 24px;
@@ -1103,12 +1127,14 @@
       flex-direction: column;
       gap: 16px;
       position: relative;
-      transition: transform 0.2s ease, border-color 0.2s ease;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: var(--shadow-sm);
     }
 
     .rhythm-card:hover {
       transform: translateY(-2px);
-      border-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(15, 23, 42, 0.2);
+      box-shadow: var(--shadow-md);
     }
 
     .rhythm-time-badge {
@@ -1117,8 +1143,8 @@
       gap: 6px;
       padding: 4px 10px;
       border-radius: var(--radius-full);
-      background: rgba(245, 158, 11, 0.12);
-      border: 1px solid rgba(245, 158, 11, 0.3);
+      background: rgba(180, 123, 44, 0.12);
+      border: 1px solid var(--border-gold);
       color: var(--gold);
       font-family: var(--font-mono);
       font-size: 0.78rem;
@@ -1128,7 +1154,8 @@
 
     .rhythm-card h4 {
       font-size: 1.15rem;
-      color: #fff;
+      color: var(--text-main);
+      font-family: var(--font-heading);
     }
 
     .rhythm-side-comparison {
@@ -1145,15 +1172,15 @@
     }
 
     .rhythm-side-f {
-      background: rgba(2, 132, 199, 0.08);
+      background: rgba(2, 132, 199, 0.06);
       border-left: 3px solid var(--fishermans-accent);
-      color: #e0f2fe;
+      color: #0369a1;
     }
 
     .rhythm-side-m {
-      background: rgba(16, 185, 129, 0.08);
+      background: rgba(16, 185, 129, 0.06);
       border-left: 3px solid var(--madeira-accent);
-      color: #d1fae5;
+      color: #047857;
     }
 
     .rhythm-side-label {
@@ -1196,6 +1223,7 @@
       align-items: flex-start;
       gap: 4px;
       transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
     }
 
     .day-tab-btn .day-num {
@@ -1204,6 +1232,7 @@
       text-transform: uppercase;
       color: var(--gold);
       letter-spacing: 0.05em;
+      font-weight: 700;
     }
 
     .day-tab-btn .day-title {
@@ -1213,18 +1242,19 @@
     }
 
     .day-tab-btn:hover {
-      background: var(--bg-surface-elevated);
-      border-color: rgba(255, 255, 255, 0.2);
+      background: #ffffff;
+      border-color: rgba(15, 23, 42, 0.2);
+      transform: translateY(-1px);
     }
 
     .day-tab-btn.active {
-      background: linear-gradient(135deg, rgba(2, 132, 199, 0.25), rgba(16, 185, 129, 0.25));
-      border-color: rgba(255, 255, 255, 0.35);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      background: #ffffff;
+      border: 2px solid var(--gold);
+      box-shadow: 0 4px 16px rgba(180, 123, 44, 0.15);
     }
 
     .day-tab-btn.active .day-title {
-      color: #fff;
+      color: var(--gold);
     }
 
     /* Day Itinerary Card Display */
@@ -1244,7 +1274,7 @@
 
     .itinerary-day-card {
       background: var(--bg-surface);
-      border: 1px solid var(--border-strong);
+      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 36px;
       box-shadow: var(--shadow-lg);
@@ -1264,18 +1294,19 @@
     .day-tagline {
       font-size: 1.45rem;
       font-weight: 800;
-      color: #fff;
+      color: var(--text-main);
       display: flex;
       align-items: center;
       gap: 10px;
+      font-family: var(--font-heading);
     }
 
     .day-contrast-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(245, 158, 11, 0.12);
-      border: 1px solid rgba(245, 158, 11, 0.3);
+      background: rgba(180, 123, 44, 0.1);
+      border: 1px solid var(--border-gold);
       color: var(--gold);
       padding: 6px 14px;
       border-radius: var(--radius-full);
@@ -1291,23 +1322,22 @@
     }
 
     .day-side-column {
-      background: var(--bg-surface-elevated);
+      background: #f8fafc;
       border-radius: var(--radius-md);
       padding: 26px;
       display: flex;
       flex-direction: column;
       gap: 20px;
       position: relative;
+      border: 1px solid var(--border);
     }
 
     .day-side-column.f-side {
-      border: 1px solid rgba(2, 132, 199, 0.3);
-      box-shadow: inset 0 0 20px rgba(2, 132, 199, 0.05);
+      border-top: 3px solid var(--fishermans-accent);
     }
 
     .day-side-column.m-side {
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      box-shadow: inset 0 0 20px rgba(16, 185, 129, 0.05);
+      border-top: 3px solid var(--madeira-accent);
     }
 
     .itin-dest-badge {
@@ -1325,8 +1355,9 @@
     .itin-day-title {
       font-size: 1.25rem;
       font-weight: 700;
-      color: #fff;
+      color: var(--text-main);
       line-height: 1.3;
+      font-family: var(--font-heading);
     }
 
     .itin-metrics-pills {
@@ -1336,24 +1367,25 @@
     }
 
     .itin-metric-chip {
-      background: rgba(0, 0, 0, 0.35);
+      background: #ffffff;
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      padding: 4px 10px;
+      padding: 5px 11px;
       font-size: 0.78rem;
       font-family: var(--font-mono);
-      color: var(--text-main);
+      color: var(--text-body);
       display: flex;
       align-items: center;
       gap: 5px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
     }
 
     /* ==========================================================================
        Interactive Day Slideshow (5 Moments Per Day)
        ========================================================================== */
     .day-slideshow-box {
-      background: var(--bg-surface-elevated);
-      border: 1px solid var(--border-strong);
+      background: #ffffff;
+      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 24px;
       margin-bottom: 32px;
@@ -1379,8 +1411,9 @@
 
     .slideshow-title-wrap h4 {
       font-size: 1.15rem;
-      color: #fff;
+      color: var(--text-main);
       margin: 0;
+      font-family: var(--font-heading);
     }
 
     .slideshow-controls-cluster {
@@ -1393,17 +1426,17 @@
       font-family: var(--font-mono);
       font-size: 0.78rem;
       color: var(--gold);
-      background: rgba(245, 158, 11, 0.12);
-      border: 1px solid rgba(245, 158, 11, 0.3);
+      background: rgba(180, 123, 44, 0.1);
+      border: 1px solid var(--border-gold);
       padding: 4px 10px;
       border-radius: var(--radius-full);
       font-weight: 700;
     }
 
     .slide-arrow-btn {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-strong);
-      color: #fff;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      color: var(--text-main);
       width: 32px;
       height: 32px;
       border-radius: 50%;
@@ -1413,11 +1446,12 @@
       cursor: pointer;
       font-size: 0.9rem;
       transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
     }
 
     .slide-arrow-btn:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: #fff;
+      background: #f1f5f9;
+      border-color: var(--text-main);
       transform: scale(1.08);
     }
 
@@ -1430,7 +1464,7 @@
     }
 
     .slide-pill-btn {
-      background: rgba(0, 0, 0, 0.35);
+      background: #f8fafc;
       border: 1px solid var(--border);
       border-radius: var(--radius-full);
       padding: 6px 14px;
@@ -1447,16 +1481,16 @@
     }
 
     .slide-pill-btn:hover {
-      background: var(--bg-surface);
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.25);
+      background: #ffffff;
+      color: var(--text-main);
+      border-color: rgba(15, 23, 42, 0.25);
     }
 
     .slide-pill-btn.active {
-      background: linear-gradient(135deg, rgba(2, 132, 199, 0.3), rgba(16, 185, 129, 0.3));
-      border-color: rgba(255, 255, 255, 0.4);
-      color: #fff;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+      background: #0f172a;
+      border-color: #0f172a;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2);
     }
 
     .day-slide-item {
@@ -1480,27 +1514,28 @@
     }
 
     .slide-card-figure {
-      background: rgba(0, 0, 0, 0.35);
+      background: #ffffff;
       border-radius: var(--radius-md);
       overflow: hidden;
       border: 1px solid var(--border);
       display: flex;
       flex-direction: column;
+      box-shadow: var(--shadow-sm);
     }
 
     .slide-card-figure.f-fig {
-      border-color: rgba(2, 132, 199, 0.3);
+      border-top: 3px solid var(--fishermans-accent);
     }
 
     .slide-card-figure.m-fig {
-      border-color: rgba(16, 185, 129, 0.3);
+      border-top: 3px solid var(--madeira-accent);
     }
 
     .slide-media-wrap {
       position: relative;
       aspect-ratio: 16 / 10;
       overflow: hidden;
-      background: #000;
+      background: #0f172a;
     }
 
     .slide-media-wrap img {
@@ -1531,76 +1566,40 @@
     }
 
     .f-fig .slide-tag-overlay {
-      background: rgba(2, 132, 199, 0.85);
+      background: rgba(2, 132, 199, 0.9);
       color: #fff;
     }
 
     .m-fig .slide-tag-overlay {
-      background: rgba(16, 185, 129, 0.85);
+      background: rgba(16, 185, 129, 0.9);
       color: #fff;
     }
 
     .slide-fig-caption {
-      padding: 14px 16px;
+      padding: 16px 18px;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 5px;
+      background: #ffffff;
     }
 
     .slide-fig-title {
-      font-size: 0.95rem;
+      font-size: 0.98rem;
       font-weight: 700;
-      color: #fff;
+      color: var(--text-main);
+      font-family: var(--font-heading);
     }
 
     .slide-fig-desc {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      line-height: 1.45;
+      font-size: 0.84rem;
+      color: var(--text-body);
+      line-height: 1.5;
     }
 
     @media (max-width: 768px) {
       .slide-images-grid {
         grid-template-columns: 1fr;
       }
-    }
-
-    .itin-card-image-wrap {
-      position: relative;
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      aspect-ratio: 16 / 9;
-      border: 1px solid var(--border);
-      background: #000;
-      margin: 10px 0 16px;
-    }
-
-    .itin-card-image-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-
-    .itin-card-image-wrap:hover img {
-      transform: scale(1.04);
-    }
-
-    .itin-img-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
-      padding: 10px 14px 8px;
-      font-size: 0.76rem;
-      font-weight: 600;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      letter-spacing: 0.02em;
     }
 
     .itin-timeline-block {
@@ -1629,29 +1628,30 @@
       margin-top: 2px;
     }
     .f-side .itin-step-dot {
-      background: rgba(2, 132, 199, 0.25);
-      color: var(--fishermans-accent);
+      background: rgba(2, 132, 199, 0.12);
+      color: #0369a1;
       border: 1px solid var(--fishermans-accent);
     }
     .m-side .itin-step-dot {
-      background: rgba(16, 185, 129, 0.25);
-      color: var(--madeira-accent);
+      background: rgba(16, 185, 129, 0.12);
+      color: #047857;
       border: 1px solid var(--madeira-accent);
     }
 
     .itin-step-content strong {
-      color: #fff;
+      color: var(--text-main);
     }
 
     .itin-box-highlight {
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px dashed var(--border-strong);
+      background: #ffffff;
+      border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      padding: 12px 14px;
+      padding: 14px 16px;
       font-size: 0.84rem;
       display: flex;
       flex-direction: column;
       gap: 6px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
     }
 
     .itin-box-highlight .highlight-row {
@@ -1660,15 +1660,16 @@
     }
 
     .itin-box-highlight .highlight-label {
-      color: var(--text-dim);
+      color: var(--gold);
       font-family: var(--font-mono);
       font-size: 0.75rem;
       min-width: 75px;
       text-transform: uppercase;
+      font-weight: 700;
     }
 
     .itin-bottom-takeaway {
-      background: rgba(0, 0, 0, 0.4);
+      background: #f8fafc;
       border-radius: var(--radius-md);
       padding: 20px 24px;
       border: 1px solid var(--border);
@@ -1684,13 +1685,14 @@
 
     .itin-takeaway-text h5 {
       font-size: 0.98rem;
-      color: #fff;
+      color: var(--text-main);
       margin-bottom: 4px;
+      font-family: var(--font-heading);
     }
 
     .itin-takeaway-text p {
       font-size: 0.88rem;
-      color: var(--text-muted);
+      color: var(--text-body);
       line-height: 1.5;
       margin: 0;
     }
@@ -1731,7 +1733,7 @@
         display: none;
       }
     }
-  </style>
+</style>
 </head>
 <body>
 
@@ -2288,7 +2290,6 @@
                 </div>
               </div>
 
-              <!-- 5 Pills Selector -->
               <div class="slide-pills-nav" role="tablist">
                 <button class="slide-pill-btn active" data-day="1" data-slide-target="1" onclick="setDaySlide(1, 1)">
                   <span>🌅 1. Morning Arrival</span>
@@ -2300,36 +2301,35 @@
                   <span>📍 3. Signature View</span>
                 </button>
                 <button class="slide-pill-btn" data-day="1" data-slide-target="4" onclick="setDaySlide(1, 4)">
-                  <span>🌊 4. Afternoon Stroll</span>
+                  <span>🌊 4. Coastal Setting</span>
                 </button>
                 <button class="slide-pill-btn" data-day="1" data-slide-target="5" onclick="setDaySlide(1, 5)">
                   <span>🍽️ 5. Evening Dining</span>
                 </button>
               </div>
 
-              <!-- 5 Slides -->
               <div class="day-slide-item active" data-day="1" data-slide="1">
                 <div class="slide-images-grid">
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide28_lisbon.jpg" alt="Lisbon Transatlantic Arrival & Coastal Shuttle" loading="lazy" />
+                      <img src="images/ft_d1_m1_lisbon_transit.jpg" alt="Lisbon Transatlantic Arrival & Coastal Shuttle" loading="lazy" />
                       <div class="slide-tag-overlay">🌊 Fisherman's • 08:00 AM</div>
                     </div>
                     <div class="slide-fig-caption">
                       <div class="slide-fig-title">Lisbon Transatlantic Arrival & Coastal Shuttle</div>
-                      <div class="slide-fig-desc">Landing at LIS on your 1-stop US flight and boarding your private shuttle south through Alentejo cork forests.</div>
+                      <div class="slide-fig-desc">Landing at LIS on your 1-stop US flight and boarding your private shuttle south across the Vasco da Gama bridge through Alentejo cork forests.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide28_airport.jpg" alt="Madeira Airport (FNC) Runway Approach" loading="lazy" />
+                      <img src="images/m_d1_m1_fnc_runway_approach.jpg" alt="Madeira Airport (FNC) Runway Approach" loading="lazy" />
                       <div class="slide-tag-overlay">🌋 Madeira • 08:00 AM</div>
                     </div>
                     <div class="slide-fig-caption">
                       <div class="slide-fig-title">Madeira Airport (FNC) Runway Approach</div>
-                      <div class="slide-fig-desc">Landing along the dramatic Atlantic coastal runway and picking up your manual turbo rental car.</div>
+                      <div class="slide-fig-desc">Landing along the dramatic Atlantic coastal runway and picking up your manual turbo rental car for northern mountain roads.</div>
                     </div>
                   </div>
                 </div>
@@ -2339,7 +2339,7 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide09_portocovo.jpg" alt="Porto Covo Whitewashed Village Square" loading="lazy" />
+                      <img src="images/ft_d1_m2_portocovo_praca.jpg" alt="Porto Covo Whitewashed Village Square" loading="lazy" />
                       <div class="slide-tag-overlay">🌊 Fisherman's • 12:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
@@ -2350,12 +2350,12 @@
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide18_santana.jpg" alt="Santana Heritage Thatched Palheiros" loading="lazy" />
+                      <img src="images/m_d1_m2_santana_palheiro_cottage.jpg" alt="Santana Heritage Thatched Palheiros" loading="lazy" />
                       <div class="slide-tag-overlay">🌋 Madeira • 12:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
                       <div class="slide-fig-title">Santana Heritage Thatched Palheiros</div>
-                      <div class="slide-fig-desc">Arriving at your traditional Santana basecamp among iconic triangular thatched stone cottages.</div>
+                      <div class="slide-fig-desc">Arriving at your traditional Santana mountain basecamp among iconic triangular thatched stone cottages.</div>
                     </div>
                   </div>
                 </div>
@@ -2365,23 +2365,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_pessegueiro.jpg" alt="Ilha do Pessegueiro 17th-Century Fortress" loading="lazy" />
+                      <img src="images/ft_d1_m3_pessegueiro_fort.jpg" alt="Ilha do Pessegueiro 17th-Century Fortress" loading="lazy" />
                       <div class="slide-tag-overlay">🌊 Fisherman's • 15:00 PM</div>
                     </div>
                     <div class="slide-fig-caption">
                       <div class="slide-fig-title">Ilha do Pessegueiro 17th-Century Fortress</div>
-                      <div class="slide-fig-desc">Gazing across the channel at the historic offshore sea fortress surrounded by rolling ocean breakers.</div>
+                      <div class="slide-fig-desc">Gazing across the coastal channel at the historic offshore sea fortress surrounded by rolling ocean breakers.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide19_saovicente.jpg" alt="São Vicente Lush Emerald Mountain Valley" loading="lazy" />
+                      <img src="images/m_d1_m3_sao_vicente_valley.jpg" alt="São Vicente Lush Emerald Mountain Valley" loading="lazy" />
                       <div class="slide-tag-overlay">🌋 Madeira • 15:00 PM</div>
                     </div>
                     <div class="slide-fig-caption">
                       <div class="slide-fig-title">São Vicente Lush Emerald Mountain Valley</div>
-                      <div class="slide-fig-desc">Driving through dramatic coastal rock tunnels into towering green volcanic gorges.</div>
+                      <div class="slide-fig-desc">Driving down the deep volcanic gorge flanked by vertical emerald cliffs toward Madeira's untamed north coast.</div>
                     </div>
                   </div>
                 </div>
@@ -2391,23 +2391,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_dunes_panorama.jpg" alt="Praia dos Buizinhos Golden Sand & Surf" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 16:30 PM</div>
+                      <img src="images/ft_d1_m4_buizinhos_cove.jpg" alt="Praia dos Buizinhos Golden Sand & Coves" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 17:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Praia dos Buizinhos Golden Sand & Surf</div>
-                      <div class="slide-fig-desc">Testing trail runners in the soft coastal sand and watching Atlantic spray crash into dark reefs.</div>
+                      <div class="slide-fig-title">Praia dos Buizinhos Golden Sand & Coves</div>
+                      <div class="slide-fig-desc">Watching the Atlantic swell crash against natural schist cliffs at Porto Covo's sheltered golden cove.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide09_quinta.jpg" alt="Santana Quinta Subtropical Gardens" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 16:30 PM</div>
+                      <img src="images/m_d1_m4_quinta_estate_grounds.jpg" alt="Santana Quinta Subtropical Estate Grounds" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 17:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Santana Quinta Subtropical Gardens</div>
-                      <div class="slide-fig-desc">Strolling the lush estate grounds beneath mountain clouds, stocking up on water and headlamps.</div>
+                      <div class="slide-fig-title">Santana Quinta Subtropical Estate Grounds</div>
+                      <div class="slide-fig-desc">Strolling the lush estate grounds beneath mountain clouds, stocking up on water bottles and headlamps.</div>
                     </div>
                   </div>
                 </div>
@@ -2417,7 +2417,7 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide18_seafood.jpg" alt="Tasca do Ché Al Fresco Grilled Sardines" loading="lazy" />
+                      <img src="images/ft_d1_m5_tasca_sardines.jpg" alt="Tasca do Ché Al Fresco Grilled Sardines" loading="lazy" />
                       <div class="slide-tag-overlay">🌊 Fisherman's • 19:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
@@ -2428,7 +2428,7 @@
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide10_espetada.jpg" alt="Adega da Quinta Beef Espetada on Laurel" loading="lazy" />
+                      <img src="images/m_d1_m5_espetada_laurel_skewer.jpg" alt="Adega da Quinta Beef Espetada on Laurel" loading="lazy" />
                       <div class="slide-tag-overlay">🌋 Madeira • 19:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
@@ -2439,6 +2439,8 @@
                 </div>
               </div>
             </div>
+
+            
 
             <div class="day-side-by-side-grid">
               <!-- Fisherman's Day 1 -->
@@ -2451,10 +2453,6 @@
                   <div class="itin-metric-chip">📍 0 km hiking</div>
                   <div class="itin-metric-chip">🚐 2h private transfer from LIS</div>
                   <div class="itin-metric-chip">🏨 Monte da Bemposta / Village inn</div>
-                </div>
-                <div class="itin-card-image-wrap">
-                  <img src="images/slide09_portocovo.jpg" alt="Porto Covo Historic Fishing Village" loading="lazy" />
-                  <div class="itin-img-caption">📍 Porto Covo Village Square & Coastal Trailhead</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -2490,10 +2488,6 @@
                   <div class="itin-metric-chip">📍 0 km hiking</div>
                   <div class="itin-metric-chip">🚗 35m scenic mountain drive</div>
                   <div class="itin-metric-chip">🏨 Boutique Santana Quinta</div>
-                </div>
-                <div class="itin-card-image-wrap">
-                  <img src="images/slide18_santana.jpg" alt="Traditional Thatched Palheiros in Santana" loading="lazy" />
-                  <div class="itin-img-caption">📍 Santana Traditional Palheiros & Mountain Basecamp</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -2557,48 +2551,46 @@
                 </div>
               </div>
 
-              <!-- 5 Pills Selector -->
               <div class="slide-pills-nav" role="tablist">
                 <button class="slide-pill-btn active" data-day="2" data-slide-target="1" onclick="setDaySlide(2, 1)">
-                  <span>🌅 1. Morning Launch</span>
+                  <span>🌄 1. Morning Trailhead</span>
                 </button>
                 <button class="slide-pill-btn" data-day="2" data-slide-target="2" onclick="setDaySlide(2, 2)">
-                  <span>🥾 2. Core Trekking</span>
+                  <span>🥾 2. Trail Terrain</span>
                 </button>
                 <button class="slide-pill-btn" data-day="2" data-slide-target="3" onclick="setDaySlide(2, 3)">
-                  <span>📍 3. Signature View</span>
+                  <span>🧗 3. Peak / Sea Cliff</span>
                 </button>
                 <button class="slide-pill-btn" data-day="2" data-slide-target="4" onclick="setDaySlide(2, 4)">
-                  <span>🏊 4. Afternoon Swim</span>
+                  <span>🏖️ 4. Ocean Immersion</span>
                 </button>
                 <button class="slide-pill-btn" data-day="2" data-slide-target="5" onclick="setDaySlide(2, 5)">
                   <span>🍽️ 5. Evening Dining</span>
                 </button>
               </div>
 
-              <!-- 5 Slides -->
               <div class="day-slide-item active" data-day="2" data-slide="1">
                 <div class="slide-images-grid">
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide09_portocovo.jpg" alt="Porto Covo Trailhead Departure" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 07:00 AM</div>
+                      <img src="images/ft_d2_m1_covo_trailhead.jpg" alt="Porto Covo Trailhead Departure" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 08:30 AM</div>
                     </div>
                     <div class="slide-fig-caption">
                       <div class="slide-fig-title">Porto Covo Trailhead Departure</div>
-                      <div class="slide-fig-desc">Warm pastéis de nata, espresso, luggage tagged for door-to-door transfer, and walking straight onto the trail.</div>
+                      <div class="slide-fig-desc">Stepping onto the sandy cliff track directly from the village edge as the morning sun lights up the Atlantic.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide02_hero.jpg" alt="Pico do Arieiro 1,818m Sunrise Cloud Inversion" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 07:00 AM</div>
+                      <img src="images/m_d2_m1_arieiro_cloud_sunrise.jpg" alt="Pico do Arieiro 1,818m Cloud Sea Sunrise" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 08:30 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Pico do Arieiro 1,818m Sunrise Cloud Inversion</div>
-                      <div class="slide-fig-desc">Standing above an endless sea of illuminated clouds at 07:15 AM after early mountain switchback drive.</div>
+                      <div class="slide-fig-title">Pico do Arieiro 1,818m Cloud Sea Sunrise</div>
+                      <div class="slide-fig-desc">Standing on the high radar dome ridge at 07:15 AM as the morning sun paints an endless sea of clouds gold.</div>
                     </div>
                   </div>
                 </div>
@@ -2608,23 +2600,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_sand_trail_hiker.jpg" alt="Alentejo Deep Golden Quartz Dunes" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 10:30 AM</div>
+                      <img src="images/ft_d2_m2_sand_dunes_walk.jpg" alt="Deep Sand Dunes Trail Trekking" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 11:30 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Alentejo Deep Golden Quartz Dunes</div>
-                      <div class="slide-fig-desc">Pushing through calf-burning loose sand with trekking poles along sweeping panoramic ocean headlands.</div>
+                      <div class="slide-fig-title">Deep Sand Dunes Trail Trekking</div>
+                      <div class="slide-fig-desc">Working calves through pristine maritime sand dunes surrounded by scented curry plant and wild sea thyme.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide14_pr1.jpg" alt="PR1 Razor Knife-Edge Volcanic Ridge" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 10:30 AM</div>
+                      <img src="images/m_d2_m2_pr1_wire_cable_ridge.jpg" alt="PR1 Knife-Edge Ridge Wire-Cable Path" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 11:30 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">PR1 Razor Knife-Edge Volcanic Ridge</div>
-                      <div class="slide-fig-desc">Gripping steel wire safety cables along narrow stone pathways with 1,000m sheer vertical drop-offs.</div>
+                      <div class="slide-fig-title">PR1 Knife-Edge Ridge Wire-Cable Path</div>
+                      <div class="slide-fig-desc">Traversing narrow hand-chiseled stone stairs carved into sheer basalt spires with 1,000m drops on both sides.</div>
                     </div>
                   </div>
                 </div>
@@ -2634,23 +2626,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_dunes_panorama.jpg" alt="Vast Atlantic Clifftop Ocean Panorama" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 13:00 PM</div>
+                      <img src="images/ft_d2_m3_atlantic_cliffs.jpg" alt="Majestic Rota Vicentina Atlantic Cliffs" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 14:00 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Vast Atlantic Clifftop Ocean Panorama</div>
-                      <div class="slide-fig-desc">80-meter vertical sheer cliffs dropping into crashing turquoise Atlantic surf as far as the eye can see.</div>
+                      <div class="slide-fig-title">Majestic Rota Vicentina Atlantic Cliffs</div>
+                      <div class="slide-fig-desc">Gazing down 50-meter sea cliffs where Atlantic rollers crash into remote sea caves and hidden shale coves.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide14_pr1.jpg" alt="Pico Ruivo Summit Overlook (1,862m)" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 13:00 PM</div>
+                      <img src="images/m_d2_m3_ruivo_summit_lookout.jpg" alt="Pico Ruivo Summit 1,862m Vantage Point" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 14:00 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Pico Ruivo Summit Overlook (1,862m)</div>
-                      <div class="slide-fig-desc">Reaching the absolute roof of Madeira island after conquering the metal staircases of Death Valley.</div>
+                      <div class="slide-fig-title">Pico Ruivo Summit 1,862m Vantage Point</div>
+                      <div class="slide-fig-desc">Reaching the absolute roof of Madeira island with 360-degree vistas across jagged cloud-wrapped serras.</div>
                     </div>
                   </div>
                 </div>
@@ -2660,23 +2652,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_malhao.jpg" alt="Praia do Malhão Deserted Surf Dip" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 15:00 PM</div>
+                      <img src="images/ft_d2_m4_malhao_beach.jpg" alt="Praia do Malhão Untamed Golden Beach" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 16:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Praia do Malhão Deserted Surf Dip</div>
-                      <div class="slide-fig-desc">Stripping off boots and wading into icy Atlantic breakers to instantly soothe fatigued feet and calves.</div>
+                      <div class="slide-fig-title">Praia do Malhão Untamed Golden Beach</div>
+                      <div class="slide-fig-desc">Unlacing boots on the vast empty sands of Malhão and dipping tired feet into refreshing ocean white-water.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide22_seixal.jpg" alt="Seixal Black Sand Beach Ocean Plunge" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 15:00 PM</div>
+                      <img src="images/m_d2_m4_seixal_black_sand_surf.jpg" alt="Seixal Natural Black Sand & Cascading Cliffs" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 16:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Seixal Black Sand Beach Ocean Plunge</div>
-                      <div class="slide-fig-desc">Swimming in the Atlantic surf beneath towering jungle-clad green cliffs and cascading mountain streams.</div>
+                      <div class="slide-fig-title">Seixal Natural Black Sand & Cascading Cliffs</div>
+                      <div class="slide-fig-desc">Post-hike ocean swim in fine black volcanic sand beneath lush waterfalls tumbling into the sea.</div>
                     </div>
                   </div>
                 </div>
@@ -2686,28 +2678,30 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide14_riomira_boat.jpg" alt="Tasca do Celso (Vila Nova de Milfontes)" loading="lazy" />
+                      <img src="images/ft_d2_m5_milfontes_robalo.jpg" alt="Vila Nova de Milfontes Fresh Robalo Dinner" loading="lazy" />
                       <div class="slide-tag-overlay">🌊 Fisherman's • 19:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Tasca do Celso (Vila Nova de Milfontes)</div>
-                      <div class="slide-fig-desc">Wooden ferry across Rio Mira, checking in to your inn, and enjoying fresh charcoal-grilled Robalo (sea bass).</div>
+                      <div class="slide-fig-title">Vila Nova de Milfontes Fresh Robalo Dinner</div>
+                      <div class="slide-fig-desc">Wild Atlantic sea bass grilled over charcoal with sea salt, garlic potatoes, and crisp garden greens.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide27_dining.jpg" alt="Restaurante São Cristóvão (Boaventura)" loading="lazy" />
+                      <img src="images/m_d2_m5_sao_cristovao_tuna.jpg" alt="Miradouro São Cristóvão Fresh Tuna Steak" loading="lazy" />
                       <div class="slide-tag-overlay">🌋 Madeira • 19:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Restaurante São Cristóvão (Boaventura)</div>
-                      <div class="slide-fig-desc">Fresh grilled tuna steak with fried maize, garlic butter, and fresh maracujá nectar overlooking northern sea cliffs.</div>
+                      <div class="slide-fig-title">Miradouro São Cristóvão Fresh Tuna Steak</div>
+                      <div class="slide-fig-desc">Pan-seared Atlantic tuna steak with fried corn cakes (milho frito) on a dramatic sea-cliff veranda.</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            
 
             <div class="day-side-by-side-grid">
               <!-- Fisherman's Day 2 -->
@@ -2721,10 +2715,6 @@
                   <div class="itin-metric-chip">📈 +165 m / -160 m</div>
                   <div class="itin-metric-chip">⏱️ 5.5 – 6.5 hrs</div>
                   <div class="itin-metric-chip">🏖️ 65% deep loose sand</div>
-                </div>
-                <div class="itin-card-image-wrap">
-                  <img src="images/ft_sand_trail_hiker.jpg" alt="Hiker in deep quartz sand dunes" loading="lazy" />
-                  <div class="itin-img-caption">📍 Deep Sand Dunes Heading into Vila Nova de Milfontes</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -2760,10 +2750,6 @@
                   <div class="itin-metric-chip">📈 +1,000 m / -1,000 m</div>
                   <div class="itin-metric-chip">⏱️ 4.5 – 5.5 hrs</div>
                   <div class="itin-metric-chip">🧗 High verticality & stairways</div>
-                </div>
-                <div class="itin-card-image-wrap">
-                  <img src="images/slide14_pr1.jpg" alt="PR1 Pico do Arieiro to Pico Ruivo Knife-Edge Ridge" loading="lazy" />
-                  <div class="itin-img-caption">📍 PR1 Pico do Arieiro to Pico Ruivo Knife-Edge Ridge</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -2826,48 +2812,46 @@
                 </div>
               </div>
 
-              <!-- 5 Pills Selector -->
               <div class="slide-pills-nav" role="tablist">
                 <button class="slide-pill-btn active" data-day="3" data-slide-target="1" onclick="setDaySlide(3, 1)">
-                  <span>🌅 1. River & Forest</span>
+                  <span>⛴️ 1. River / Forest Start</span>
                 </button>
                 <button class="slide-pill-btn" data-day="3" data-slide-target="2" onclick="setDaySlide(3, 2)">
-                  <span>🥾 2. Levada & Cliffs</span>
+                  <span>🌲 2. Aqueduct / Forest Walk</span>
                 </button>
                 <button class="slide-pill-btn" data-day="3" data-slide-target="3" onclick="setDaySlide(3, 3)">
-                  <span>📍 3. Storks vs. Waterfalls</span>
+                  <span>🪹 3. Storks / Waterfall</span>
                 </button>
                 <button class="slide-pill-btn" data-day="3" data-slide-target="4" onclick="setDaySlide(3, 4)">
-                  <span>🏊 4. Rock Pools</span>
+                  <span>🌊 4. Coast / Skywalk View</span>
                 </button>
                 <button class="slide-pill-btn" data-day="3" data-slide-target="5" onclick="setDaySlide(3, 5)">
                   <span>🍽️ 5. Evening Dining</span>
                 </button>
               </div>
 
-              <!-- 5 Slides -->
               <div class="day-slide-item active" data-day="3" data-slide="1">
                 <div class="slide-images-grid">
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide14_riomira_boat.jpg" alt="Rio Mira Estuary Crossing" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 08:00 AM</div>
+                      <img src="images/ft_d3_m1_mira_ferry_boat.jpg" alt="Rio Mira Estuary Wooden Ferry Crossing" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 08:45 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Rio Mira Estuary Crossing</div>
-                      <div class="slide-fig-desc">Crossing the calm blue estuary waters and following coastal footpaths through maritime pine groves.</div>
+                      <div class="slide-fig-title">Rio Mira Estuary Wooden Ferry Crossing</div>
+                      <div class="slide-fig-desc">Gliding across the tranquil turquoise river estuary from Milfontes to Praia das Furnas aboard the local skiff.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide18_santana.jpg" alt="Queimadas Forest Park Trailhead" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 08:00 AM</div>
+                      <img src="images/m_d3_m1_queimadas_thatched_house.jpg" alt="Queimadas Forest Park Thatched Sanctuary" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 08:45 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Queimadas Forest Park Trailhead</div>
-                      <div class="slide-fig-desc">Stepping past giant thatched forestry houses into the ancient moss-draped UNESCO Laurissilva forest.</div>
+                      <div class="slide-fig-title">Queimadas Forest Park Thatched Sanctuary</div>
+                      <div class="slide-fig-desc">Entering the primeval laurisilva rainforest beside the mossy thatched ranger sanctuary in Santana.</div>
                     </div>
                   </div>
                 </div>
@@ -2877,23 +2861,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_sand_trail_hiker.jpg" alt="Flowering Acacia & Red Sandstone Paths" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 10:30 AM</div>
+                      <img src="images/ft_d3_m2_pine_forest_path.jpg" alt="Alentejo Maritime Pine & Heather Forest" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 11:15 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Flowering Acacia & Red Sandstone Paths</div>
-                      <div class="slide-fig-desc">Winding coastal paths brushing past wild purple rockroses and sweet-scented maritime vegetation.</div>
+                      <div class="slide-fig-title">Alentejo Maritime Pine & Heather Forest</div>
+                      <div class="slide-fig-desc">Hiking shaded pine tracks carpeted with soft needles, wild cistus rockroses, and coastal heather.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide17_caldeirao.jpg" alt="Narrow Levada Aqueduct Ledge & Tunnels" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 10:30 AM</div>
+                      <img src="images/m_d3_m2_caldeirao_aqueduct_path.jpg" alt="Levada do Caldeirão Verde Aqueduct Trail" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 11:15 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Narrow Levada Aqueduct Ledge & Tunnels</div>
-                      <div class="slide-fig-desc">Switching on headlamps to traverse 4 pitch-black dripping basalt tunnels beside a rushing canal.</div>
+                      <div class="slide-fig-title">Levada do Caldeirão Verde Aqueduct Trail</div>
+                      <div class="slide-fig-desc">Following the narrow stone ledge path along clear mountain aqueducts and traversing unlit hand-chiseled tunnels.</div>
                     </div>
                   </div>
                 </div>
@@ -2903,23 +2887,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_cabo_sardao_storks.jpg" alt="Cabo Sardão Nesting White Storks" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 12:30 PM</div>
+                      <img src="images/ft_d3_m3_sardao_storks.jpg" alt="Cabo Sardão Cliff-Nesting White Storks" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 13:45 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Cabo Sardão Nesting White Storks</div>
-                      <div class="slide-fig-desc">Gazing down at wild white storks nesting on towering ocean sea stacks—the only place on Earth this happens.</div>
+                      <div class="slide-fig-title">Cabo Sardão Cliff-Nesting White Storks</div>
+                      <div class="slide-fig-desc">Observing the world's only known white storks nesting on sheer sea pillars above churning ocean foam.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide17_caldeirao.jpg" alt="Caldeirão Verde 100m Waterfall Basin" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 12:30 PM</div>
+                      <img src="images/m_d3_m3_caldeirao_waterfall_pool.jpg" alt="Caldeirão Verde 100m Waterfall Basin" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 13:45 PM</div>
                     </div>
                     <div class="slide-fig-caption">
                       <div class="slide-fig-title">Caldeirão Verde 100m Waterfall Basin</div>
-                      <div class="slide-fig-desc">Emerging into a gargantuan circular volcanic amphitheater where a 100m cascade plunges into an emerald pool.</div>
+                      <div class="slide-fig-desc">Standing inside the vertical emerald canyon amphitheater as a 100m waterfall plunges into a freezing pool.</div>
                     </div>
                   </div>
                 </div>
@@ -2929,23 +2913,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_dunes_panorama.jpg" alt="Praia de Almograve Natural Rock Pools" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 14:30 PM</div>
+                      <img src="images/ft_d3_m4_almograve_pools.jpg" alt="Praia do Almograve Tide Pools & Schist Slabs" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 16:00 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Praia de Almograve Natural Rock Pools</div>
-                      <div class="slide-fig-desc">Floating in warm sheltered saltwater tide pools carved into dark schist reefs, followed by cold Maracujá soda.</div>
+                      <div class="slide-fig-title">Praia do Almograve Tide Pools & Schist Slabs</div>
+                      <div class="slide-fig-desc">Exploring the intricate black schist tide pools and golden sand coves of Almograve at low tide.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide16_quintafurao.jpg" alt="Faial & Ponta do Clérigo Coastal Lookouts" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 14:30 PM</div>
+                      <img src="images/m_d3_m4_faial_coastal_lookout.jpg" alt="Miradouro do Guindaste Coastal Headland" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 16:00 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Faial & Ponta do Clérigo Coastal Lookouts</div>
-                      <div class="slide-fig-desc">Panoramic viewpoints overlooking the roaring northern surf while sipping espresso at a clifftop cafe.</div>
+                      <div class="slide-fig-title">Miradouro do Guindaste Coastal Headland</div>
+                      <div class="slide-fig-desc">Stepping onto the glass skywalk cantilevered over crashing Atlantic surf on Madeira's northern cliffs.</div>
                     </div>
                   </div>
                 </div>
@@ -2955,28 +2939,30 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide18_seafood.jpg" alt="Sabores do Mar (Almograve)" loading="lazy" />
+                      <img src="images/ft_d3_m5_bulhao_pato_clams.jpg" alt="Amêijoas à Bulhão Pato Coastal Feast" loading="lazy" />
                       <div class="slide-tag-overlay">🌊 Fisherman's • 19:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Sabores do Mar (Almograve)</div>
-                      <div class="slide-fig-desc">Steaming pot of Ameijoas à Bulhão Pato (garlic-coriander clams), grilled dorada, and fresh sweet melon.</div>
+                      <div class="slide-fig-title">Amêijoas à Bulhão Pato Coastal Feast</div>
+                      <div class="slide-fig-desc">Steamed Atlantic clams with garlic, fresh cilantro, and olive oil soaked up with crusty village bread.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide16_quintafurao.jpg" alt="Quinta do Furão Cliffside Dining" loading="lazy" />
+                      <img src="images/m_d3_m5_quinta_furao_terrace.jpg" alt="Quinta do Furão Cliffside Terrace Dining" loading="lazy" />
                       <div class="slide-tag-overlay">🌋 Madeira • 19:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Quinta do Furão Cliffside Dining</div>
-                      <div class="slide-fig-desc">Wood-fired grilled meats, roasted local vegetables, and warm bolo do caco with garlic butter.</div>
+                      <div class="slide-fig-title">Quinta do Furão Cliffside Terrace Dining</div>
+                      <div class="slide-fig-desc">Slow-roasted heritage meats and warm garlic bolo do caco overlooking roaring northern ocean surf.</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            
 
             <div class="day-side-by-side-grid">
               <!-- Fisherman's Day 3 -->
@@ -2990,10 +2976,6 @@
                   <div class="itin-metric-chip">📈 +85 m / -90 m</div>
                   <div class="itin-metric-chip">⏱️ 4.0 – 4.5 hrs</div>
                   <div class="itin-metric-chip">🌾 40% sand & coastal scrub</div>
-                </div>
-                <div class="itin-card-image-wrap">
-                  <img src="images/ft_cabo_sardao_storks.jpg" alt="White stork nesting on sea stacks at Cabo Sardao" loading="lazy" />
-                  <div class="itin-img-caption">📍 White Stork Nests on Cabo Sardão Sea Stacks</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -3029,10 +3011,6 @@
                   <div class="itin-metric-chip">📈 +120 m / -120 m</div>
                   <div class="itin-metric-chip">⏱️ 4.0 hrs</div>
                   <div class="itin-metric-chip">🔦 4 pitch-black basalt tunnels</div>
-                </div>
-                <div class="itin-card-image-wrap">
-                  <img src="images/slide17_caldeirao.jpg" alt="PR9 Levada do Caldeirao Verde waterfall pool" loading="lazy" />
-                  <div class="itin-img-caption">📍 PR9 Levada do Caldeirão Verde Waterfall Amphitheater</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -3095,48 +3073,46 @@
                 </div>
               </div>
 
-              <!-- 5 Pills Selector -->
               <div class="slide-pills-nav" role="tablist">
                 <button class="slide-pill-btn active" data-day="4" data-slide-target="1" onclick="setDaySlide(4, 1)">
-                  <span>🌅 1. Morning Departure</span>
+                  <span>🧭 1. Cape / Plateau Start</span>
                 </button>
                 <button class="slide-pill-btn" data-day="4" data-slide-target="2" onclick="setDaySlide(4, 2)">
-                  <span>🥾 2. Harbors & Heathers</span>
+                  <span>🪵 2. Harbor / Giant Tree Heath</span>
                 </button>
                 <button class="slide-pill-btn" data-day="4" data-slide-target="3" onclick="setDaySlide(4, 3)">
-                  <span>📍 3. Red Dunes & Springs</span>
+                  <span>🏜️ 3. Red Dunes / Springs</span>
                 </button>
                 <button class="slide-pill-btn" data-day="4" data-slide-target="4" onclick="setDaySlide(4, 4)">
-                  <span>🏊 4. Crescent Beach & Lava Pools</span>
+                  <span>🏊 4. Village Bay / Lava Pools</span>
                 </button>
                 <button class="slide-pill-btn" data-day="4" data-slide-target="5" onclick="setDaySlide(4, 5)">
                   <span>🍽️ 5. Evening Dining</span>
                 </button>
               </div>
 
-              <!-- 5 Slides -->
               <div class="day-slide-item active" data-day="4" data-slide="1">
                 <div class="slide-images-grid">
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_cabo_sardao_cliffs.jpg" alt="Cabo Sardão Lighthouse Clifftop Path" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 08:00 AM</div>
+                      <img src="images/ft_d4_m1_sardao_lighthouse.jpg" alt="Cabo Sardão Historic Lighthouse Promontory" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 08:30 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Cabo Sardão Lighthouse Clifftop Path</div>
-                      <div class="slide-fig-desc">Hiking along the edge of sheer 80-meter vertical cliffs where the Atlantic crashes furiously below.</div>
+                      <div class="slide-fig-title">Cabo Sardão Historic Lighthouse Promontory</div>
+                      <div class="slide-fig-desc">Standing on the Alentejo's westernmost cape under the 1915 lighthouse with endless Atlantic horizons.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/m_paul_serra.jpg" alt="Paúl da Serra High Moorland Plateau" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 08:00 AM</div>
+                      <img src="images/m_d4_m1_paul_serra_moorlands.jpg" alt="Paúl da Serra High Alpine Moorland Plateau" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 08:30 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Paúl da Serra High Moorland Plateau</div>
-                      <div class="slide-fig-desc">Scenic drive across Madeira's misty 1,400m plateau resembling Scottish highlands with roaming cattle.</div>
+                      <div class="slide-fig-title">Paúl da Serra High Alpine Moorland Plateau</div>
+                      <div class="slide-fig-desc">Driving across the 1,500m windswept plateau surrounded by golden gorse and grazing mountain cattle.</div>
                     </div>
                   </div>
                 </div>
@@ -3146,23 +3122,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_sand_trail_hiker.jpg" alt="Porto das Barcas Clifftop Fishing Harbor" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 10:45 AM</div>
+                      <img src="images/ft_d4_m2_porto_barcas_harbor.jpg" alt="Porto das Barcas Natural Fissure Fishing Port" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 11:00 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Porto das Barcas Clifftop Fishing Harbor</div>
-                      <div class="slide-fig-desc">Watching colorful wooden fishing boats tethered to vertical cliff walls via steel winches and cables.</div>
+                      <div class="slide-fig-title">Porto das Barcas Natural Fissure Fishing Port</div>
+                      <div class="slide-fig-desc">Marveling at tiny wooden skiffs tied up in a dramatic narrow cleft between crashing ocean rocks.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide23_25fontes.jpg" alt="Ancient Giant Heather Canyon Descent" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 10:45 AM</div>
+                      <img src="images/m_d4_m2_heather_forest_stairs.jpg" alt="Rabaçal Valley Giant Tree Heather Stairs" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 11:00 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Ancient Giant Heather Canyon Descent</div>
-                      <div class="slide-fig-desc">Descending mossy stone staircases through towering old-growth heather into Ribeira da Janela canyon.</div>
+                      <div class="slide-fig-title">Rabaçal Valley Giant Tree Heather Stairs</div>
+                      <div class="slide-fig-desc">Descending mossy stone stairways beneath 10-meter giant tree heather and ancient twisted laurel branches.</div>
                     </div>
                   </div>
                 </div>
@@ -3172,23 +3148,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_cabo_sardao_cliffs.jpg" alt="Cavaleiro Striated Red Sand Dunes" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 12:45 PM</div>
+                      <img src="images/ft_d4_m3_cavaleiro_red_dunes.jpg" alt="Cavaleiro Searing Red Earth Dune Trails" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 13:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Cavaleiro Striated Red Sand Dunes</div>
-                      <div class="slide-fig-desc">Walking vibrant ochre and crimson coastal dunes contrasting sharply with deep sapphire waters.</div>
+                      <div class="slide-fig-title">Cavaleiro Searing Red Earth Dune Trails</div>
+                      <div class="slide-fig-desc">Walking vibrant crimson sandstone cliff trails where red soil meets the deep sapphire Atlantic.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide23_25fontes.jpg" alt="25 Fontes Cascading Mountain Springs" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 12:45 PM</div>
+                      <img src="images/m_d4_m3_25_fontes_spring_wall.jpg" alt="25 Fontes Weeping Spring Wall Basin" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 13:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">25 Fontes Cascading Mountain Springs</div>
-                      <div class="slide-fig-desc">Standing before 25 crystal mountain springs weeping through lush fern walls into an emerald basin.</div>
+                      <div class="slide-fig-title">25 Fontes Weeping Spring Wall Basin</div>
+                      <div class="slide-fig-desc">Arriving at the volcanic amphitheater where 25 crystal mountain springs weep down a lush fern wall.</div>
                     </div>
                   </div>
                 </div>
@@ -3198,23 +3174,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide19_zambujeira.jpg" alt="Zambujeira do Mar Crescent Beach Surf" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 15:00 PM</div>
+                      <img src="images/ft_d4_m4_zambujeira_crescent.jpg" alt="Zambujeira do Mar Crescent Bay Panorama" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 16:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Zambujeira do Mar Crescent Beach Surf</div>
-                      <div class="slide-fig-desc">Dropping daypacks, grabbing towels, and running into the rolling Atlantic surf of Zambujeira's cove.</div>
+                      <div class="slide-fig-title">Zambujeira do Mar Crescent Bay Panorama</div>
+                      <div class="slide-fig-desc">Arriving at the iconic cliffside village perched high above its protected sweeping swimming cove.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide21_portomoniz.jpg" alt="Porto Moniz Volcanic Lava Ocean Pools" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 15:00 PM</div>
+                      <img src="images/m_d4_m4_portomoniz_lava_pools.jpg" alt="Porto Moniz Volcanic Lava Tide Pools" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 16:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Porto Moniz Volcanic Lava Ocean Pools</div>
-                      <div class="slide-fig-desc">Plunging into natural black basalt swimming pools with ocean breakers crashing dramatically over the edges.</div>
+                      <div class="slide-fig-title">Porto Moniz Volcanic Lava Tide Pools</div>
+                      <div class="slide-fig-desc">Swimming in natural ocean basalt pools continually refreshed by the surge of Atlantic ocean breakers.</div>
                     </div>
                   </div>
                 </div>
@@ -3224,28 +3200,30 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide18_seafood.jpg" alt="O Sacas Cliffside Seafood Cataplana" loading="lazy" />
+                      <img src="images/ft_d4_m5_seafood_cataplana.jpg" alt="Authentic Copper Cataplana Seafood Stew" loading="lazy" />
                       <div class="slide-tag-overlay">🌊 Fisherman's • 19:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">O Sacas Cliffside Seafood Cataplana</div>
-                      <div class="slide-fig-desc">Renowned copper cataplana packed with monkfish, prawns, clams, and saffron broth with mineral water.</div>
+                      <div class="slide-fig-title">Authentic Copper Cataplana Seafood Stew</div>
+                      <div class="slide-fig-desc">Unclamping the steaming copper cataplana loaded with monkfish, tiger prawns, clams, and sweet peppers.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide27_dining.jpg" alt="Cachalote (Porto Moniz Oceanfront)" loading="lazy" />
+                      <img src="images/m_d4_m5_espada_banana_dinner.jpg" alt="Traditional Espada com Banana & Passionfruit" loading="lazy" />
                       <div class="slide-tag-overlay">🌋 Madeira • 19:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Cachalote (Porto Moniz Oceanfront)</div>
-                      <div class="slide-fig-desc">Grilled black scabbard fish with fried banana, passionfruit mousse, and ice-cold Brisa Maracujá soda.</div>
+                      <div class="slide-fig-title">Traditional Espada com Banana & Passionfruit</div>
+                      <div class="slide-fig-desc">Tender deep-sea black scabbardfish fillet topped with pan-fried banana and tangy passionfruit coulis.</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            
 
             <div class="day-side-by-side-grid">
               <!-- Fisherman's Day 4 -->
@@ -3259,10 +3237,6 @@
                   <div class="itin-metric-chip">📈 +200 m / -200 m</div>
                   <div class="itin-metric-chip">⏱️ 6.0 – 6.5 hrs</div>
                   <div class="itin-metric-chip">🚢 Porto das Barcas harbor</div>
-                </div>
-                <div class="itin-card-image-wrap">
-                  <img src="images/slide19_zambujeira.jpg" alt="Zambujeira do Mar Dramatic Beach and Sea Cliffs" loading="lazy" />
-                  <div class="itin-img-caption">📍 Zambujeira do Mar Crescent Beach & Sea Cliffs</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -3298,10 +3272,6 @@
                   <div class="itin-metric-chip">📈 +300 m / -300 m</div>
                   <div class="itin-metric-chip">⏱️ 4.5 hrs</div>
                   <div class="itin-metric-chip">🌊 Natural lava pools</div>
-                </div>
-                <div class="itin-card-image-wrap">
-                  <img src="images/slide21_portomoniz.jpg" alt="Porto Moniz Natural Volcanic Ocean Pools" loading="lazy" />
-                  <div class="itin-img-caption">📍 Porto Moniz Natural Volcanic Ocean Lava Pools</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -3364,48 +3334,46 @@
                 </div>
               </div>
 
-              <!-- 5 Pills Selector -->
               <div class="slide-pills-nav" role="tablist">
                 <button class="slide-pill-btn active" data-day="5" data-slide-target="1" onclick="setDaySlide(5, 1)">
-                  <span>🌅 1. Morning Departure</span>
+                  <span>🧗 1. Cliffs / Cloud Ridge</span>
                 </button>
                 <button class="slide-pill-btn" data-day="5" data-slide-target="2" onclick="setDaySlide(5, 2)">
-                  <span>🥾 2. Heathland & Ancient Til</span>
+                  <span>🌿 2. Coves / Ancient Forest</span>
                 </button>
                 <button class="slide-pill-btn" data-day="5" data-slide-target="3" onclick="setDaySlide(5, 3)">
-                  <span>📍 3. River Horseshoe & Phantom Trees</span>
+                  <span>🐎 3. Horseshoe Bay / Misty Moss</span>
                 </button>
                 <button class="slide-pill-btn" data-day="5" data-slide-target="4" onclick="setDaySlide(5, 4)">
-                  <span>🏊 4. River/Ocean Dip & Waterfall</span>
+                  <span>🌊 4. River Swim / Sea Cascade</span>
                 </button>
                 <button class="slide-pill-btn" data-day="5" data-slide-target="5" onclick="setDaySlide(5, 5)">
                   <span>🍽️ 5. Evening Dining</span>
                 </button>
               </div>
 
-              <!-- 5 Slides -->
               <div class="day-slide-item active" data-day="5" data-slide="1">
                 <div class="slide-images-grid">
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide19_zambujeira.jpg" alt="Zambujeira Southbound Sea Cliffs" loading="lazy" />
+                      <img src="images/ft_d5_m1_zambujeira_cliffs.jpg" alt="Zambujeira South Headland Sea Cliffs" loading="lazy" />
                       <div class="slide-tag-overlay">🌊 Fisherman's • 08:30 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Zambujeira Southbound Sea Cliffs</div>
-                      <div class="slide-fig-desc">Departing Zambujeira along jagged headlands, passing secret surf beaches like Praia do Carvalhal.</div>
+                      <div class="slide-fig-title">Zambujeira South Headland Sea Cliffs</div>
+                      <div class="slide-fig-desc">Morning departure across rugged coastal headlands toward the Algarve border.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide20_fanal.jpg" alt="Fanal Cloud Forest Mountain Ascent" loading="lazy" />
+                      <img src="images/m_d5_m1_fanal_plateau_road.jpg" alt="Paúl da Serra High Mist Plateau Road" loading="lazy" />
                       <div class="slide-tag-overlay">🌋 Madeira • 08:30 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Fanal Cloud Forest Mountain Ascent</div>
-                      <div class="slide-fig-desc">Monitoring live webcams and steering up mountain switchbacks into the legendary drifting fog belt.</div>
+                      <div class="slide-fig-title">Paúl da Serra High Mist Plateau Road</div>
+                      <div class="slide-fig-desc">Ascending into swirling alpine cloud banks on the high volcanic ridge toward the Fanal Forest.</div>
                     </div>
                   </div>
                 </div>
@@ -3415,23 +3383,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_sand_trail_hiker.jpg" alt="Wild Coastal Heathland & Rockroses" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 11:00 AM</div>
+                      <img src="images/ft_d5_m2_carvalhal_beach.jpg" alt="Praia do Carvalhal Secluded Valley Beach" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 11:15 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Wild Coastal Heathland & Rockroses</div>
-                      <div class="slide-fig-desc">Trekking through wild Alentejo scrub to Azenha do Mar, watching fishermen haul catches up cliff stairways.</div>
+                      <div class="slide-fig-title">Praia do Carvalhal Secluded Valley Beach</div>
+                      <div class="slide-fig-desc">Descending wooden stairways into a sheltered river canyon beach framed by dark cliffs.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide20_fanal.jpg" alt="600-Year-Old Twisted Laurel Trees" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 11:00 AM</div>
+                      <img src="images/m_d5_m2_fanal_twisted_tree_moss.jpg" alt="Fanal 600-Year-Old Ancient Til Trees" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 11:15 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">600-Year-Old Twisted Laurel Trees</div>
-                      <div class="slide-fig-desc">Walking among ancient Stinkwood trees draped in thick moss and lichens in total eerie mountain silence.</div>
+                      <div class="slide-fig-title">Fanal 600-Year-Old Ancient Til Trees</div>
+                      <div class="slide-fig-desc">Walking among prehistoric twisted laurel trees cloaked in emerald moss that predate Portuguese discovery.</div>
                     </div>
                   </div>
                 </div>
@@ -3441,23 +3409,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_odeceixe_horseshoe.jpg" alt="Seixe River Majestic Horseshoe Bend" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 13:30 PM</div>
+                      <img src="images/ft_d5_m3_odeceixe_horseshoe.jpg" alt="Odeceixe Horseshoe Beach & Seixe River Estuary" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 13:45 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Seixe River Majestic Horseshoe Bend</div>
-                      <div class="slide-fig-desc">Overlooking the breathtaking turquoise loop of the Seixe River demarcating the Alentejo/Algarve border.</div>
+                      <div class="slide-fig-title">Odeceixe Horseshoe Beach & Seixe River Estuary</div>
+                      <div class="slide-fig-desc">Reaching the breathtaking natural horseshoe sandspit where the tranquil Seixe river meets ocean surf.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide20_fanal.jpg" alt="Ethereal Drifting Mist & Free-Roaming Cattle" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 13:30 PM</div>
+                      <img src="images/m_d5_m3_fanal_cow_in_fog.jpg" alt="Fanal Laurisilva Mist & Grazing Mountain Cattle" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 13:45 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Ethereal Drifting Mist & Free-Roaming Cattle</div>
-                      <div class="slide-fig-desc">Atmospheric mist sweeping across the mossy plateau, broken only by the distant chime of cowbells.</div>
+                      <div class="slide-fig-title">Fanal Laurisilva Mist & Grazing Mountain Cattle</div>
+                      <div class="slide-fig-desc">A tranquil encounter with highland cattle grazing peacefully amidst ethereal swirling mountain fog.</div>
                     </div>
                   </div>
                 </div>
@@ -3467,23 +3435,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_odeceixe_horseshoe.jpg" alt="Praia de Odeceixe River & Ocean Swim" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 15:30 PM</div>
+                      <img src="images/ft_d5_m4_odeceixe_river_swim.jpg" alt="Odeceixe River Warm Estuary Swimming" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 16:00 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Praia de Odeceixe River & Ocean Swim</div>
-                      <div class="slide-fig-desc">Swimming in calm, warm fresh river water on one side and rolling Atlantic surf on the other.</div>
+                      <div class="slide-fig-title">Odeceixe River Warm Estuary Swimming</div>
+                      <div class="slide-fig-desc">Resting trail-tired legs in calm, warm estuary waters while watching ocean breakers roll onto the sandbar.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide22_seixal.jpg" alt="Véu da Noiva (Bride's Veil) Ocean Cascade" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 15:30 PM</div>
+                      <img src="images/m_d5_m4_veu_da_noiva_cascade.jpg" alt="Véu da Noiva Bride's Veil Ocean Waterfall" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 16:00 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Véu da Noiva (Bride's Veil) Ocean Cascade</div>
-                      <div class="slide-fig-desc">Watching a roaring waterfall plunge directly from the sea cliffs into the Atlantic ocean near Seixal.</div>
+                      <div class="slide-fig-title">Véu da Noiva Bride's Veil Ocean Waterfall</div>
+                      <div class="slide-fig-desc">Admiring the dramatic mountain torrent cascading off a sheer vertical precipice directly into the Atlantic.</div>
                     </div>
                   </div>
                 </div>
@@ -3493,28 +3461,30 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_odeceixe_village_lane.jpg" alt="Taberna do Chaparro (Odeceixe)" loading="lazy" />
+                      <img src="images/ft_d5_m5_odeceixe_lane_dinner.jpg" alt="Odeceixe Whitewashed Village Lane Dining" loading="lazy" />
                       <div class="slide-tag-overlay">🌊 Fisherman's • 19:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Taberna do Chaparro (Odeceixe)</div>
-                      <div class="slide-fig-desc">Hillside village inn check-in; grilled sea bream, local roasted sweet potatoes, and organic herbal tea.</div>
+                      <div class="slide-fig-title">Odeceixe Whitewashed Village Lane Dining</div>
+                      <div class="slide-fig-desc">Relaxing in an outdoor village taverna with sheep cheese, marinated olives, and fresh grilled sea bream.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide08_funchal.jpg" alt="O Balcão (Funchal Capital Basecamp)" loading="lazy" />
+                      <img src="images/m_d5_m5_funchal_balcao_soup.jpg" alt="Funchal Old Town Sopa de Tomate e Cebola" loading="lazy" />
                       <div class="slide-tag-overlay">🌋 Madeira • 19:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">O Balcão (Funchal Capital Basecamp)</div>
-                      <div class="slide-fig-desc">Relocating to Funchal boutique hotel; traditional tomato-onion soup with poached egg and fruit juices.</div>
+                      <div class="slide-fig-title">Funchal Old Town Sopa de Tomate e Cebola</div>
+                      <div class="slide-fig-desc">Poached egg in hearty tomato-onion broth followed by passionfruit mousse at a quiet Funchal tavern.</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            
 
             <div class="day-side-by-side-grid">
               <!-- Fisherman's Day 5 -->
@@ -3528,10 +3498,6 @@
                   <div class="itin-metric-chip">📈 +260 m / -280 m</div>
                   <div class="itin-metric-chip">⏱️ 5.0 – 5.5 hrs</div>
                   <div class="itin-metric-chip">🌊 Alentejo/Algarve river border</div>
-                </div>
-                <div class="itin-card-image-wrap">
-                  <img src="images/ft_odeceixe_horseshoe.jpg" alt="Seixe River Horseshoe Bend at Praia de Odeceixe" loading="lazy" />
-                  <div class="itin-img-caption">📍 Seixe River Horseshoe Bend at Praia de Odeceixe</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -3567,10 +3533,6 @@
                   <div class="itin-metric-chip">📈 +200 m / -200 m</div>
                   <div class="itin-metric-chip">⏱️ 3.5 hrs</div>
                   <div class="itin-metric-chip">🌫️ 600-year-old laurel trees</div>
-                </div>
-                <div class="itin-card-image-wrap">
-                  <img src="images/slide20_fanal.jpg" alt="Ancient Twisted Laurel Trees in Fanal Forest" loading="lazy" />
-                  <div class="itin-img-caption">📍 Ethereal 600-Year-Old Ancient Til Trees in Fanal Fog</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -3633,48 +3595,46 @@
                 </div>
               </div>
 
-              <!-- 5 Pills Selector -->
               <div class="slide-pills-nav" role="tablist">
                 <button class="slide-pill-btn active" data-day="6" data-slide-target="1" onclick="setDaySlide(6, 1)">
-                  <span>🌅 1. Morning Trailhead</span>
+                  <span>🍃 1. Eucalyptus / Crater Rim</span>
                 </button>
                 <button class="slide-pill-btn" data-day="6" data-slide-target="2" onclick="setDaySlide(6, 2)">
-                  <span>🥾 2. Coastal Dunes & Caldera Walls</span>
+                  <span>🏜️ 2. Dune Crossing / Switchbacks</span>
                 </button>
                 <button class="slide-pill-btn" data-day="6" data-slide-target="3" onclick="setDaySlide(6, 3)">
-                  <span>📍 3. Moorish Castle & Hidden Refuge</span>
+                  <span>🏰 3. Moorish Castle / Valley Village</span>
                 </button>
                 <button class="slide-pill-btn" data-day="6" data-slide-target="4" onclick="setDaySlide(6, 4)">
-                  <span>🚠 4. Old Town & Cable Car</span>
+                  <span>🏘️ 4. Old Town / Tropical Gardens</span>
                 </button>
                 <button class="slide-pill-btn" data-day="6" data-slide-target="5" onclick="setDaySlide(6, 5)">
                   <span>🍽️ 5. Evening Dining</span>
                 </button>
               </div>
 
-              <!-- 5 Slides -->
               <div class="day-slide-item active" data-day="6" data-slide="1">
                 <div class="slide-images-grid">
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_sand_trail_hiker.jpg" alt="Eucalyptus Forests & Ancient Levadas" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 08:00 AM</div>
+                      <img src="images/ft_d6_m1_eucalyptus_trail.jpg" alt="Aljezur Scented Eucalyptus Trail" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 08:30 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Eucalyptus Forests & Ancient Levadas</div>
-                      <div class="slide-fig-desc">Departing Odeceixe through fragrant eucalyptus groves along ancient historic irrigation channels.</div>
+                      <div class="slide-fig-title">Aljezur Scented Eucalyptus Trail</div>
+                      <div class="slide-fig-desc">Inhaling refreshing eucalyptus and pine scents on the inland crossing into the Algarve region.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide26_curral_freiras.jpg" alt="Eira do Serrado 1,095m Overlook Drive" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 08:00 AM</div>
+                      <img src="images/m_d6_m1_eira_serrado_lookout.jpg" alt="Eira do Serrado 1,095m Crater Overlook" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 08:30 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Eira do Serrado 1,095m Overlook Drive</div>
-                      <div class="slide-fig-desc">Scenic drive through pine and eucalyptus ravines up to the high overlook of the Valley of the Nuns.</div>
+                      <div class="slide-fig-title">Eira do Serrado 1,095m Crater Overlook</div>
+                      <div class="slide-fig-desc">Gazing down into the staggering volcanic amphitheater that protected 16th-century nuns from pirates.</div>
                     </div>
                   </div>
                 </div>
@@ -3684,23 +3644,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_dunes_panorama.jpg" alt="Rolling Agricultural Dunes over Amoreira" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 10:45 AM</div>
+                      <img src="images/ft_d6_m2_amoreira_dunes.jpg" alt="Praia da Amoreira Dune Crossing" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 11:30 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Rolling Agricultural Dunes over Amoreira</div>
-                      <div class="slide-fig-desc">Crossing coastal plateaus overlooking the wild roaring breakers of Praia da Amoreira.</div>
+                      <div class="slide-fig-title">Praia da Amoreira Dune Crossing</div>
+                      <div class="slide-fig-desc">Navigating sweeping dunes where the Aljezur river carves a turquoise channel through black shale cliffs.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide26_curral_freiras.jpg" alt="Steep Zig-Zag Caldera Wall Descent" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 10:45 AM</div>
+                      <img src="images/m_d6_m2_curral_zigzag_trail.jpg" alt="Curral das Freiras 1,000-Step Zigzag Descent" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 11:30 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Steep Zig-Zag Caldera Wall Descent</div>
-                      <div class="slide-fig-desc">Hiking the steep zig-zag mountain stairway down into the secluded volcanic caldera basin.</div>
+                      <div class="slide-fig-title">Curral das Freiras 1,000-Step Zigzag Descent</div>
+                      <div class="slide-fig-desc">Descending the historic hand-paved stone switchbacks into the isolated mountain floor.</div>
                     </div>
                   </div>
                 </div>
@@ -3710,23 +3670,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_aljezur_castle.jpg" alt="10th-Century Moorish Castle of Aljezur" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 13:00 PM</div>
+                      <img src="images/ft_d6_m3_aljezur_castle.jpg" alt="10th-Century Moorish Castle of Aljezur" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 14:00 PM</div>
                     </div>
                     <div class="slide-fig-caption">
                       <div class="slide-fig-title">10th-Century Moorish Castle of Aljezur</div>
-                      <div class="slide-fig-desc">Climbing to the stone battlements of Aljezur Castle with 360° panoramic views across the valley.</div>
+                      <div class="slide-fig-desc">Exploring ancient hilltop battlements overlooking fertile river plains and whitewashed village homes.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide26_curral_freiras.jpg" alt="1,000m Sheer Enclosing Volcanic Walls" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 13:00 PM</div>
+                      <img src="images/m_d6_m3_nuns_valley_church.jpg" alt="Nuns Valley Traditional Chestnut Village" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 14:00 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">1,000m Sheer Enclosing Volcanic Walls</div>
-                      <div class="slide-fig-desc">Standing inside the historic refuge where 16th-century nuns hid from French pirate fleets.</div>
+                      <div class="slide-fig-title">Nuns Valley Traditional Chestnut Village</div>
+                      <div class="slide-fig-desc">Tasting roasted chestnut soup, fresh chestnut bread, and wild berry treats in the village square.</div>
                     </div>
                   </div>
                 </div>
@@ -3736,23 +3696,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_aljezur_castle.jpg" alt="Aljezur Cobblestone Alleys & Bakeries" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 15:00 PM</div>
+                      <img src="images/ft_d6_m4_aljezur_old_town.jpg" alt="Aljezur Historic Old Town Cobblestones" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 16:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Aljezur Cobblestone Alleys & Bakeries</div>
-                      <div class="slide-fig-desc">Strolling the sleepy whitewashed streets and sampling famous local Aljezur sweet potato cakes.</div>
+                      <div class="slide-fig-title">Aljezur Historic Old Town Cobblestones</div>
+                      <div class="slide-fig-desc">Strolling steep cobblestone lanes lined with blooming bougainvillea, local potteries, and cafes.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide26_monte.jpg" alt="Funchal Panoramic Cable Car to Monte" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 15:00 PM</div>
+                      <img src="images/m_d6_m4_monte_palace_gardens.jpg" alt="Monte Palace Tropical Botanic Gardens" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 16:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Funchal Panoramic Cable Car to Monte</div>
-                      <div class="slide-fig-desc">Soaring above Funchal's terraced hills to explore Monte Palace tropical botanical gardens and koi ponds.</div>
+                      <div class="slide-fig-title">Monte Palace Tropical Botanic Gardens</div>
+                      <div class="slide-fig-desc">Wandering through giant tree ferns, koi lakes, Asian pavilions, and centuries of Portuguese azulejos.</div>
                     </div>
                   </div>
                 </div>
@@ -3762,28 +3722,30 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide18_seafood.jpg" alt="Pont'a Pé Riverside Dining (Aljezur)" loading="lazy" />
+                      <img src="images/ft_d6_m5_sweet_potato_stew.jpg" alt="Aljezur Sweet Potato & Octopus Lagareiro" loading="lazy" />
                       <div class="slide-tag-overlay">🌊 Fisherman's • 19:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Pont'a Pé Riverside Dining (Aljezur)</div>
-                      <div class="slide-fig-desc">Famous Alentejo sweet potato stew, fresh grilled octopus salad, and freshly squeezed Algarve orange juice.</div>
+                      <div class="slide-fig-title">Aljezur Sweet Potato & Octopus Lagareiro</div>
+                      <div class="slide-fig-desc">Tender grilled octopus with garlic-infused olive oil and famed sweet Aljezur roasted sweet potatoes.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide27_dining.jpg" alt="Kampo Artisanal Open Kitchen (Funchal)" loading="lazy" />
+                      <img src="images/m_d6_m5_kampo_funchal_dinner.jpg" alt="Kampo Funchal Modern Botanical Dinner" loading="lazy" />
                       <div class="slide-tag-overlay">🌋 Madeira • 19:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Kampo Artisanal Open Kitchen (Funchal)</div>
-                      <div class="slide-fig-desc">Artisanal open-kitchen dining in Funchal featuring locally sourced meats, root vegetables, and passionfruit mocktails.</div>
+                      <div class="slide-fig-title">Kampo Funchal Modern Botanical Dinner</div>
+                      <div class="slide-fig-desc">Celebrated contemporary dining highlighting regional island ingredients, herbs, and garlic bolo do caco.</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            
 
             <div class="day-side-by-side-grid">
               <!-- Fisherman's Day 6 -->
@@ -3797,10 +3759,6 @@
                   <div class="itin-metric-chip">📈 +310 m / -320 m</div>
                   <div class="itin-metric-chip">⏱️ 6.0 hrs</div>
                   <div class="itin-metric-chip">🏰 Moorish Castle ruins</div>
-                </div>
-                <div class="itin-card-image-wrap">
-                  <img src="images/ft_aljezur_castle.jpg" alt="10th Century Moorish Castle in Aljezur" loading="lazy" />
-                  <div class="itin-img-caption">📍 10th-Century Moorish Castle Battlements in Aljezur</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -3836,10 +3794,6 @@
                   <div class="itin-metric-chip">📈 +450 m / -450 m</div>
                   <div class="itin-metric-chip">⏱️ 3.5 hrs</div>
                   <div class="itin-metric-chip">🚠 Funchal cable car & Monte</div>
-                </div>
-                <div class="itin-card-image-wrap">
-                  <img src="images/slide26_curral_freiras.jpg" alt="Curral das Freiras Valley of the Nuns Caldera" loading="lazy" />
-                  <div class="itin-img-caption">📍 Curral das Freiras (Valley of the Nuns) Mountain Caldera</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -3902,48 +3856,46 @@
                 </div>
               </div>
 
-              <!-- 5 Pills Selector -->
               <div class="slide-pills-nav" role="tablist">
                 <button class="slide-pill-btn active" data-day="7" data-slide-target="1" onclick="setDaySlide(7, 1)">
-                  <span>🌅 1. Cape & Peninsula</span>
+                  <span>🧭 1. Headland / Volcanic Trail</span>
                 </button>
                 <button class="slide-pill-btn" data-day="7" data-slide-target="2" onclick="setDaySlide(7, 2)">
-                  <span>🥾 2. Surf Headlands & Dragon's Tail</span>
+                  <span>🛡️ 2. Sufi Ribat / Knife-Edge Ridge</span>
                 </button>
                 <button class="slide-pill-btn" data-day="7" data-slide-target="3" onclick="setDaySlide(7, 3)">
-                  <span>📍 3. Natural Amphitheaters</span>
+                  <span>🏄 3. Surf Haven / Desertas Islands</span>
                 </button>
                 <button class="slide-pill-btn" data-day="7" data-slide-target="4" onclick="setDaySlide(7, 4)">
-                  <span>🏊 4. Ocean Swim & Zodiac</span>
+                  <span>🏊 4. Wave Breakers / Crystal Cove</span>
                 </button>
                 <button class="slide-pill-btn" data-day="7" data-slide-target="5" onclick="setDaySlide(7, 5)">
-                  <span>🍽️ 5. Finale Celebration</span>
+                  <span>🍽️ 5. Evening Dining</span>
                 </button>
               </div>
 
-              <!-- 5 Slides -->
               <div class="day-slide-item active" data-day="7" data-slide="1">
                 <div class="slide-images-grid">
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_arrifana_beach.jpg" alt="Ponta da Atalaia Ocean Trailhead" loading="lazy" />
+                      <img src="images/ft_d7_m1_atalaia_trailhead.jpg" alt="Ponta da Atalaia Scenic Headland Trail" loading="lazy" />
                       <div class="slide-tag-overlay">🌊 Fisherman's • 08:30 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Ponta da Atalaia Ocean Trailhead</div>
-                      <div class="slide-fig-desc">Walking out toward open Atlantic waters past the ruins of a 12th-century Moorish fortress ribat.</div>
+                      <div class="slide-fig-title">Ponta da Atalaia Scenic Headland Trail</div>
+                      <div class="slide-fig-desc">Walking windswept coastal bluff tracks overlooking the vast open Atlantic expanse.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide11_saolourenco.jpg" alt="Ponta de São Lourenço Eastern Cape" loading="lazy" />
+                      <img src="images/m_d7_m1_saolourenco_trailhead.jpg" alt="Ponta de São Lourenço Peninsula Trailhead" loading="lazy" />
                       <div class="slide-tag-overlay">🌋 Madeira • 08:30 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Ponta de São Lourenço Eastern Cape</div>
-                      <div class="slide-fig-desc">Reaching Madeira's eastern tip where stark, treeless Martian-red volcanic ridges plunge into the sea.</div>
+                      <div class="slide-fig-title">Ponta de São Lourenço Peninsula Trailhead</div>
+                      <div class="slide-fig-desc">Entering the treeless, rust-red volcanic eastern tail of Madeira exposed to oceanic trade winds.</div>
                     </div>
                   </div>
                 </div>
@@ -3953,23 +3905,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_arrifana_beach.jpg" alt="80-Meter Vertical Black Shale Cliffs" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 10:45 AM</div>
+                      <img src="images/ft_d7_m2_ribat_ruins.jpg" alt="12th-Century Ribat of Arrifana Fortress Ruins" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 11:00 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">80-Meter Vertical Black Shale Cliffs</div>
-                      <div class="slide-fig-desc">Perched on clifftop paths watching massive Atlantic ocean swells roll into Arrifana bay.</div>
+                      <div class="slide-fig-title">12th-Century Ribat of Arrifana Fortress Ruins</div>
+                      <div class="slide-fig-desc">Inspecting the ruins of an ancient Islamic Sufi fortress monastery perched on the cliffs edge.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide11_saolourenco.jpg" alt="Narrow Volcanic Ridges Above Ocean Waves" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 10:45 AM</div>
+                      <img src="images/m_d7_m2_red_ridge_path.jpg" alt="São Lourenço Knife-Edge Red Ridge Path" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 11:00 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Narrow Volcanic Ridges Above Ocean Waves</div>
-                      <div class="slide-fig-desc">Hiking razor-thin red and ochre ridges with foaming ocean whitewash crashing on both sides.</div>
+                      <div class="slide-fig-title">São Lourenço Knife-Edge Red Ridge Path</div>
+                      <div class="slide-fig-desc">Stepping along the narrow ochre ridge with violent waves exploding on northern and southern shores.</div>
                     </div>
                   </div>
                 </div>
@@ -3979,23 +3931,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_arrifana_beach.jpg" alt="Arrifana World-Class Surf Amphitheater" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 12:45 PM</div>
+                      <img src="images/ft_d7_m3_arrifana_surf_bay.jpg" alt="Iconic Arrifana Surf Bay & Sea Stack" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 13:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Arrifana World-Class Surf Amphitheater</div>
-                      <div class="slide-fig-desc">Spectacular natural bay where world-class surfers tackle the legendary right-hand point break.</div>
+                      <div class="slide-fig-title">Iconic Arrifana Surf Bay & Sea Stack</div>
+                      <div class="slide-fig-desc">Looking down upon the crescent surf bay and the towering iconic needle rock (Pedra da Agulha).</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide11_saolourenco.jpg" alt="Morro do Furado View of Desertas Islands" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 12:45 PM</div>
+                      <img src="images/m_d7_m3_morro_furado_desertas.jpg" alt="Morro do Furado & Desertas Islands Vista" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 13:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Morro do Furado View of Desertas Islands</div>
-                      <div class="slide-fig-desc">High volcanic summit overlook gazing across the open Atlantic toward the uninhabited Desertas Islands.</div>
+                      <div class="slide-fig-title">Morro do Furado & Desertas Islands Vista</div>
+                      <div class="slide-fig-desc">Standing at the summit of the eastern headland gazing out toward uninhabited archipelago nature reserves.</div>
                     </div>
                   </div>
                 </div>
@@ -4005,23 +3957,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_arrifana_beach.jpg" alt="Praia da Arrifana Atlantic Surf Dip" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 14:30 PM</div>
+                      <img src="images/ft_d7_m4_arrifana_beach_surf.jpg" alt="Arrifana Beach Surf & Atlantic Swell" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 16:00 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Praia da Arrifana Atlantic Surf Dip</div>
-                      <div class="slide-fig-desc">Leaping into the refreshing Atlantic ocean surf, followed by fresh mango smoothies at a clifftop cafe.</div>
+                      <div class="slide-fig-title">Arrifana Beach Surf & Atlantic Swell</div>
+                      <div class="slide-fig-desc">Touching the sand as surfers carve peeling waves against towering 100m dark schist cliffs.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide12_prainha.jpg" alt="Cais do Sardinha Turquoise Cove Swim" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 14:30 PM</div>
+                      <img src="images/m_d7_m4_cais_sardinha_cove.jpg" alt="Cais do Sardinha Crystal Turquoise Cove" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 16:00 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Cais do Sardinha Turquoise Cove Swim</div>
-                      <div class="slide-fig-desc">Swimming in calm, crystal turquoise waters at a secluded volcanic cove, with fast zodiac boat return.</div>
+                      <div class="slide-fig-title">Cais do Sardinha Crystal Turquoise Cove</div>
+                      <div class="slide-fig-desc">Swimming in calm, translucent deep-blue waters at the remote protected boat anchorage.</div>
                     </div>
                   </div>
                 </div>
@@ -4031,28 +3983,30 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide18_seafood.jpg" alt="O Paulo Clifftop Sunset Finale Dinner" loading="lazy" />
+                      <img src="images/ft_d7_m5_paulo_sunset_dinner.jpg" alt="O Paulo Cliff-Edge Golden Sunset Dinner" loading="lazy" />
                       <div class="slide-tag-overlay">🌊 Fisherman's • 19:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">O Paulo Clifftop Sunset Finale Dinner</div>
-                      <div class="slide-fig-desc">Sunset toast on the outer tip of Arrifana cliff: whole baked sea bass in rock salt and lemon sorbet.</div>
+                      <div class="slide-fig-title">O Paulo Cliff-Edge Golden Sunset Dinner</div>
+                      <div class="slide-fig-desc">Celebrating your trek completion as the sun melts into the Atlantic from Arrifana's highest cliff.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide08_funchal.jpg" alt="Zona Velha Historic Celebration (Funchal)" loading="lazy" />
+                      <img src="images/m_d7_m5_zona_velha_limpets.jpg" alt="Zona Velha Funchal Grilled Limpets Feast" loading="lazy" />
                       <div class="slide-tag-overlay">🌋 Madeira • 19:30 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Zona Velha Historic Celebration (Funchal)</div>
-                      <div class="slide-fig-desc">Dining among Funchal's painted doors: garlic butter limpets, black scabbard fish, and fresh Virgin Nikitas.</div>
+                      <div class="slide-fig-title">Zona Velha Funchal Grilled Limpets Feast</div>
+                      <div class="slide-fig-desc">Sizzling lapas in garlicky butter and fresh lemon in the lively cobbled alleys of Old Town Funchal.</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            
 
             <div class="day-side-by-side-grid">
               <!-- Fisherman's Day 7 -->
@@ -4066,10 +4020,6 @@
                   <div class="itin-metric-chip">📈 +220 m / -220 m</div>
                   <div class="itin-metric-chip">⏱️ 3.5 – 4.0 hrs</div>
                   <div class="itin-metric-chip">🏄 World-class surf breaks</div>
-                </div>
-                <div class="itin-card-image-wrap">
-                  <img src="images/ft_arrifana_beach.jpg" alt="Praia da Arrifana Atlantic Surf Bay" loading="lazy" />
-                  <div class="itin-img-caption">📍 Praia da Arrifana Atlantic Surf Cove & Sea Cliffs</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -4105,10 +4055,6 @@
                   <div class="itin-metric-chip">📈 +400 m / -400 m</div>
                   <div class="itin-metric-chip">⏱️ 3.5 hrs</div>
                   <div class="itin-metric-chip">🌊 Red volcanic coastal cliffs</div>
-                </div>
-                <div class="itin-card-image-wrap">
-                  <img src="images/slide11_saolourenco.jpg" alt="PR8 Ponta de Sao Lourenco Red Ridge" loading="lazy" />
-                  <div class="itin-img-caption">📍 PR8 Ponta de São Lourenço Treeless Red Volcanic Ridge</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -4171,48 +4117,46 @@
                 </div>
               </div>
 
-              <!-- 5 Pills Selector -->
               <div class="slide-pills-nav" role="tablist">
                 <button class="slide-pill-btn active" data-day="8" data-slide-target="1" onclick="setDaySlide(8, 1)">
-                  <span>🌅 1. Final Morning</span>
+                  <span>☕ 1. Morning Café / Fruit Market</span>
                 </button>
                 <button class="slide-pill-btn" data-day="8" data-slide-target="2" onclick="setDaySlide(8, 2)">
-                  <span>🚗 2. Highway Drives</span>
+                  <span>🛣️ 2. Cork Forest / Valley Highway</span>
                 </button>
                 <button class="slide-pill-btn" data-day="8" data-slide-target="3" onclick="setDaySlide(8, 3)">
-                  <span>📍 3. Grand Gateways</span>
+                  <span>🏛️ 3. Lisbon Plaza / Funchal Harbor</span>
                 </button>
                 <button class="slide-pill-btn" data-day="8" data-slide-target="4" onclick="setDaySlide(8, 4)">
-                  <span>✈️ 4. Transatlantic Flight</span>
+                  <span>✈️ 4. LIS Airport / FNC Terminal</span>
                 </button>
                 <button class="slide-pill-btn" data-day="8" data-slide-target="5" onclick="setDaySlide(8, 5)">
-                  <span>💡 5. Final Retrospective</span>
+                  <span>🌅 5. Final Ocean Sunset Farewell</span>
                 </button>
               </div>
 
-              <!-- 5 Slides -->
               <div class="day-slide-item active" data-day="8" data-slide="1">
                 <div class="slide-images-grid">
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide28_lisbon.jpg" alt="Relaxed Pastry & Espresso Farewell" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 08:30 AM</div>
+                      <img src="images/ft_d8_m1_alentejo_pastry.jpg" alt="Traditional Morning Pastel de Nata & Bica" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 08:00 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Relaxed Pastry & Espresso Farewell</div>
-                      <div class="slide-fig-desc">Final leisurely breakfast of warm pastéis de nata and bica espresso overlooking the ocean.</div>
+                      <div class="slide-fig-title">Traditional Morning Pastel de Nata & Bica</div>
+                      <div class="slide-fig-desc">Warm flaky custard tart dusted with cinnamon alongside a rich espresso at a local village pastelaria.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide08_funchal.jpg" alt="Funchal Mercado dos Lavradores" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 08:30 AM</div>
+                      <img src="images/m_d8_m1_mercado_lavradores_fruit.jpg" alt="Mercado dos Lavradores Tropical Fruit Stalls" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 08:00 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Funchal Mercado dos Lavradores</div>
-                      <div class="slide-fig-desc">Sampling rare exotic passionfruit varieties (banana, pineapple, lemon passionfruit) at the fruit market.</div>
+                      <div class="slide-fig-title">Mercado dos Lavradores Tropical Fruit Stalls</div>
+                      <div class="slide-fig-desc">Sampling exotic passionfruit varieties (banana, lemon, pineapple) and monstera fruit in Funchal.</div>
                     </div>
                   </div>
                 </div>
@@ -4222,23 +4166,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide28_lisbon.jpg" alt="Alentejo Coastal Highway Northward Drive" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 11:00 AM</div>
+                      <img src="images/ft_d8_m2_cork_forest_road.jpg" alt="Alentejo Cork Oak Forest Highway Shuttle" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 10:30 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Alentejo Coastal Highway Northward Drive</div>
-                      <div class="slide-fig-desc">Smooth 2.5h private shuttle ride north through cork oak groves and rolling golden plains to Lisbon.</div>
+                      <div class="slide-fig-title">Alentejo Cork Oak Forest Highway Shuttle</div>
+                      <div class="slide-fig-desc">Scenic private shuttle north through ancient rolling montado cork oak forests and stork meadows.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide13_machico.jpg" alt="Coastal Highway Drive to FNC Airport" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 11:00 AM</div>
+                      <img src="images/m_d8_m2_machico_valley_highway.jpg" alt="Machico Valley & Coastal Mountain Highway" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 10:30 AM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Coastal Highway Drive to FNC Airport</div>
-                      <div class="slide-fig-desc">Quick 20-minute scenic coastal highway drive past Machico bay to FNC Cristiano Ronaldo Airport.</div>
+                      <div class="slide-fig-title">Machico Valley & Coastal Mountain Highway</div>
+                      <div class="slide-fig-desc">Scenic drive beneath dramatic terraced mountains and viaducts toward the southeastern coast.</div>
                     </div>
                   </div>
                 </div>
@@ -4248,23 +4192,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide28_lisbon.jpg" alt="Lisbon Historic Praça do Comércio" loading="lazy" />
+                      <img src="images/ft_d8_m3_lisbon_praca_comercio.jpg" alt="Lisbon Praça do Comércio & Tagus Waterfront" loading="lazy" />
                       <div class="slide-tag-overlay">🌊 Fisherman's • 13:00 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Lisbon Historic Praça do Comércio</div>
-                      <div class="slide-fig-desc">Grand yellow arcades and stone arches of Lisbon's Tagus riverfront before airport check-in.</div>
+                      <div class="slide-fig-title">Lisbon Praça do Comércio & Tagus Waterfront</div>
+                      <div class="slide-fig-desc">Celebrating your 122 km trek completion in Lisbon's grand neoclassical riverside plaza.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide25_funchal_sea.jpg" alt="Funchal Bay Coastal Amphitheater" loading="lazy" />
+                      <img src="images/m_d8_m3_funchal_harbor_panorama.jpg" alt="Funchal Ocean Harbor & Amphitheater View" loading="lazy" />
                       <div class="slide-tag-overlay">🌋 Madeira • 13:00 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Funchal Bay Coastal Amphitheater</div>
-                      <div class="slide-fig-desc">Looking back at Madeira's vertical green peaks cascading directly down into the blue ocean.</div>
+                      <div class="slide-fig-title">Funchal Ocean Harbor & Amphitheater View</div>
+                      <div class="slide-fig-desc">Looking back over Funchal's terraced mountain amphitheater from the sunny coastal promenade.</div>
                     </div>
                   </div>
                 </div>
@@ -4274,23 +4218,23 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide28_lisbon.jpg" alt="Lisbon Airport (LIS) Flight Boarding" loading="lazy" />
-                      <div class="slide-tag-overlay">🌊 Fisherman's • 15:00 PM</div>
+                      <img src="images/ft_d8_m4_lisbon_airport_terminal.jpg" alt="Lisbon Airport (LIS) Transatlantic Terminal" loading="lazy" />
+                      <div class="slide-tag-overlay">🌊 Fisherman's • 16:00 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Lisbon Airport (LIS) Flight Boarding</div>
-                      <div class="slide-fig-desc">Boarding your 1-stop transatlantic flight with sand still in shoes and deep ocean peace in your mind.</div>
+                      <div class="slide-fig-title">Lisbon Airport (LIS) Transatlantic Terminal</div>
+                      <div class="slide-fig-desc">Checking bags for your smooth 1-stop transatlantic flight back to the US.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide28_airport.jpg" alt="Madeira Airport (FNC) Departure" loading="lazy" />
-                      <div class="slide-tag-overlay">🌋 Madeira • 15:00 PM</div>
+                      <img src="images/m_d8_m4_fnc_airport_terminal.jpg" alt="Madeira Airport (FNC) Cristiano Ronaldo Terminal" loading="lazy" />
+                      <div class="slide-tag-overlay">🌋 Madeira • 16:00 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Madeira Airport (FNC) Departure</div>
-                      <div class="slide-fig-desc">Returning the rental car and boarding your 1-stop flight home with camera cards full of 1,000+ photos.</div>
+                      <div class="slide-fig-title">Madeira Airport (FNC) Cristiano Ronaldo Terminal</div>
+                      <div class="slide-fig-desc">Returning the rental car and boarding your flight connecting via Lisbon on TAP Air Portugal back home.</div>
                     </div>
                   </div>
                 </div>
@@ -4300,28 +4244,30 @@
                   <!-- Fisherman's Slide -->
                   <div class="slide-card-figure f-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/ft_dunes_panorama.jpg" alt="Restored Grounding & Coastal Peace" loading="lazy" />
+                      <img src="images/ft_d8_m5_ocean_sunset_farewell.jpg" alt="Sunset Over the Atlantic Ocean Farewell" loading="lazy" />
                       <div class="slide-tag-overlay">🌊 Fisherman's • 19:00 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Restored Grounding & Coastal Peace</div>
-                      <div class="slide-fig-desc">Arriving home completely unhurried, rejuvenated, and deeply restored by days of rhythmic ocean surf.</div>
+                      <div class="slide-fig-title">Sunset Over the Atlantic Ocean Farewell</div>
+                      <div class="slide-fig-desc">Final golden reflection over Portugal's untamed southwest coast after an unforgettable trek.</div>
                     </div>
                   </div>
                   <!-- Madeira Slide -->
                   <div class="slide-card-figure m-fig">
                     <div class="slide-media-wrap">
-                      <img src="images/slide02_hero.jpg" alt="Alpine Adrenaline & Cloud Memories" loading="lazy" />
+                      <img src="images/m_d8_m5_mountain_summit_farewell.jpg" alt="Mountain Peak Above Cloud Sea Farewell" loading="lazy" />
                       <div class="slide-tag-overlay">🌋 Madeira • 19:00 PM</div>
                     </div>
                     <div class="slide-fig-caption">
-                      <div class="slide-fig-title">Alpine Adrenaline & Cloud Memories</div>
-                      <div class="slide-fig-desc">Arriving home buzzing with high-altitude adrenaline, sore quad muscles, and awe-inspiring peak memories.</div>
+                      <div class="slide-fig-title">Mountain Peak Above Cloud Sea Farewell</div>
+                      <div class="slide-fig-desc">Final sunset memories high above Madeira's peaks where volcanic mountains pierce the sky.</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+
+            
 
             <div class="day-side-by-side-grid">
               <!-- Fisherman's Day 8 -->
@@ -4334,10 +4280,6 @@
                   <div class="itin-metric-chip">📍 0 km hiking</div>
                   <div class="itin-metric-chip">🚐 2.5h private transfer to LIS</div>
                   <div class="itin-metric-chip">✈️ 1-stop transatlantic flight</div>
-                </div>
-                <div class="itin-card-image-wrap">
-                  <img src="images/slide28_lisbon.jpg" alt="Lisbon Gateway & Alentejo Departure" loading="lazy" />
-                  <div class="itin-img-caption">📍 Lisbon Historic Gateway & Alentejo Departure</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -4368,10 +4310,6 @@
                   <div class="itin-metric-chip">📍 0 km hiking</div>
                   <div class="itin-metric-chip">🚗 20 min airport drive</div>
                   <div class="itin-metric-chip">✈️ 1-stop flight via Lisbon</div>
-                </div>
-                <div class="itin-card-image-wrap">
-                  <img src="images/slide25_funchal_sea.jpg" alt="Funchal Bay & Coastal Mountain Backdrop" loading="lazy" />
-                  <div class="itin-img-caption">📍 Funchal Bay & Coastal Mountain Backdrop</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
