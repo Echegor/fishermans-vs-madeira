@@ -4951,6 +4951,55 @@
       const current = daySlideStates[dayNum] || 1;
       setDaySlide(dayNum, current + delta);
     }
+
+    // Keyboard Arrow Navigation for Active Day Slideshow
+    let lastCompKeyEventTime = 0;
+    function handleComparisonKeyDown(e) {
+      const tag = e.target && e.target.tagName ? e.target.tagName.toUpperCase() : '';
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || (e.target && e.target.isContentEditable)) {
+        return;
+      }
+
+      const key = e.key || '';
+      const code = e.code || '';
+      const keyCode = e.keyCode || e.which || 0;
+
+      const isNext = (
+        key === 'ArrowRight' || key === 'Right' ||
+        code === 'ArrowRight' || keyCode === 39 ||
+        key === 'PageDown' || keyCode === 34
+      );
+
+      const isPrev = (
+        key === 'ArrowLeft' || key === 'Left' ||
+        code === 'ArrowLeft' || keyCode === 37 ||
+        key === 'PageUp' || keyCode === 33
+      );
+
+      if (!isNext && !isPrev) return;
+
+      const now = Date.now();
+      if (now - lastCompKeyEventTime < 80) return;
+      lastCompKeyEventTime = now;
+
+      // Identify currently active day pane
+      const activePane = document.querySelector('.day-itinerary-pane.active');
+      const activeDay = activePane ? (parseInt(activePane.getAttribute('data-day-pane'), 10) || 1) : 1;
+
+      e.preventDefault();
+      if (document.activeElement && typeof document.activeElement.blur === 'function') {
+        document.activeElement.blur();
+      }
+
+      if (isNext) {
+        stepDaySlide(activeDay, 1);
+      } else if (isPrev) {
+        stepDaySlide(activeDay, -1);
+      }
+    }
+
+    window.addEventListener('keydown', handleComparisonKeyDown, true);
+    document.addEventListener('keydown', handleComparisonKeyDown, true);
   </script>
 </body>
 </html>
