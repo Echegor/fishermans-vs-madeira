@@ -1067,6 +1067,379 @@
       color: var(--text-dim);
     }
 
+    /* ==========================================================================
+       Daily Itinerary & Rhythm Walkthrough Section
+       ========================================================================== */
+    .itinerary-intro-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 48px;
+    }
+
+    .itinerary-intro-box h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .rhythm-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .rhythm-card {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .rhythm-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .rhythm-time-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: var(--gold);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      width: fit-content;
+    }
+
+    .rhythm-card h4 {
+      font-size: 1.15rem;
+      color: #fff;
+    }
+
+    .rhythm-side-comparison {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .rhythm-side-f, .rhythm-side-m {
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .rhythm-side-f {
+      background: rgba(2, 132, 199, 0.08);
+      border-left: 3px solid var(--fishermans-accent);
+      color: #e0f2fe;
+    }
+
+    .rhythm-side-m {
+      background: rgba(16, 185, 129, 0.08);
+      border-left: 3px solid var(--madeira-accent);
+      color: #d1fae5;
+    }
+
+    .rhythm-side-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .rhythm-side-f .rhythm-side-label { color: var(--fishermans-accent); }
+    .rhythm-side-m .rhythm-side-label { color: var(--madeira-accent); }
+
+    /* Day-by-Day Tab Selector */
+    .day-selector-wrapper {
+      margin-bottom: 32px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+
+    .day-selector {
+      display: flex;
+      gap: 10px;
+      min-width: max-content;
+    }
+
+    .day-tab-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 12px 18px;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .day-tab-btn .day-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+    }
+
+    .day-tab-btn .day-title {
+      color: var(--text-main);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .day-tab-btn:hover {
+      background: var(--bg-surface-elevated);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .day-tab-btn.active {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.25), rgba(16, 185, 129, 0.25));
+      border-color: rgba(255, 255, 255, 0.35);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .day-tab-btn.active .day-title {
+      color: #fff;
+    }
+
+    /* Day Itinerary Card Display */
+    .day-itinerary-pane {
+      display: none;
+      animation: fadeInDay 0.25s ease forwards;
+    }
+
+    .day-itinerary-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeInDay {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .itinerary-day-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .day-card-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .day-tagline {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .day-contrast-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: var(--gold);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    .day-side-by-side-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 28px;
+    }
+
+    .day-side-column {
+      background: var(--bg-surface-elevated);
+      border-radius: var(--radius-md);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+    }
+
+    .day-side-column.f-side {
+      border: 1px solid rgba(2, 132, 199, 0.3);
+      box-shadow: inset 0 0 20px rgba(2, 132, 199, 0.05);
+    }
+
+    .day-side-column.m-side {
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      box-shadow: inset 0 0 20px rgba(16, 185, 129, 0.05);
+    }
+
+    .itin-dest-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+    .f-side .itin-dest-badge { color: var(--fishermans-accent); }
+    .m-side .itin-dest-badge { color: var(--madeira-accent); }
+
+    .itin-day-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    .itin-metrics-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .itin-metric-chip {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 4px 10px;
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .itin-timeline-block {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .itin-time-step {
+      display: flex;
+      gap: 12px;
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .itin-step-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+    .f-side .itin-step-dot {
+      background: rgba(2, 132, 199, 0.25);
+      color: var(--fishermans-accent);
+      border: 1px solid var(--fishermans-accent);
+    }
+    .m-side .itin-step-dot {
+      background: rgba(16, 185, 129, 0.25);
+      color: var(--madeira-accent);
+      border: 1px solid var(--madeira-accent);
+    }
+
+    .itin-step-content strong {
+      color: #fff;
+    }
+
+    .itin-box-highlight {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px dashed var(--border-strong);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      font-size: 0.84rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .itin-box-highlight .highlight-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .itin-box-highlight .highlight-label {
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      min-width: 75px;
+      text-transform: uppercase;
+    }
+
+    .itin-bottom-takeaway {
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .itin-takeaway-icon {
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .itin-takeaway-text h5 {
+      font-size: 0.98rem;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .itin-takeaway-text p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+
     /* Responsive */
     @media (max-width: 900px) {
       .live-deck-grid,
@@ -1075,8 +1448,14 @@
       .ledger-grid,
       .reviews-grid,
       .options-grid,
-      .footer-grid {
+      .footer-grid,
+      .day-side-by-side-grid {
         grid-template-columns: 1fr;
+      }
+
+      .day-card-header {
+        flex-direction: column;
+        align-items: flex-start;
       }
 
       .verdict-banner {
@@ -1117,6 +1496,7 @@
       <ul class="nav-links">
         <li><a href="#live-guides">Live Decks</a></li>
         <li><a href="#scenery">Scenery Showdown</a></li>
+        <li><a href="#itinerary">Daily Itinerary</a></li>
         <li><a href="#comparison">Spec Matrix</a></li>
         <li><a href="#finances">Financial Ledger</a></li>
         <li><a href="#community">Reddit Verdicts</a></li>
@@ -1494,6 +1874,880 @@
           </div>
 
         </div>
+      </div>
+    </section>
+
+    <!-- Daily Itinerary & Operational Rhythm Walkthrough -->
+    <section id="itinerary" class="section-block">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Day-by-Day Experience & Rhythm</span>
+          <h2 class="section-title">What Will You Actually Be Doing Each Day?</h2>
+          <p class="section-desc">
+            Compare the exact hour-by-hour operational rhythms and full 8-day expedition timelines to see how your body, time, and days will truly be spent on both journeys.
+          </p>
+        </div>
+
+        <!-- 1. Hourly Rhythm Matrix: A Typical Day in Your Shoes -->
+        <div class="itinerary-intro-box">
+          <h3>⏱️ A Typical Day in Your Shoes (The 4 Daily Phases)</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Before looking at individual days, understand the physical rhythm and logistical cadence you will repeat every single morning, afternoon, and evening.
+          </p>
+
+          <div class="rhythm-grid">
+            <!-- Phase 1 -->
+            <div class="rhythm-card">
+              <div class="rhythm-time-badge">Phase 1 • 07:00 – 08:30</div>
+              <h4>Morning Departure & Logistics</h4>
+              <div class="rhythm-side-comparison">
+                <div class="rhythm-side-f">
+                  <span class="rhythm-side-label">🌊 Fisherman's Trail</span>
+                  Wake up in a quiet whitewashed village guesthouse. Pastéis de nata & bica espresso. Drop your 15 kg luggage at reception for the Vicentina Transfers van by 08:30. Strap on light 18L daypack (2L water, sunscreen, trekking poles) and walk straight out the front door onto the coastal cliffs. Zero cars, zero driving.
+                </div>
+                <div class="rhythm-side-m">
+                  <span class="rhythm-side-label">🌋 Madeira Island</span>
+                  Alpine wake-up at 06:00 AM at your Santana Quinta or Funchal boutique base. Quick power espresso and fruit. Hop into your compact turbo rental car by 06:30. Navigate 25% gradient mountain switchbacks to reverse-park at the trailhead lot before it fills up at 07:15 AM and watch sunrise above the cloud inversion.
+                </div>
+              </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="rhythm-card">
+              <div class="rhythm-time-badge">Phase 2 • 08:30 – 14:00</div>
+              <h4>The Core Trekking Experience</h4>
+              <div class="rhythm-side-comparison">
+                <div class="rhythm-side-f">
+                  <span class="rhythm-side-label">🌊 Fisherman's Trail</span>
+                  15 to 22 km of hypnotic, oceanfront sand walking. Sinking calf-deep into golden quartz dunes, brushing past blooming rockroses, peering down 80-meter vertical sheer sea cliffs at white storks nesting on isolated ocean sea-stacks. Rhythmic roar of crashing Atlantic surf, gentle coastal breezes at 19°C.
+                </div>
+                <div class="rhythm-side-m">
+                  <span class="rhythm-side-label">🌋 Madeira Island</span>
+                  10 to 14 km of vertical heart-pounding alpine drama. Walking knife-edge ridges with 1,000-meter drop-offs on both sides while gripping steel wire handrails (PR1). Trailing ancient stone aqueducts through pitch-black dripping volcanic tunnels with headlamps into prehistoric UNESCO cloud forests (PR9).
+                </div>
+              </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="rhythm-card">
+              <div class="rhythm-time-badge">Phase 3 • 14:00 – 17:30</div>
+              <h4>Post-Hike Transition & Ocean Recovery</h4>
+              <div class="rhythm-side-comparison">
+                <div class="rhythm-side-f">
+                  <span class="rhythm-side-label">🌊 Fisherman's Trail</span>
+                  Hike straight into your next village (Milfontes, Almograve, Zambujeira, Odeceixe). Check in where your luggage already awaits in your room. Kick off sandy trail runners, slide into sandals, and stroll 5 minutes down to the sheltered village beach or river mouth for an icy Atlantic swim and chilled Maracujá soda.
+                </div>
+                <div class="rhythm-side-m">
+                  <span class="rhythm-side-label">🌋 Madeira Island</span>
+                  Finish the trail circuit, drive car back down winding mountain switchbacks to coastal sea level. Park at Porto Moniz or Seixal black sand beach. Leap into natural volcanic ocean tide pools surrounded by towering green cliffs to let tired quad muscles recover in the salty swell while sipping a cold virgin Nikita.
+                </div>
+              </div>
+            </div>
+
+            <!-- Phase 4 -->
+            <div class="rhythm-card">
+              <div class="rhythm-time-badge">Phase 4 • 18:30 – 22:00</div>
+              <h4>Evening Dining & Village Life</h4>
+              <div class="rhythm-side-comparison">
+                <div class="rhythm-side-f">
+                  <span class="rhythm-side-label">🌊 Fisherman's Trail</span>
+                  Stroll cobblestone fishing village alleys in casual shorts and linen shirt. Dine al fresco at an unpretentious village tasca: charcoal-grilled sea bass (Robalo), Percebes (goose barnacles), and garlic clams landed that morning. Sparkling Água das Pedras with lemon. Fall asleep to the ocean breeze through open windows.
+                </div>
+                <div class="rhythm-side-m">
+                  <span class="rhythm-side-label">🌋 Madeira Island</span>
+                  Dine at a cliffside adega or mountain lodge. Sizzling garlic-and-bay-leaf Espetada beef hanging from a steel hook over your table, golden milho frito (fried polenta), warm bolo do caco garlic bread, and fresh maracujá juice. Early night's rest to recover quads for tomorrow's vertical climb.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Interactive Day-by-Day Expedition Itinerary -->
+        <div style="margin-bottom: 20px;">
+          <h3 style="font-size: 1.4rem; color: #fff; margin-bottom: 8px;">🗓️ Interactive Day-by-Day Expedition Timeline</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Select any day to inspect the exact morning-to-night flow, physical metrics, trail terrain, and dining on both journeys.</p>
+        </div>
+
+        <!-- Day Selector Tabs -->
+        <div class="day-selector-wrapper">
+          <div class="day-selector" role="tablist">
+            <button class="day-tab-btn active" data-day="1" onclick="switchItineraryDay(1)">
+              <span class="day-num">Day 1</span>
+              <span class="day-title">Arrival & Staging</span>
+            </button>
+            <button class="day-tab-btn" data-day="2" onclick="switchItineraryDay(2)">
+              <span class="day-num">Day 2</span>
+              <span class="day-title">Dunes vs. Peak Sunrise</span>
+            </button>
+            <button class="day-tab-btn" data-day="3" onclick="switchItineraryDay(3)">
+              <span class="day-num">Day 3</span>
+              <span class="day-title">Sea Storks vs. Tunnels</span>
+            </button>
+            <button class="day-tab-btn" data-day="4" onclick="switchItineraryDay(4)">
+              <span class="day-num">Day 4</span>
+              <span class="day-title">Cliff Harbor vs. 25 Falls</span>
+            </button>
+            <button class="day-tab-btn" data-day="5" onclick="switchItineraryDay(5)">
+              <span class="day-num">Day 5</span>
+              <span class="day-title">Border River vs. Fanal Fog</span>
+            </button>
+            <button class="day-tab-btn" data-day="6" onclick="switchItineraryDay(6)">
+              <span class="day-num">Day 6</span>
+              <span class="day-title">Castle Town vs. Valley of Nuns</span>
+            </button>
+            <button class="day-tab-btn" data-day="7" onclick="switchItineraryDay(7)">
+              <span class="day-num">Day 7</span>
+              <span class="day-title">Surf Headlands vs. Red Ridge</span>
+            </button>
+            <button class="day-tab-btn" data-day="8" onclick="switchItineraryDay(8)">
+              <span class="day-num">Day 8</span>
+              <span class="day-title">Homeward Departure</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- DAY 1 PANE -->
+        <div class="day-itinerary-pane active" data-day-pane="1">
+          <div class="itinerary-day-card">
+            <div class="day-card-header">
+              <div class="day-tagline">
+                <span>Day 1: Arrival, Staging & First Coastal Impressions</span>
+              </div>
+              <div class="day-contrast-badge">
+                ⚖️ Contrast: Zero-driving village arrival vs. High-altitude mountain drive
+              </div>
+            </div>
+
+            <div class="day-side-by-side-grid">
+              <!-- Fisherman's Day 1 -->
+              <div class="day-side-column f-side">
+                <div>
+                  <span class="itin-dest-badge">🌊 Fisherman's Trail • Stage 0</span>
+                  <h4 class="itin-day-title">Lisbon (LIS) ➔ Porto Covo Staging Village</h4>
+                </div>
+                <div class="itin-metrics-pills">
+                  <div class="itin-metric-chip">📍 0 km hiking</div>
+                  <div class="itin-metric-chip">🚐 2h private transfer from LIS</div>
+                  <div class="itin-metric-chip">🏨 Monte da Bemposta / Village inn</div>
+                </div>
+                <div class="itin-timeline-block">
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">1</div>
+                    <div class="itin-step-content"><strong>Morning:</strong> Touch down at Lisbon Airport (LIS) from your 1-stop transatlantic flight. Board your direct private shuttle heading south across the Vasco da Gama bridge and through Alentejo cork oak groves.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">2</div>
+                    <div class="itin-step-content"><strong>Midday:</strong> Arrive in the whitewashed fishing village of Porto Covo. Check into your seaside guesthouse, drop duffels, and breathe the pure Atlantic salt air.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">3</div>
+                    <div class="itin-step-content"><strong>Afternoon:</strong> Stroll the cobblestone Praça Marquês de Pombal. Walk down to Praia dos Buizinhos to test the sand underfoot and watch Atlantic rollers crash against jagged sea rocks.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">4</div>
+                    <div class="itin-step-content"><strong>Evening:</strong> Zero-alcohol dinner at <em>Tasca do Ché</em>: fresh grilled sardines, boiled local potatoes, crusty bread, and chilled sparkling Água das Pedras with lime. Sleep with window cracked to ocean surf.</div>
+                  </div>
+                </div>
+                <div class="itin-box-highlight">
+                  <div class="highlight-row"><span class="highlight-label">Logistics:</span> Tag bags for Vicentina Transfers 08:30 pickup. No driving for the rest of the week!</div>
+                  <div class="highlight-row"><span class="highlight-label">Feeling:</span> Deep relaxation, unwinding nervous system, ocean serenity.</div>
+                </div>
+              </div>
+
+              <!-- Madeira Day 1 -->
+              <div class="day-side-column m-side">
+                <div>
+                  <span class="itin-dest-badge">🌋 Madeira Island • Basecamp 1</span>
+                  <h4 class="itin-day-title">Funchal (FNC) ➔ Santana Heritage Basecamp</h4>
+                </div>
+                <div class="itin-metrics-pills">
+                  <div class="itin-metric-chip">📍 0 km hiking</div>
+                  <div class="itin-metric-chip">🚗 35m scenic mountain drive</div>
+                  <div class="itin-metric-chip">🏨 Boutique Santana Quinta</div>
+                </div>
+                <div class="itin-timeline-block">
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">1</div>
+                    <div class="itin-step-content"><strong>Morning:</strong> Land at FNC Cristiano Ronaldo Airport after the world-famous runway approach along the Atlantic cliffs. Pick up your compact turbo rental car.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">2</div>
+                    <div class="itin-step-content"><strong>Midday:</strong> Drive north through dramatic coastal tunnels and green gorges to the northern mountain hub of Santana. Check into your traditional stone Quinta.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">3</div>
+                    <div class="itin-step-content"><strong>Afternoon:</strong> Walk among the iconic triangular thatched A-frame palheiros. Stock car trunk with 5-liter bottled waters, trail mix, electrolyte tablets, and headlamps.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">4</div>
+                    <div class="itin-step-content"><strong>Evening:</strong> Zero-alcohol dinner at <em>Adega da Quinta</em>: tender beef Espetada skewers grilled over laurel wood, golden fried milho frito (polenta), and fresh passionfruit juice. Early sleep for 06:00 AM alpine start.</div>
+                  </div>
+                </div>
+                <div class="itin-box-highlight">
+                  <div class="highlight-row"><span class="highlight-label">Logistics:</span> Inspect rental car tires; verify SIMplifica trail permits on phone.</div>
+                  <div class="highlight-row"><span class="highlight-label">Feeling:</span> High anticipation, road-trip excitement, mountain majesty.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="itin-bottom-takeaway">
+              <div class="itin-takeaway-icon">💡</div>
+              <div class="itin-takeaway-text">
+                <h5>Day 1 Experiential Takeaway</h5>
+                <p>On Fisherman's Trail, you abandon motorized transport completely upon arrival in Porto Covo. On Madeira, you take the keys to your rental car, which becomes your mobile launchpad to reach high-altitude cloud summits.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DAY 2 PANE -->
+        <div class="day-itinerary-pane" data-day-pane="2">
+          <div class="itinerary-day-card">
+            <div class="day-card-header">
+              <div class="day-tagline">
+                <span>Day 2: Coastal Sand Dunes vs. Alpine Cloud-Inversion Sunrise</span>
+              </div>
+              <div class="day-contrast-badge">
+                ⚖️ Contrast: 65% loose dune sand walk vs. 1,000m sheer vertical drop-offs
+              </div>
+            </div>
+
+            <div class="day-side-by-side-grid">
+              <!-- Fisherman's Day 2 -->
+              <div class="day-side-column f-side">
+                <div>
+                  <span class="itin-dest-badge">🌊 Fisherman's Trail • Stage 1</span>
+                  <h4 class="itin-day-title">Porto Covo ➔ Vila Nova de Milfontes</h4>
+                </div>
+                <div class="itin-metrics-pills">
+                  <div class="itin-metric-chip">📍 20.0 km</div>
+                  <div class="itin-metric-chip">📈 +165 m / -160 m</div>
+                  <div class="itin-metric-chip">⏱️ 5.5 – 6.5 hrs</div>
+                  <div class="itin-metric-chip">🏖️ 65% deep loose sand</div>
+                </div>
+                <div class="itin-timeline-block">
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">1</div>
+                    <div class="itin-step-content"><strong>07:30 AM:</strong> Fresh pastéis de nata and bica espresso. Leave 15kg bags at reception. Step onto the trail at 08:30 AM past the 17th-century fort of Ilha do Pessegueiro.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">2</div>
+                    <div class="itin-step-content"><strong>Midday:</strong> Slog through calf-burning deep golden quartz sand dunes. Spectacular wild coastline with massive rolling turquoise breakers crashing against dark schist reefs. Picnic lunch on the dunes.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">3</div>
+                    <div class="itin-step-content"><strong>14:30:</strong> Descend to the vast deserted sands of Praia do Malhão. Strip boots off, wade into the cold Atlantic surf to revive feet, then take the small wooden ferry boat across the Mira River into Milfontes.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">4</div>
+                    <div class="itin-step-content"><strong>Evening:</strong> Check into Milfontes boutique inn (bags waiting). Dinner at <em>Tasca do Celso</em>: fresh charcoal-grilled Robalo (sea bass), sweet potato chips, sparkling mineral water, and fig tart.</div>
+                  </div>
+                </div>
+                <div class="itin-box-highlight">
+                  <div class="highlight-row"><span class="highlight-label">Physical Demand:</span> Heavy calf and ankle fatigue from sand; low cardiovascular strain; zero vertigo.</div>
+                </div>
+              </div>
+
+              <!-- Madeira Day 2 -->
+              <div class="day-side-column m-side">
+                <div>
+                  <span class="itin-dest-badge">🌋 Madeira Island • Trail PR1</span>
+                  <h4 class="itin-day-title">Pico do Arieiro ➔ Pico Ruivo Peak Traverse</h4>
+                </div>
+                <div class="itin-metrics-pills">
+                  <div class="itin-metric-chip">📍 10.5 km (point-to-point)</div>
+                  <div class="itin-metric-chip">📈 +1,000 m / -1,000 m</div>
+                  <div class="itin-metric-chip">⏱️ 4.5 – 5.5 hrs</div>
+                  <div class="itin-metric-chip">🧗 High verticality & stairways</div>
+                </div>
+                <div class="itin-timeline-block">
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">1</div>
+                    <div class="itin-step-content"><strong>06:15 AM:</strong> Pre-dawn drive up winding switchbacks. Reverse-park at Arieiro before 07:15 AM. Stand at 1,818m watching the golden sunrise illuminate an endless sea of clouds below your feet.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">2</div>
+                    <div class="itin-step-content"><strong>Midday:</strong> Traverse razor-edge knife ridges with 1,000m sheer vertical abysses on both sides while gripping steel wire handrails. Climb the near-vertical metal ladders of Death Valley to Pico Ruivo summit (1,862m).</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">3</div>
+                    <div class="itin-step-content"><strong>14:00:</strong> Descend to Achada do Teixeira, take pre-arranged taxi return to your car. Drive down to Seixal black sand beach for an exhilarating ocean plunge beneath vertical jungle sea cliffs.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">4</div>
+                    <div class="itin-step-content"><strong>Evening:</strong> Dinner at <em>Restaurante São Cristóvão</em>: fresh grilled tuna steak with fried maize, garlic butter, and fresh maracujá pulp nectar. Legs fatigued from 3,000 stone steps.</div>
+                  </div>
+                </div>
+                <div class="itin-box-highlight">
+                  <div class="highlight-row"><span class="highlight-label">Physical Demand:</span> Intense quad burn from thousands of stone steps; high cardiovascular demand; intense exposure.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="itin-bottom-takeaway">
+              <div class="itin-takeaway-icon">💡</div>
+              <div class="itin-takeaway-text">
+                <h5>Day 2 Experiential Takeaway</h5>
+                <p>On Fisherman's Trail, your challenge is horizontal friction (pushing through loose sand). On Madeira, your challenge is vertical gravity and vertigo (conquering 1,000m peaks on staircases cut into volcanic cliffs).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DAY 3 PANE -->
+        <div class="day-itinerary-pane" data-day-pane="3">
+          <div class="itinerary-day-card">
+            <div class="day-card-header">
+              <div class="day-tagline">
+                <span>Day 3: Wild Stork Sea Cliffs vs. Waterfalls & Dripping Basalt Tunnels</span>
+              </div>
+              <div class="day-contrast-badge">
+                ⚖️ Contrast: Atlantic sea breezes & bird nests vs. Headlamps & narrow aqueduct ledges
+              </div>
+            </div>
+
+            <div class="day-side-by-side-grid">
+              <!-- Fisherman's Day 3 -->
+              <div class="day-side-column f-side">
+                <div>
+                  <span class="itin-dest-badge">🌊 Fisherman's Trail • Stage 2</span>
+                  <h4 class="itin-day-title">Vila Nova de Milfontes ➔ Almograve</h4>
+                </div>
+                <div class="itin-metrics-pills">
+                  <div class="itin-metric-chip">📍 15.0 km</div>
+                  <div class="itin-metric-chip">📈 +85 m / -90 m</div>
+                  <div class="itin-metric-chip">⏱️ 4.0 – 4.5 hrs</div>
+                  <div class="itin-metric-chip">🌾 40% sand & coastal scrub</div>
+                </div>
+                <div class="itin-timeline-block">
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">1</div>
+                    <div class="itin-step-content"><strong>08:00 AM:</strong> Breakfast overlooking the Mira river mouth. Cross the bridge or small ferry, then follow paths winding through maritime pines and flowering acacia bushes.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">2</div>
+                    <div class="itin-step-content"><strong>Midday:</strong> Emerge onto jagged red sandstone and dark folded schist cliffs. Gaze at white storks nesting on dizzying sea stacks high above boiling Atlantic whitewash—unique on Earth.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">3</div>
+                    <div class="itin-step-content"><strong>13:30:</strong> Reach the sleepy whitewashed hamlet of Almograve. Walk down to Praia de Almograve's natural rock pools for a relaxing swim and chilled Maracujá soda at the beach cafe.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">4</div>
+                    <div class="itin-step-content"><strong>Evening:</strong> Dinner at <em>Sabores do Mar</em>: steaming pot of Ameijoas à Bulhão Pato (garlic-coriander clams), grilled dorada, and fresh Alentejo melon. Restful village sleep.</div>
+                  </div>
+                </div>
+                <div class="itin-box-highlight">
+                  <div class="highlight-row"><span class="highlight-label">Sensory:</span> Smell of pine needles, roar of waves, sight of stork chicks on sea pinnacles.</div>
+                </div>
+              </div>
+
+              <!-- Madeira Day 3 -->
+              <div class="day-side-column m-side">
+                <div>
+                  <span class="itin-dest-badge">🌋 Madeira Island • Trail PR9</span>
+                  <h4 class="itin-day-title">Levada do Caldeirão Verde (Emerald Canyon)</h4>
+                </div>
+                <div class="itin-metrics-pills">
+                  <div class="itin-metric-chip">📍 12.0 km (round-trip)</div>
+                  <div class="itin-metric-chip">📈 +120 m / -120 m</div>
+                  <div class="itin-metric-chip">⏱️ 4.0 hrs</div>
+                  <div class="itin-metric-chip">🔦 4 pitch-black basalt tunnels</div>
+                </div>
+                <div class="itin-timeline-block">
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">1</div>
+                    <div class="itin-step-content"><strong>07:45 AM:</strong> Short drive to Queimadas Forest Park. Admire traditional giant thatched houses. Enter the ancient UNESCO Laurissilva cloud forest at 08:30 AM.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">2</div>
+                    <div class="itin-step-content"><strong>Midday:</strong> Walk narrow concrete ledge alongside a rushing levada aqueduct, hugging vertical emerald rock walls dripping with moss. Switch on headlamps to traverse 4 pitch-black dripping basalt tunnels.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">3</div>
+                    <div class="itin-step-content"><strong>13:00:</strong> Arrive at Caldeirão Verde: a towering circular volcanic amphitheater where a 100-meter waterfall plunges into a crystal emerald pool. Eat picnic lunch listening to the thundering water.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">4</div>
+                    <div class="itin-step-content"><strong>Evening:</strong> Dinner at <em>Quinta do Furão</em>: wood-fired grilled meat platter, roasted vegetables, warm bolo do caco with garlic butter, and fresh squeezed orange-maracujá juice.</div>
+                  </div>
+                </div>
+                <div class="itin-box-highlight">
+                  <div class="highlight-row"><span class="highlight-label">Sensory:</span> Dripping cold spring water, beam of headlamp in pitch darkness, 100m waterfall roar.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="itin-bottom-takeaway">
+              <div class="itin-takeaway-icon">💡</div>
+              <div class="itin-takeaway-text">
+                <h5>Day 3 Experiential Takeaway</h5>
+                <p>On Fisherman's Trail, you enjoy open coastal expanses and unique wildlife (cliff-nesting storks). On Madeira, you enter an enclosed, prehistoric jungle ravine requiring headlamps and water-resistant layers.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DAY 4 PANE -->
+        <div class="day-itinerary-pane" data-day-pane="4">
+          <div class="itinerary-day-card">
+            <div class="day-card-header">
+              <div class="day-tagline">
+                <span>Day 4: Cliff-Edge Harbors vs. 25 Waterfalls & High Moorlands</span>
+              </div>
+              <div class="day-contrast-badge">
+                ⚖️ Contrast: 22 km coastal endurance hike vs. Volcanic tide pool plunge & waterfalls
+              </div>
+            </div>
+
+            <div class="day-side-by-side-grid">
+              <!-- Fisherman's Day 4 -->
+              <div class="day-side-column f-side">
+                <div>
+                  <span class="itin-dest-badge">🌊 Fisherman's Trail • Stage 3</span>
+                  <h4 class="itin-day-title">Almograve ➔ Zambujeira do Mar</h4>
+                </div>
+                <div class="itin-metrics-pills">
+                  <div class="itin-metric-chip">📍 22.0 km</div>
+                  <div class="itin-metric-chip">📈 +200 m / -200 m</div>
+                  <div class="itin-metric-chip">⏱️ 6.0 – 6.5 hrs</div>
+                  <div class="itin-metric-chip">🚢 Porto das Barcas harbor</div>
+                </div>
+                <div class="itin-timeline-block">
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">1</div>
+                    <div class="itin-step-content"><strong>08:00 AM:</strong> Hike past Cabo Sardão lighthouse where the cliffs drop sheer into the Atlantic abyss. Storks nest directly below your eyes.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">2</div>
+                    <div class="itin-step-content"><strong>Midday:</strong> Arrive at Porto das Barcas: a tiny, breathtaking fishing harbor where colorful wooden boats are tethered to sheer cliff faces via steel winches. Continue along red dunes and wild heath.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">3</div>
+                    <div class="itin-step-content"><strong>15:00:</strong> Summit cliffs above Zambujeira do Mar and descend into the vibrant coastal village. Drop daypacks, grab towel, and head straight to the crescent sand beach for sunset waves.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">4</div>
+                    <div class="itin-step-content"><strong>Evening:</strong> Dinner at <em>O Sacas</em> overlooking the sea: renowned seafood cataplana packed with monkfish, prawns, mussels, and saffron broth, accompanied by sparkling mineral water.</div>
+                  </div>
+                </div>
+                <div class="itin-box-highlight">
+                  <div class="highlight-row"><span class="highlight-label">Highlight:</span> Porto das Barcas cliff harbor and the postcard sunset over Zambujeira beach.</div>
+                </div>
+              </div>
+
+              <!-- Madeira Day 4 -->
+              <div class="day-side-column m-side">
+                <div>
+                  <span class="itin-dest-badge">🌋 Madeira Island • Trail PR6 / PR6.1</span>
+                  <h4 class="itin-day-title">Levada das 25 Fontes, Risco & Porto Moniz Pools</h4>
+                </div>
+                <div class="itin-metrics-pills">
+                  <div class="itin-metric-chip">📍 11.0 km</div>
+                  <div class="itin-metric-chip">📈 +300 m / -300 m</div>
+                  <div class="itin-metric-chip">⏱️ 4.5 hrs</div>
+                  <div class="itin-metric-chip">🌊 Natural lava pools</div>
+                </div>
+                <div class="itin-timeline-block">
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">1</div>
+                    <div class="itin-step-content"><strong>07:30 AM:</strong> Drive across the misty high plateau of Paúl da Serra (1,400m elevation), resembling Scottish moors with wild grazing cows and wind turbines.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">2</div>
+                    <div class="itin-step-content"><strong>Midday:</strong> Hike down through ancient giant heather forests into the lush valley. Stand before Risco: a massive two-tiered waterfall roaring down a 100m basalt cliff. Continue to 25 Fontes, where 25 crystal springs seep through lush fern walls into a turquoise pool.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">3</div>
+                    <div class="itin-step-content"><strong>14:30:</strong> Drive down to Porto Moniz. Plunge into the world-famous natural volcanic ocean swimming pools carved into black lava rock with ocean waves surging over the barriers.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">4</div>
+                    <div class="itin-step-content"><strong>Evening:</strong> Dinner at <em>Cachalote</em> in Porto Moniz: grilled black scabbard fish with fried banana, passionfruit mousse, and Brisa Maracujá soda.</div>
+                  </div>
+                </div>
+                <div class="itin-box-highlight">
+                  <div class="highlight-row"><span class="highlight-label">Highlight:</span> Swimming in surging volcanic tide pools and watching 25 mountain springs leak from volcanic stone.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="itin-bottom-takeaway">
+              <div class="itin-takeaway-icon">💡</div>
+              <div class="itin-takeaway-text">
+                <h5>Day 4 Experiential Takeaway</h5>
+                <p>On Fisherman's Trail, this is your longest endurance day (22 km) along wild ocean headlands. On Madeira, you combine a high-altitude moorland drive, waterfall springs, and natural ocean lava pool swimming.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DAY 5 PANE -->
+        <div class="day-itinerary-pane" data-day-pane="5">
+          <div class="itinerary-day-card">
+            <div class="day-card-header">
+              <div class="day-tagline">
+                <span>Day 5: River Border Estuary vs. The Haunted Mist of Fanal</span>
+              </div>
+              <div class="day-contrast-badge">
+                ⚖️ Contrast: Estuary beach swimming vs. 600-year-old twisted mist forest
+              </div>
+            </div>
+
+            <div class="day-side-by-side-grid">
+              <!-- Fisherman's Day 5 -->
+              <div class="day-side-column f-side">
+                <div>
+                  <span class="itin-dest-badge">🌊 Fisherman's Trail • Stage 4</span>
+                  <h4 class="itin-day-title">Zambujeira do Mar ➔ Odeceixe</h4>
+                </div>
+                <div class="itin-metrics-pills">
+                  <div class="itin-metric-chip">📍 18.0 km</div>
+                  <div class="itin-metric-chip">📈 +260 m / -280 m</div>
+                  <div class="itin-metric-chip">⏱️ 5.0 – 5.5 hrs</div>
+                  <div class="itin-metric-chip">🌊 Alentejo/Algarve river border</div>
+                </div>
+                <div class="itin-timeline-block">
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">1</div>
+                    <div class="itin-step-content"><strong>08:30 AM:</strong> Southbound departure out of Zambujeira along jagged cliffs. Pass dramatic hidden surfing beaches like Praia do Carvalhal.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">2</div>
+                    <div class="itin-step-content"><strong>Midday:</strong> Trek across wild Alentejo coastal scrub blooming with rockroses. Stop for lunch at Azenha do Mar, watching local fishermen haul catch up steep cliff stairs.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">3</div>
+                    <div class="itin-step-content"><strong>14:30:</strong> Reach the rim overlooking the majestic horseshoe bend of the Seixe River, which demarcates the Alentejo/Algarve regional border. Swim at Praia de Odeceixe where river meets ocean.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">4</div>
+                    <div class="itin-step-content"><strong>Evening:</strong> Check into Odeceixe hillside guesthouse. Dinner at <em>Taberna do Chaparro</em>: grilled sea bream, roasted local sweet potatoes, mixed salad, and herbal infusion tea.</div>
+                  </div>
+                </div>
+                <div class="itin-box-highlight">
+                  <div class="highlight-row"><span class="highlight-label">Highlight:</span> Swimming in both fresh river water and ocean breakers on the same beach.</div>
+                </div>
+              </div>
+
+              <!-- Madeira Day 5 -->
+              <div class="day-side-column m-side">
+                <div>
+                  <span class="itin-dest-badge">🌋 Madeira Island • Trail PR13</span>
+                  <h4 class="itin-day-title">Fanal Ancient Laurel Forest & Seixal Waterfall Coast</h4>
+                </div>
+                <div class="itin-metrics-pills">
+                  <div class="itin-metric-chip">📍 8.0 km</div>
+                  <div class="itin-metric-chip">📈 +200 m / -200 m</div>
+                  <div class="itin-metric-chip">⏱️ 3.5 hrs</div>
+                  <div class="itin-metric-chip">🌫️ 600-year-old laurel trees</div>
+                </div>
+                <div class="itin-timeline-block">
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">1</div>
+                    <div class="itin-step-content"><strong>08:30 AM:</strong> Drive up to Fanal plateau. Check live webcams to catch the forest wrapped in its signature eerie blanket of mountain fog and drifting mist.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">2</div>
+                    <div class="itin-step-content"><strong>Midday:</strong> Wander among 600-year-old twisted Stinkwood (Ocotea foetens) trees draped in Spanish moss and thick lichens. Total, atmospheric silence broken only by cowbells.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">3</div>
+                    <div class="itin-step-content"><strong>14:00:</strong> Drive down to Seixal to visit the roaring Véu da Noiva (Bride's Veil) waterfall plunging directly into the sea from the old cliff road. Relax on Seixal's silky black volcanic sand.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">4</div>
+                    <div class="itin-step-content"><strong>Evening:</strong> Check into Funchal boutique hotel base for the final leg. Dinner at <em>O Balcão</em>: traditional tomato-onion soup with poached egg, sweet potato bread, and fresh fruit juice.</div>
+                  </div>
+                </div>
+                <div class="itin-box-highlight">
+                  <div class="highlight-row"><span class="highlight-label">Highlight:</span> Ethereal mist photos among 600-year-old trees and transition to Funchal basecamp.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="itin-bottom-takeaway">
+              <div class="itin-takeaway-icon">💡</div>
+              <div class="itin-takeaway-text">
+                <h5>Day 5 Experiential Takeaway</h5>
+                <p>On Fisherman's Trail, you cross into the Algarve region via an iconic river sandspit. On Madeira, you step into a prehistoric, foggy Lord of the Rings forest before relocating to the vibrant capital of Funchal.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DAY 6 PANE -->
+        <div class="day-itinerary-pane" data-day-pane="6">
+          <div class="itinerary-day-card">
+            <div class="day-card-header">
+              <div class="day-tagline">
+                <span>Day 6: Algarve Dunes & Moorish Castle vs. Valley of the Nuns</span>
+              </div>
+              <div class="day-contrast-badge">
+                ⚖️ Contrast: 10th-century Moorish fortress hill vs. 1,000m deep volcanic caldera
+              </div>
+            </div>
+
+            <div class="day-side-by-side-grid">
+              <!-- Fisherman's Day 6 -->
+              <div class="day-side-column f-side">
+                <div>
+                  <span class="itin-dest-badge">🌊 Fisherman's Trail • Stage 5</span>
+                  <h4 class="itin-day-title">Odeceixe ➔ Aljezur Historic Town</h4>
+                </div>
+                <div class="itin-metrics-pills">
+                  <div class="itin-metric-chip">📍 22.0 km</div>
+                  <div class="itin-metric-chip">📈 +310 m / -320 m</div>
+                  <div class="itin-metric-chip">⏱️ 6.0 hrs</div>
+                  <div class="itin-metric-chip">🏰 Moorish Castle ruins</div>
+                </div>
+                <div class="itin-timeline-block">
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">1</div>
+                    <div class="itin-step-content"><strong>08:00 AM:</strong> Depart Odeceixe through fragrant eucalyptus and maritime pine groves following ancient irrigation canals.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">2</div>
+                    <div class="itin-step-content"><strong>Midday:</strong> Traverse rolling agricultural scrublands and high dunes overlooking the wild Algarve surf of Praia da Amoreira.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">3</div>
+                    <div class="itin-step-content"><strong>14:30:</strong> Follow the river into Aljezur. Explore cobblestone alleys and climb to the ruins of the 10th-century Moorish hilltop castle with 360° views across the plains.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">4</div>
+                    <div class="itin-step-content"><strong>Evening:</strong> Dinner at <em>Pont'a Pé</em>: famous Alentejo sweet potato stew, fresh grilled octopus, crusty bread, and fresh orange juice.</div>
+                  </div>
+                </div>
+                <div class="itin-box-highlight">
+                  <div class="highlight-row"><span class="highlight-label">Highlight:</span> Climbing the stone battlements of Aljezur Castle at sunset.</div>
+                </div>
+              </div>
+
+              <!-- Madeira Day 6 -->
+              <div class="day-side-column m-side">
+                <div>
+                  <span class="itin-dest-badge">🌋 Madeira Island • Caldera Trail</span>
+                  <h4 class="itin-day-title">Curral das Freiras (Valley of the Nuns) & Monte</h4>
+                </div>
+                <div class="itin-metrics-pills">
+                  <div class="itin-metric-chip">📍 7.0 km</div>
+                  <div class="itin-metric-chip">📈 +450 m / -450 m</div>
+                  <div class="itin-metric-chip">⏱️ 3.5 hrs</div>
+                  <div class="itin-metric-chip">🚠 Funchal cable car & Monte</div>
+                </div>
+                <div class="itin-timeline-block">
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">1</div>
+                    <div class="itin-step-content"><strong>08:30 AM:</strong> Drive up from Funchal through eucalyptus-scented mountain ravines to the panoramic viewpoint of Eira do Serrado (1,095m).</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">2</div>
+                    <div class="itin-step-content"><strong>Midday:</strong> Look down 1,000m sheer into the crater-like basin where 16th-century nuns hid from invading French pirates. Hike the zig-zag trail down the canyon wall into the secluded village.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">3</div>
+                    <div class="itin-step-content"><strong>14:00:</strong> Sample warm roasted chestnuts in the village. Return to Funchal; ride the panoramic Funchal cable car up to the Monte Palace tropical gardens.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">4</div>
+                    <div class="itin-step-content"><strong>Evening:</strong> Dinner at <em>Restaurante Kampo</em> in Funchal: open-kitchen artisanal dining featuring locally sourced produce, grilled beef, roasted root vegetables, and passionfruit mocktails.</div>
+                  </div>
+                </div>
+                <div class="itin-box-highlight">
+                  <div class="highlight-row"><span class="highlight-label">Highlight:</span> Looking straight down into the 1,000m deep volcanic bowl and riding the Monte cable car.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="itin-bottom-takeaway">
+              <div class="itin-takeaway-icon">💡</div>
+              <div class="itin-takeaway-text">
+                <h5>Day 6 Experiential Takeaway</h5>
+                <p>On Fisherman's Trail, you experience medieval Portuguese history on a hilltop castle above river flats. On Madeira, you peer down into a sheer 1,000-meter volcanic fortress before enjoying Funchal's botanical culture.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DAY 7 PANE -->
+        <div class="day-itinerary-pane" data-day-pane="7">
+          <div class="itinerary-day-card">
+            <div class="day-card-header">
+              <div class="day-tagline">
+                <span>Day 7: Atlantic Surf Fortresses vs. Red Volcanic Peninsula Finale</span>
+              </div>
+              <div class="day-contrast-badge">
+                ⚖️ Contrast: 80m surf headland cliffs vs. Treeless Martian-red peninsula
+              </div>
+            </div>
+
+            <div class="day-side-by-side-grid">
+              <!-- Fisherman's Day 7 -->
+              <div class="day-side-column f-side">
+                <div>
+                  <span class="itin-dest-badge">🌊 Fisherman's Trail • Stage 6</span>
+                  <h4 class="itin-day-title">Aljezur ➔ Arrifana Beach & Ponta da Atalaia</h4>
+                </div>
+                <div class="itin-metrics-pills">
+                  <div class="itin-metric-chip">📍 12.0 km</div>
+                  <div class="itin-metric-chip">📈 +220 m / -220 m</div>
+                  <div class="itin-metric-chip">⏱️ 3.5 – 4.0 hrs</div>
+                  <div class="itin-metric-chip">🏄 World-class surf breaks</div>
+                </div>
+                <div class="itin-timeline-block">
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">1</div>
+                    <div class="itin-step-content"><strong>09:00 AM:</strong> Relaxed departure towards the open ocean at Ponta da Atalaia.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">2</div>
+                    <div class="itin-step-content"><strong>Midday:</strong> Explore archaeological ruins of the 12th-century Moorish ribat perched atop sheer sea cliffs. Watch monster Atlantic swells roll into Arrifana's natural amphitheater.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">3</div>
+                    <div class="itin-step-content"><strong>14:00:</strong> Descend to Arrifana beach; dip into the ocean, watch world-class surfers tackle the point break, and enjoy a celebratory fresh mango smoothie at a clifftop cafe.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">4</div>
+                    <div class="itin-step-content"><strong>Evening:</strong> Finale dinner at <em>O Paulo</em> perched on the outer tip of Arrifana cliff: spectacular sunset over the Atlantic, whole baked sea bass in rock salt, lemon sorbet, and sparkling Água das Pedras.</div>
+                  </div>
+                </div>
+                <div class="itin-box-highlight">
+                  <div class="highlight-row"><span class="highlight-label">Celebration:</span> Sunset toast overlooking the crashing Atlantic waves after 100+ km on foot.</div>
+                </div>
+              </div>
+
+              <!-- Madeira Day 7 -->
+              <div class="day-side-column m-side">
+                <div>
+                  <span class="itin-dest-badge">🌋 Madeira Island • Trail PR8</span>
+                  <h4 class="itin-day-title">Ponta de São Lourenço (The Dragon's Tail)</h4>
+                </div>
+                <div class="itin-metrics-pills">
+                  <div class="itin-metric-chip">📍 7.5 km (out-and-back)</div>
+                  <div class="itin-metric-chip">📈 +400 m / -400 m</div>
+                  <div class="itin-metric-chip">⏱️ 3.5 hrs</div>
+                  <div class="itin-metric-chip">🌊 Red volcanic coastal cliffs</div>
+                </div>
+                <div class="itin-timeline-block">
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">1</div>
+                    <div class="itin-step-content"><strong>07:30 AM:</strong> Drive to the easternmost tip of Madeira. Enter a completely arid, treeless landscape of vivid red, ochre, and black volcanic strata.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">2</div>
+                    <div class="itin-step-content"><strong>Midday:</strong> Hike along narrow ridges with foaming ocean waves crashing on both sides. Climb to the Morro do Furado viewpoint for sweeping panoramas of the Desertas Islands.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">3</div>
+                    <div class="itin-step-content"><strong>14:00:</strong> Walk down to the calm, turquoise waters of Cais do Sardinha for a refreshing ocean swim. Take a fast zodiac boat ride back to the trailhead or hike out.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">4</div>
+                    <div class="itin-step-content"><strong>Evening:</strong> Celebration dinner in Funchal's historic Zona Velha: grilled limpets with garlic butter, Espada with passionfruit sauce, warm bolo do caco, and fresh Virgin Nikita mocktails.</div>
+                  </div>
+                </div>
+                <div class="itin-box-highlight">
+                  <div class="highlight-row"><span class="highlight-label">Celebration:</span> Dinner in Funchal's painted door district celebrating peaks, tunnels, and waterfalls.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="itin-bottom-takeaway">
+              <div class="itin-takeaway-icon">💡</div>
+              <div class="itin-takeaway-text">
+                <h5>Day 7 Experiential Takeaway</h5>
+                <p>On Fisherman's Trail, your finale is sunset over a roaring Atlantic surf cove in a cliffside restaurant. On Madeira, your finale is a Martian-red peninsula hike followed by historic dining in Funchal's old town.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DAY 8 PANE -->
+        <div class="day-itinerary-pane" data-day-pane="8">
+          <div class="itinerary-day-card">
+            <div class="day-card-header">
+              <div class="day-tagline">
+                <span>Day 8: Homeward Transit & Final Retrospective</span>
+              </div>
+              <div class="day-contrast-badge">
+                ⚖️ Contrast: Relaxed coastal road trip to LIS vs. Funchal market & FNC departure
+              </div>
+            </div>
+
+            <div class="day-side-by-side-grid">
+              <!-- Fisherman's Day 8 -->
+              <div class="day-side-column f-side">
+                <div>
+                  <span class="itin-dest-badge">🌊 Fisherman's Trail • Homeward</span>
+                  <h4 class="itin-day-title">Aljezur ➔ Lisbon Airport (LIS) ➔ US Gateway</h4>
+                </div>
+                <div class="itin-metrics-pills">
+                  <div class="itin-metric-chip">📍 0 km hiking</div>
+                  <div class="itin-metric-chip">🚐 2.5h private transfer to LIS</div>
+                  <div class="itin-metric-chip">✈️ 1-stop transatlantic flight</div>
+                </div>
+                <div class="itin-timeline-block">
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">1</div>
+                    <div class="itin-step-content"><strong>08:30 AM:</strong> Final relaxed breakfast of warm pastéis de nata and bica espresso overlooking the ocean. Pack daypacks and meet private transfer at 09:30 AM.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">2</div>
+                    <div class="itin-step-content"><strong>Midday:</strong> Smooth scenic drive north along the coastal highway through Alentejo cork forests back to Lisbon Airport (LIS).</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">3</div>
+                    <div class="itin-step-content"><strong>Afternoon:</strong> Board your 1-stop transatlantic flight back to the US. Arrive home relaxed, rejuvenated, with sand in shoes and unforgettable coastal memories.</div>
+                  </div>
+                </div>
+                <div class="itin-box-highlight">
+                  <div class="highlight-row"><span class="highlight-label">Final Vibe:</span> Meditative peace, grounded energy, restored nervous system, zero travel exhaustion.</div>
+                </div>
+              </div>
+
+              <!-- Madeira Day 8 -->
+              <div class="day-side-column m-side">
+                <div>
+                  <span class="itin-dest-badge">🌋 Madeira Island • Homeward</span>
+                  <h4 class="itin-day-title">Funchal ➔ Madeira Airport (FNC) ➔ LIS ➔ US</h4>
+                </div>
+                <div class="itin-metrics-pills">
+                  <div class="itin-metric-chip">📍 0 km hiking</div>
+                  <div class="itin-metric-chip">🚗 20 min airport drive</div>
+                  <div class="itin-metric-chip">✈️ 1-stop flight via Lisbon</div>
+                </div>
+                <div class="itin-timeline-block">
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">1</div>
+                    <div class="itin-step-content"><strong>08:30 AM:</strong> Early morning visit to Funchal's vibrant Mercado dos Lavradores to sample fresh exotic passionfruit varieties.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">2</div>
+                    <div class="itin-step-content"><strong>Midday:</strong> Drive 20 minutes to FNC airport, return rental car.</div>
+                  </div>
+                  <div class="itin-time-step">
+                    <div class="itin-step-dot">3</div>
+                    <div class="itin-step-content"><strong>Afternoon:</strong> Board 1-stop flight via Lisbon back to the US. Arrive home with quad muscles aching from thousands of stone steps and camera cards full of alpine cloud inversions.</div>
+                  </div>
+                </div>
+                <div class="itin-box-highlight">
+                  <div class="highlight-row"><span class="highlight-label">Final Vibe:</span> High-adrenaline high, visual sensory overload, camera roll of 1,000+ photos.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="itin-bottom-takeaway">
+              <div class="itin-takeaway-icon">💡</div>
+              <div class="itin-takeaway-text">
+                <h5>Day 8 Experiential Takeaway</h5>
+                <p>Fisherman's Trail sends you home peaceful and restored after days of rhythmic ocean meditation. Madeira sends you home electrified with adrenaline, vertical memories, and dramatic photographs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -1954,6 +3208,7 @@
           <h4>Comparison Specs</h4>
           <ul>
             <li><a href="#scenery">Visual Scenery Face-Off</a></li>
+            <li><a href="#itinerary">Daily Itinerary & Rhythm</a></li>
             <li><a href="#comparison">Technical Matrix</a></li>
             <li><a href="#finances">Shared Financial Ledger</a></li>
             <li><a href="#quiz">Interactive Decision Quiz</a></li>
@@ -2039,6 +3294,27 @@
         verdictTitle.textContent = `🤝 Dead Even Split (50% / 50%)`;
         verdictBody.textContent = `You appreciate both the meditative peace of the coastline and the heart-pounding drama of alpine peaks! If you want pure relaxation without a rental car, choose Fisherman's Trail. If you want maximum photographic 'wow' factor, choose Madeira.`;
       }
+    }
+
+    // Itinerary Day Selector Function
+    function switchItineraryDay(dayNum) {
+      const tabBtns = document.querySelectorAll('.day-tab-btn');
+      tabBtns.forEach(btn => {
+        if (btn.getAttribute('data-day') === String(dayNum)) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      const panes = document.querySelectorAll('.day-itinerary-pane');
+      panes.forEach(pane => {
+        if (pane.getAttribute('data-day-pane') === String(dayNum)) {
+          pane.classList.add('active');
+        } else {
+          pane.classList.remove('active');
+        }
+      });
     }
   </script>
 </body>
