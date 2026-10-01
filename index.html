@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fisherman's Trail vs. Madeira Expedition | The Ultimate Portugal Trekking Showdown</title>
+  <meta name="description" content="The definitive head-to-head comparison between Portugal's two greatest treks: Rota Vicentina Fisherman's Trail and Madeira Island. Scenery, difficulty, costs, and decision engine." />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg-dark: #0a0d14;
+      --bg-surface: #121722;
+      --bg-surface-elevated: #1a2232;
+      --bg-glass: rgba(18, 23, 34, 0.75);
+      
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      /* Trail Theme Colors */
+      --fishermans-primary: #0284c7;
+      --fishermans-accent: #38bdf8;
+      --fishermans-glow: rgba(56, 189, 248, 0.25);
+      --fishermans-bg: rgba(2, 132, 199, 0.1);
+      
+      --madeira-primary: #10b981;
+      --madeira-accent: #34d399;
+      --madeira-glow: rgba(52, 211, 153, 0.25);
+      --madeira-bg: rgba(16, 185, 129, 0.1);
+      
+      --gold: #f59e0b;
+      --gold-glow: rgba(245, 158, 11, 0.2);
+      
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.16);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      
+      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.5);
+      --shadow-glow-madeira: 0 0 30px var(--madeira-glow);
+      --shadow-glow-fishermans: 0 0 30px var(--fishermans-glow);
+      
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Background Gradients */
+    .bg-ambient {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 15% 20%, rgba(2, 132, 199, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 85% 75%, rgba(16, 185, 129, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.03) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Navigation Bar */
+    header.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(10, 13, 20, 0.85);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--fishermans-primary), var(--madeira-primary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .brand-text {
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-text span:first-child {
+      color: #fff;
+    }
+
+    .brand-text span:last-child {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-fishermans {
+      background: rgba(2, 132, 199, 0.15);
+      color: var(--fishermans-accent);
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .btn-fishermans:hover {
+      background: var(--fishermans-primary);
+      color: #fff;
+      box-shadow: 0 4px 16px var(--fishermans-glow);
+    }
+
+    .btn-madeira {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--madeira-accent);
+      border-color: rgba(52, 211, 153, 0.3);
+    }
+
+    .btn-madeira:hover {
+      background: var(--madeira-primary);
+      color: #fff;
+      box-shadow: 0 4px 16px var(--madeira-glow);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 72px 0 60px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: var(--gold);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .hero-title .highlight-blue {
+      color: var(--fishermans-accent);
+    }
+
+    .hero-title .highlight-green {
+      color: var(--madeira-accent);
+    }
+
+    .hero-subtitle {
+      max-width: 780px;
+      margin: 0 auto 40px;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Quick Link Destination Cards */
+    .live-deck-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin: 40px 0 60px;
+    }
+
+    .live-deck-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      padding: 32px;
+      text-align: left;
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .live-deck-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card-fishermans {
+      border-top: 4px solid var(--fishermans-primary);
+    }
+
+    .card-fishermans:hover {
+      border-color: var(--fishermans-accent);
+      box-shadow: var(--shadow-glow-fishermans);
+    }
+
+    .card-madeira {
+      border-top: 4px solid var(--madeira-primary);
+    }
+
+    .card-madeira:hover {
+      border-color: var(--madeira-accent);
+      box-shadow: var(--shadow-glow-madeira);
+    }
+
+    .card-header-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-fishermans .card-header-badge {
+      color: var(--fishermans-accent);
+    }
+
+    .card-madeira .card-header-badge {
+      color: var(--madeira-accent);
+    }
+
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .card-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .card-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .meta-stat {
+      flex: 1;
+      min-width: 100px;
+    }
+
+    .meta-label {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .meta-value {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .link-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: gap 0.2s ease;
+    }
+
+    .card-fishermans .link-arrow {
+      color: var(--fishermans-accent);
+    }
+
+    .card-madeira .link-arrow {
+      color: var(--madeira-accent);
+    }
+
+    .link-arrow:hover {
+      gap: 12px;
+    }
+
+    /* Executive Verdict Banner */
+    .verdict-banner {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(2, 132, 199, 0.12));
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-lg);
+      padding: 36px 40px;
+      margin: 40px 0 80px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .verdict-badge {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.35);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+    }
+
+    .verdict-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .verdict-main {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .verdict-content h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .verdict-content p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    /* Section Styling */
+    section.section-block {
+      padding: 60px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 50px;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* Visual Showdown Grid */
+    .showdown-card-container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .showdown-matchup {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .matchup-header {
+      padding: 20px 28px;
+      background: var(--bg-surface-elevated);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .matchup-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .matchup-round {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      color: var(--gold);
+    }
+
+    .matchup-winner {
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .winner-madeira {
+      background: rgba(16, 185, 129, 0.18);
+      color: var(--madeira-accent);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+    }
+
+    .winner-fishermans {
+      background: rgba(2, 132, 199, 0.18);
+      color: var(--fishermans-accent);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .winner-draw {
+      background: rgba(245, 158, 11, 0.18);
+      color: var(--gold);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .matchup-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .matchup-side {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .side-fishermans {
+      border-right: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(2, 132, 199, 0.03) 0%, transparent 100%);
+    }
+
+    .side-madeira {
+      background: linear-gradient(180deg, rgba(16, 185, 129, 0.03) 0%, transparent 100%);
+    }
+
+    .side-destination {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .side-fishermans .side-destination {
+      color: var(--fishermans-accent);
+    }
+
+    .side-madeira .side-destination {
+      color: var(--madeira-accent);
+    }
+
+    .side-headline {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .side-image-wrapper {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: 16px;
+      height: 240px;
+    }
+
+    .side-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .side-image-wrapper:hover img {
+      transform: scale(1.04);
+    }
+
+    .img-tag {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      padding: 4px 10px;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      border-radius: var(--radius-sm);
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: #fff;
+    }
+
+    .side-text {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow-x: auto;
+      box-shadow: var(--shadow-sm);
+    }
+
+    table.comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comparison-table th {
+      background: var(--bg-surface-elevated);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    .comparison-table th.col-fishermans {
+      color: var(--fishermans-accent);
+      border-top: 3px solid var(--fishermans-primary);
+    }
+
+    .comparison-table th.col-madeira {
+      color: var(--madeira-accent);
+      border-top: 3px solid var(--madeira-primary);
+    }
+
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comparison-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .feature-name {
+      font-weight: 600;
+      color: #fff;
+      font-size: 0.95rem;
+    }
+
+    .feature-detail {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .metric-badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+    }
+
+    .badge-blue {
+      background: rgba(2, 132, 199, 0.18);
+      color: var(--fishermans-accent);
+    }
+
+    .badge-green {
+      background: rgba(16, 185, 129, 0.18);
+      color: var(--madeira-accent);
+    }
+
+    .badge-gold {
+      background: rgba(245, 158, 11, 0.18);
+      color: var(--gold);
+    }
+
+    /* Financial Ledger Section */
+    .ledger-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 30px;
+    }
+
+    .ledger-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+    }
+
+    .ledger-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 20px;
+    }
+
+    .ledger-total {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .ledger-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.92rem;
+    }
+
+    .ledger-row:last-child {
+      border-bottom: none;
+    }
+
+    .ledger-item-title {
+      color: var(--text-muted);
+    }
+
+    .ledger-item-val {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Reddit & Community Reviews */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .review-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .review-quote {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      font-style: italic;
+      line-height: 1.65;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .review-quote::before {
+      content: "“";
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      position: absolute;
+      top: -24px;
+      left: -12px;
+      color: rgba(255, 255, 255, 0.08);
+      pointer-events: none;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+
+    .author-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-full);
+      background: var(--bg-surface-elevated);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .author-info {
+      font-size: 0.82rem;
+    }
+
+    .author-name {
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .author-source {
+      color: var(--text-dim);
+    }
+
+    /* Decision Engine / Quiz Section */
+    .quiz-card {
+      background: var(--bg-surface);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-lg);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .quiz-question-block {
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .quiz-question-block:last-of-type {
+      border-bottom: none;
+      margin-bottom: 24px;
+      padding-bottom: 0;
+    }
+
+    .question-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .question-num {
+      width: 26px;
+      height: 26px;
+      border-radius: var(--radius-full);
+      background: rgba(245, 158, 11, 0.2);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .quiz-option {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      text-align: left;
+    }
+
+    .quiz-option:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .quiz-option.selected-fishermans {
+      border-color: var(--fishermans-accent);
+      background: rgba(2, 132, 199, 0.15);
+      box-shadow: 0 0 16px var(--fishermans-glow);
+    }
+
+    .quiz-option.selected-madeira {
+      border-color: var(--madeira-accent);
+      background: rgba(16, 185, 129, 0.15);
+      box-shadow: 0 0 16px var(--madeira-glow);
+    }
+
+    .opt-label {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .opt-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .quiz-results-box {
+      margin-top: 36px;
+      padding: 28px;
+      border-radius: var(--radius-md);
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-strong);
+      text-align: center;
+    }
+
+    .result-meter {
+      height: 16px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.1);
+      margin: 20px 0;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .meter-fishermans {
+      height: 100%;
+      background: linear-gradient(90deg, #0284c7, #38bdf8);
+      transition: width 0.5s ease;
+    }
+
+    .meter-madeira {
+      height: 100%;
+      background: linear-gradient(90deg, #34d399, #10b981);
+      transition: width 0.5s ease;
+    }
+
+    .meter-labels {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .meter-label-f {
+      color: var(--fishermans-accent);
+    }
+
+    .meter-label-m {
+      color: var(--madeira-accent);
+    }
+
+    .result-verdict-title {
+      font-family: var(--font-heading);
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .result-verdict-body {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 650px;
+      margin: 0 auto 24px;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer.site-footer {
+      border-top: 1px solid var(--border);
+      background: #06090e;
+      padding: 60px 0 40px;
+      margin-top: 80px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      color: var(--text-dim);
+      font-size: 0.88rem;
+      margin-top: 12px;
+      max-width: 360px;
+    }
+
+    .footer-col h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-col a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .live-deck-grid,
+      .verdict-banner,
+      .matchup-body,
+      .ledger-grid,
+      .reviews-grid,
+      .options-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .verdict-banner {
+        padding: 24px;
+        gap: 20px;
+      }
+
+      .matchup-side {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .matchup-side:last-child {
+        border-bottom: none;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-ambient"></div>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <div class="brand-icon">⚔️</div>
+        <div class="brand-text">
+          <span>PORTUGAL TREK SHOWDOWN</span>
+          <span>Fisherman's Trail vs. Madeira</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#live-guides">Live Decks</a></li>
+        <li><a href="#scenery">Scenery Showdown</a></li>
+        <li><a href="#comparison">Spec Matrix</a></li>
+        <li><a href="#finances">Financial Ledger</a></li>
+        <li><a href="#community">Reddit Verdicts</a></li>
+        <li><a href="#quiz">Decision Engine</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="https://echegor.github.io/fishermans-trail/" target="_blank" class="btn btn-fishermans">
+          🌊 Fisherman's Deck
+        </a>
+        <a href="https://echegor.github.io/madeira/" target="_blank" class="btn btn-madeira">
+          🌋 Madeira Deck
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-badge">
+          ⚡ Definitive 2026 Head-to-Head Analysis & Decision Guide
+        </div>
+        
+        <h1 class="hero-title">
+          <span class="highlight-blue">Fisherman's Trail</span> <br />
+          vs. <span class="highlight-green">Madeira Island</span>
+        </h1>
+        
+        <p class="hero-subtitle">
+          Two extraordinary Portuguese trekking expeditions planned under identical parameters: 
+          <strong>2 travelers combined</strong>, <strong>1-stop US transatlantic flights</strong> via Lisbon (LIS), 
+          <strong>zero alcohol dining</strong>, and <strong>American units</strong> (miles, feet, °F). 
+          Here is how they compare across scenery, physical adrenaline, logistics, and real costs.
+        </p>
+
+        <!-- Direct Live Deck Links -->
+        <div id="live-guides" class="live-deck-grid">
+          
+          <!-- Card: Fisherman's Trail -->
+          <div class="live-deck-card card-fishermans">
+            <div>
+              <div class="card-header-badge">
+                <span>🌊 Mainland Portugal (Alentejo & Algarve)</span>
+              </div>
+              <h2 class="card-title">Fisherman's Trail Expedition</h2>
+              <p class="card-desc">
+                A 6-Day, 75.8-mile (122 km) horizontal trek along pristine Atlantic sea cliffs, shifting coastal sand dunes, cliff-nesting storks, and sleepy whitewashed fishing villages.
+              </p>
+              
+              <div class="card-meta-row">
+                <div class="meta-stat">
+                  <div class="meta-label">Distance</div>
+                  <div class="meta-value">75.8 mi</div>
+                </div>
+                <div class="meta-stat">
+                  <div class="meta-label">Max Elevation</div>
+                  <div class="meta-value">512 ft</div>
+                </div>
+                <div class="meta-stat">
+                  <div class="meta-label">Ground Budget (2)</div>
+                  <div class="meta-value">~€1,180</div>
+                </div>
+                <div class="meta-stat">
+                  <div class="meta-label">Vibe</div>
+                  <div class="meta-value">Meditative Zen</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              <span class="badge-blue metric-badge">Rota Vicentina Trail</span>
+              <a href="https://echegor.github.io/fishermans-trail/" target="_blank" class="link-arrow">
+                Open Full 30-Slide Deck ➔
+              </a>
+            </div>
+          </div>
+
+          <!-- Card: Madeira Island -->
+          <div class="live-deck-card card-madeira">
+            <div>
+              <div class="card-header-badge">
+                <span>🌋 Atlantic Subtropical Archipelago ("Hawaii of Europe")</span>
+              </div>
+              <h2 class="card-title">Madeira Island Master Expedition</h2>
+              <p class="card-desc">
+                An 8-Day, 38.6-mile vertical alpine odyssey across 6,100-ft volcanic knife-edge ridges above cloud inversions, 500-year-old misty laurel forests, and Jurassic levada waterfall canyons.
+              </p>
+              
+              <div class="card-meta-row">
+                <div class="meta-stat">
+                  <div class="meta-label">Peak Elevation</div>
+                  <div class="meta-value">6,109 ft</div>
+                </div>
+                <div class="meta-stat">
+                  <div class="meta-label">Total Gain</div>
+                  <div class="meta-value">16,480 ft</div>
+                </div>
+                <div class="meta-stat">
+                  <div class="meta-label">Ground Budget (2)</div>
+                  <div class="meta-value">€1,740</div>
+                </div>
+                <div class="meta-stat">
+                  <div class="meta-label">Vibe</div>
+                  <div class="meta-value">Cinematic IMAX</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              <span class="badge-green metric-badge">Alpine & Coastal Levadas</span>
+              <a href="https://echegor.github.io/madeira/" target="_blank" class="link-arrow">
+                Open Full 30-Slide Deck ➔
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Executive Verdict Banner -->
+        <div class="verdict-banner">
+          <div class="verdict-badge">
+            <div class="verdict-label">The Executive Consensus</div>
+            <div class="verdict-main">MADEIRA</div>
+            <div style="font-size:0.75rem; color:var(--madeira-accent); margin-top:4px; font-weight:700;">
+              Blowout Winner for Scenery
+            </div>
+          </div>
+          <div class="verdict-content">
+            <h3>"A Quiet Coastal Film vs. An IMAX Blockbuster"</h3>
+            <p>
+              If your #1 priority is <strong>jaw-dropping, diverse, world-class scenery</strong>, Madeira is the undisputed victor. 
+              While the Fisherman's Trail delivers hypnotic coastal peace and sandy dunes, Madeira packs five distinct biomes—alpine cloud-seas, 
+              Jurassic rainforest gorges, volcanic lava pools, and 500-year laurel cloud forests—into an 8-day itinerary that feels like traveling to five different planets.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Visual Scenery Showdown -->
+    <section id="scenery" class="section-block">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Round-by-Round Visual Analysis</span>
+          <h2 class="section-title">The Scenery Showdown</h2>
+          <p class="section-desc">
+            Direct visual matchups comparing what your eyes will actually see each day on the trail.
+          </p>
+        </div>
+
+        <div class="showdown-card-container">
+
+          <!-- Round 1: Peaks vs Dunes -->
+          <div class="showdown-matchup">
+            <div class="matchup-header">
+              <div class="matchup-title">
+                <span class="matchup-round">ROUND 01</span>
+                <span>Mountain Peaks & Elevation Drama</span>
+              </div>
+              <div class="matchup-winner winner-madeira">
+                🏆 Winner: Madeira (Blowout)
+              </div>
+            </div>
+            <div class="matchup-body">
+              <div class="matchup-side side-fishermans">
+                <div>
+                  <div class="side-destination">Fisherman's Trail</div>
+                  <h3 class="side-headline">Gentle Ocean Bluffs & Coastal Sand Dunes</h3>
+                  <div class="side-image-wrapper">
+                    <img src="images/fishermans_dunes.jpg" alt="Atlantic Coast Sand Dunes Portugal" />
+                    <div class="img-tag">Elevation: 80 ft (24 m)</div>
+                  </div>
+                </div>
+                <p class="side-text">
+                  Maximum elevation on the trail never exceeds 512 ft. You traverse flat rolling sand plateaus and gentle dune paths. 
+                  Peaceful and expansive, but zero alpine relief, cloud inversions, or panoramic vertical summits.
+                </p>
+              </div>
+
+              <div class="matchup-side side-madeira">
+                <div>
+                  <div class="side-destination">Madeira Island</div>
+                  <h3 class="side-headline">PR1 Knife-Edge Ridge Above a Sea of Clouds</h3>
+                  <div class="side-image-wrapper">
+                    <img src="images/slide14_pr1.jpg" alt="PR1 Pico do Arieiro to Pico Ruivo Ridge" />
+                    <div class="img-tag">Elevation: 6,109 ft (1,862 m)</div>
+                  </div>
+                </div>
+                <p class="side-text">
+                  You stand on a razor-thin basalt spine connecting Pico do Arieiro to Pico Ruivo above an unbroken ocean of blinding white clouds. 
+                  Hand-hewn tunnels, sheer 3,000-ft drops on both sides, and heart-pounding alpine drama.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Round 2: Sea Cliffs -->
+          <div class="showdown-matchup">
+            <div class="matchup-header">
+              <div class="matchup-title">
+                <span class="matchup-round">ROUND 02</span>
+                <span>Sea Cliffs & Ocean Drops</span>
+              </div>
+              <div class="matchup-winner winner-madeira">
+                🏆 Winner: Madeira (Dramatic Scale)
+              </div>
+            </div>
+            <div class="matchup-body">
+              <div class="matchup-side side-fishermans">
+                <div>
+                  <div class="side-destination">Fisherman's Trail</div>
+                  <h3 class="side-headline">Cabo Sardão Stork Nests & Dark Schist Bluffs</h3>
+                  <div class="side-image-wrapper">
+                    <img src="images/fishermans_cliffs.jpg" alt="Cabo Sardão Sea Cliffs" />
+                    <div class="img-tag">Drop: 160 ft (50 m)</div>
+                  </div>
+                </div>
+                <p class="side-text">
+                  Dark jagged schist rocks with white storks uniquely nesting on ocean pinnacles directly over crashing Atlantic waves. 
+                  Magnificent wildlife spectacle, but the cliff height remains modest and repetitive over 5 days.
+                </p>
+              </div>
+
+              <div class="matchup-side side-madeira">
+                <div>
+                  <div class="side-destination">Madeira Island</div>
+                  <h3 class="side-headline">Ponta de São Lourenço & Cabo Girão</h3>
+                  <div class="side-image-wrapper">
+                    <img src="images/slide11_saolourenco.jpg" alt="Ponta de São Lourenço Peninsula" />
+                    <div class="img-tag">Drop: 1,900 ft (580 m)</div>
+                  </div>
+                </div>
+                <p class="side-text">
+                  Fiery red volcanic promontories battered by 40-ft swells at PR8 São Lourenço, plus Europe's highest sea cliff at 
+                  Cabo Girão (1,900 ft sheer vertical drop to ocean surf below a glass skywalk).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Round 3: Forests & Waterways -->
+          <div class="showdown-matchup">
+            <div class="matchup-header">
+              <div class="matchup-title">
+                <span class="matchup-round">ROUND 03</span>
+                <span>Waterways, Canyons & Mystical Forests</span>
+              </div>
+              <div class="matchup-winner winner-madeira">
+                🏆 Winner: Madeira (Unrivaled Variety)
+              </div>
+            </div>
+            <div class="matchup-body">
+              <div class="matchup-side side-fishermans">
+                <div>
+                  <div class="side-destination">Fisherman's Trail</div>
+                  <h3 class="side-headline">Mira River Estuary & Maritime Pine Groves</h3>
+                  <div class="side-image-wrapper">
+                    <img src="images/fishermans_ferry.jpg" alt="Mira River Ferry Crossing" />
+                    <div class="img-tag">Ecosystem: Estuarine & Pine Scrub</div>
+                  </div>
+                </div>
+                <p class="side-text">
+                  Crossing the sparkling Mira River by fisherman's wooden ferry at Vila Nova de Milfontes, framed by fragrant umbrella pines 
+                  and sand lilies. Sunlit, breezy, and charming.
+                </p>
+              </div>
+
+              <div class="matchup-side side-madeira">
+                <div>
+                  <div class="side-destination">Madeira Island</div>
+                  <h3 class="side-headline">500-Yr Fanal Mist Forest & Levada Waterfall Canyons</h3>
+                  <div class="side-image-wrapper">
+                    <img src="images/slide20_fanal.jpg" alt="Fanal UNESCO Laurel Forest" />
+                    <div class="img-tag">Ecosystem: UNESCO Cloud Laurel Forest</div>
+                  </div>
+                </div>
+                <p class="side-text">
+                  Walking through the 500-year-old twisted Til trees of Fanal shrouded in swirling mountain fog, plus hiking through dripping 
+                  Jurassic rock tunnels along PR9 Levada do Caldeirão Verde to a 330-ft emerald waterfall cauldron.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Round 4: Ocean Swimming -->
+          <div class="showdown-matchup">
+            <div class="matchup-header">
+              <div class="matchup-title">
+                <span class="matchup-round">ROUND 04</span>
+                <span>Ocean Dips & Swimming Wonders</span>
+              </div>
+              <div class="matchup-winner winner-draw">
+                🤝 Draw: Wild Surf vs. Volcanic Basalt Pools
+              </div>
+            </div>
+            <div class="matchup-body">
+              <div class="matchup-side side-fishermans">
+                <div>
+                  <div class="side-destination">Fisherman's Trail</div>
+                  <h3 class="side-headline">Praia de Odeceixe & Wild Golden Sandspits</h3>
+                  <div class="side-image-wrapper">
+                    <img src="images/fishermans_odeceixe.jpg" alt="Praia de Odeceixe River and Ocean" />
+                    <div class="img-tag">Type: Golden Sand Ocean Beaches</div>
+                  </div>
+                </div>
+                <p class="side-text">
+                  Expansive, soft golden sand beaches where river estuaries meet the wild Atlantic. Ideal for barefoot sunset walks, 
+                  wading in calm river lagoons, and authentic beach bum relaxation.
+                </p>
+              </div>
+
+              <div class="matchup-side side-madeira">
+                <div>
+                  <div class="side-destination">Madeira Island</div>
+                  <h3 class="side-headline">Porto Moniz Volcanic Lava Sea Pools</h3>
+                  <div class="side-image-wrapper">
+                    <img src="images/slide21_portomoniz.jpg" alt="Porto Moniz Volcanic Pools" />
+                    <div class="img-tag">Type: Natural Basalt Tidal Pools</div>
+                  </div>
+                </div>
+                <p class="side-text">
+                  Crystal-clear 68°F seawater pools carved naturally out of black basalt volcanic lava reefs, constantly refreshed by huge 
+                  rolling Atlantic breakers splashing over outer rock barriers.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Round 5: Culture, Towns & Logistics -->
+          <div class="showdown-matchup">
+            <div class="matchup-header">
+              <div class="matchup-title">
+                <span class="matchup-round">ROUND 05</span>
+                <span>Towns, Atmosphere & Travel Pacing</span>
+              </div>
+              <div class="matchup-winner winner-fishermans">
+                🏆 Winner: Fisherman's (Zero-Stress Pacing)
+              </div>
+            </div>
+            <div class="matchup-body">
+              <div class="matchup-side side-fishermans">
+                <div>
+                  <div class="side-destination">Fisherman's Trail</div>
+                  <h3 class="side-headline">Point-to-Point Village Hopping (No Driving!)</h3>
+                  <div class="side-image-wrapper">
+                    <img src="images/fishermans_village.jpg" alt="Whitewashed village Odeceixe" />
+                    <div class="img-tag">Transit: 100% On Foot</div>
+                  </div>
+                </div>
+                <p class="side-text">
+                  The ultimate stress-free workflow: walk out your guesthouse front door each morning, hike along the coast with luggage 
+                  transferred ahead, and arrive in a whitewashed fishing village for grilled sea bass and fresh bread. Zero rental cars, 
+                  zero parking stress.
+                </p>
+              </div>
+
+              <div class="matchup-side side-madeira">
+                <div>
+                  <div class="side-destination">Madeira Island</div>
+                  <h3 class="side-headline">Funchal Historic Capital & Mountain Drives</h3>
+                  <div class="side-image-wrapper">
+                    <img src="images/slide08_funchal.jpg" alt="Funchal Historic Harbor" />
+                    <div class="img-tag">Transit: Rental Car Mountain Driving</div>
+                  </div>
+                </div>
+                <p class="side-text">
+                  A sophisticated world-class subtropical capital with botanical gardens and cobblestone avenues, but requires driving 
+                  steep 25% gradient mountain switchbacks, early 6:45 AM reverse-parking maneuvers at trailheads, and active scheduling.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Head-to-Head Specification Matrix -->
+    <section id="comparison" class="section-block">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Comprehensive Spec Sheet</span>
+          <h2 class="section-title">Head-to-Head Breakdown</h2>
+          <p class="section-desc">
+            Granular metrics across terrain, difficulty, weather, and day-to-day operations.
+          </p>
+        </div>
+
+        <div class="table-container">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Expedition Feature</th>
+                <th class="col-fishermans" style="width: 37.5%;">🌊 Fisherman's Trail (Rota Vicentina)</th>
+                <th class="col-madeira" style="width: 37.5%;">🌋 Madeira Island Expedition</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span class="feature-name">Trek Style & Routing</span>
+                  <span class="feature-detail">How you move across the terrain</span>
+                </td>
+                <td>
+                  <strong>Point-to-point through-hike</strong><br />
+                  Walk town-to-town from Porto Covo to Odeceixe / Rogil. Never retrace steps.
+                </td>
+                <td>
+                  <strong>Hub-and-spoke day expeditions</strong><br />
+                  Dual basecamps (Funchal & Santana) with rental car access to diverse island corners.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="feature-name">Distance & Elevation</span>
+                  <span class="feature-detail">Total mileage & vertical gain</span>
+                </td>
+                <td>
+                  <span class="metric-badge badge-blue">75.8 mi (122 km)</span> • ~2,200 ft gain<br />
+                  Long horizontal mileage across deep dunes.
+                </td>
+                <td>
+                  <span class="metric-badge badge-green">38.6 mi (62 km)</span> • <span class="metric-badge badge-gold">+16,480 ft gain</span><br />
+                  Shorter mileage, massive vertical mountain staircases.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="feature-name">Physical Challenge</span>
+                  <span class="feature-detail">Primary muscular & mental strain</span>
+                </td>
+                <td>
+                  <strong>Calf burn & sand fatigue:</strong> Trudging 12–14 miles/day through loose beach sand under unshaded sun.
+                </td>
+                <td>
+                  <strong>Quad & knee burn + exposure:</strong> Thousands of steep stone steps, narrow levada ledges, and sheer 3,000-ft cliff drops.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="feature-name">Scenery Diversity</span>
+                  <span class="feature-detail">Variations in landscape per 24h</span>
+                </td>
+                <td>
+                  <span class="metric-badge badge-blue">1 Primary Biome:</span><br />
+                  Coastal sand dunes, Atlantic beaches, and schist sea cliffs. Consistent and meditative.
+                </td>
+                <td>
+                  <span class="metric-badge badge-green">5 Distinct Biomes:</span><br />
+                  Alpine 6,000-ft peaks, dripping cloud canyons, 500-yr misty laurel forest, lava pools, volcanic sea spires.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="feature-name">Ground Transportation</span>
+                  <span class="feature-detail">How you travel between destinations</span>
+                </td>
+                <td>
+                  <strong>Zero driving required:</strong> Rede Expressos express bus from Lisbon + local taxis + luggage transfer services.
+                </td>
+                <td>
+                  <strong>Dedicated rental car required:</strong> Manual/automatic with hill-hold torque for steep 25% mountain switchbacks and tunnels.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="feature-name">Weather & Predictability</span>
+                  <span class="feature-detail">Typical temperature & precipitation</span>
+                </td>
+                <td>
+                  <strong>Stable Atlantic coastal sunshine:</strong> Breezy 65°F–75°F (18°C–24°C), low rain probability in spring/fall.
+                </td>
+                <td>
+                  <strong>Dramatic microclimates:</strong> 72°F and sunny in Funchal, 45°F and gale-force mist at 6,000-ft peaks. Live webcams required.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="feature-name">Dining & Cuisine (Zero Alcohol)</span>
+                  <span class="feature-detail">Local culinary highlights</span>
+                </td>
+                <td>
+                  Fresh grilled Atlantic sea bass, percebes (goose barnacles), Alentejo bread soup, fresh orange juice, Água das Pedras.
+                </td>
+                <td>
+                  Garlic-butter bolo do caco, skewered laurel-wood espetada, black scabbard fish with passion fruit, fresh maracujá juices, non-alcoholic Nikita.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="feature-name">Logistical Complexity</span>
+                  <span class="feature-detail">Permits, timings, reservations</span>
+                </td>
+                <td>
+                  <span class="metric-badge badge-blue">Low complexity:</span> Book guesthouses along the route; no trail permits or parking time-slots.
+                </td>
+                <td>
+                  <span class="metric-badge badge-gold">Moderate-High:</span> 2026 IFCN SIMplifica PR1 permits (€10.50), PR1 one-way taxi shuttles, 6:45 AM parking rush.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Financial Ledger Comparison (Apples-to-Apples for 2 Travelers) -->
+    <section id="finances" class="section-block">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Financial Transparency</span>
+          <h2 class="section-title">Strict Apples-to-Apples Ledger</h2>
+          <p class="section-desc">
+            All figures represent the <strong>strictly unified shared budget for 2 travelers combined</strong> (never split per person).
+            Includes identical 1-stop US transatlantic flights via Lisbon (LIS) on TAP Air Portugal.
+          </p>
+        </div>
+
+        <div class="ledger-grid">
+          
+          <!-- Ledger Card: Fisherman's Trail -->
+          <div class="ledger-card" style="border-top: 4px solid var(--fishermans-primary);">
+            <div class="ledger-card-header">
+              <div>
+                <span class="card-header-badge" style="color:var(--fishermans-accent);">🌊 Rota Vicentina</span>
+                <h3 style="color:#fff; font-size:1.4rem;">Fisherman's Trail (6 Days)</h3>
+              </div>
+              <div class="ledger-total" style="color:var(--fishermans-accent);">€2,560</div>
+            </div>
+
+            <div class="ledger-row">
+              <span class="ledger-item-title">US Transatlantic Flights (1-Stop, 2 pax)</span>
+              <span class="ledger-item-val">€1,380</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-item-title">Accommodations (5 Nights Coastal Suites)</span>
+              <span class="ledger-item-val">€580</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-item-title">Ground Transit (Rede Expressos Bus + Taxis)</span>
+              <span class="ledger-item-val">€110</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-item-title">Luggage Forwarding (Vicentinatransfers)</span>
+              <span class="ledger-item-val">€75</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-item-title">Food & Dining (Zero Alcohol, 2 pax)</span>
+              <span class="ledger-item-val">€380</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-item-title">Activities & Ferry (Mira Boat Crossing)</span>
+              <span class="ledger-item-val">€35</span>
+            </div>
+
+            <div style="margin-top:20px; padding:12px; background:rgba(2, 132, 199, 0.1); border-radius:8px; font-size:0.85rem; color:var(--text-muted);">
+              <strong>Ground-Only Subtotal (2 pax):</strong> <span style="color:#fff; font-weight:700;">~€1,180</span>. 
+              Massive savings on ground transit by utilizing public coaches instead of mountain car rentals and petrol.
+            </div>
+          </div>
+
+          <!-- Ledger Card: Madeira -->
+          <div class="ledger-card" style="border-top: 4px solid var(--madeira-primary);">
+            <div class="ledger-card-header">
+              <div>
+                <span class="card-header-badge" style="color:var(--madeira-accent);">🌋 Atlantic Island</span>
+                <h3 style="color:#fff; font-size:1.4rem;">Madeira Expedition (8 Days)</h3>
+              </div>
+              <div class="ledger-total" style="color:var(--madeira-accent);">€3,120</div>
+            </div>
+
+            <div class="ledger-row">
+              <span class="ledger-item-title">US Transatlantic Flights (1-Stop to FNC, 2 pax)</span>
+              <span class="ledger-item-val">€1,380</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-item-title">Accommodations (7 Nights Premium Hubs)</span>
+              <span class="ledger-item-val">€770</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-item-title">Rental Car + Full CDW + Mountain Petrol</span>
+              <span class="ledger-item-val">€320</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-item-title">PR1 Transfer Taxi + Parking Fees</span>
+              <span class="ledger-item-val">€85</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-item-title">Food & Dining (Zero Alcohol, 2 pax)</span>
+              <span class="ledger-item-val">€400</span>
+            </div>
+            <div class="ledger-row">
+              <span class="ledger-item-title">Permits & Activities (IFCN, Pools, Monte)</span>
+              <span class="ledger-item-val">€165</span>
+            </div>
+
+            <div style="margin-top:20px; padding:12px; background:rgba(16, 185, 129, 0.1); border-radius:8px; font-size:0.85rem; color:var(--text-muted);">
+              <strong>Ground-Only Subtotal (2 pax):</strong> <span style="color:#fff; font-weight:700;">€1,740</span>. 
+              The +€560 ground difference pays for the private mountain rental car, 2 additional days of lodging, and island activities.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Reddit & Real Hikers Consensus -->
+    <section id="community" class="section-block">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Real Community Consensus</span>
+          <h2 class="section-title">What Hikers Who Did Both Say</h2>
+          <p class="section-desc">
+            Direct takeaways and reviews compiled from r/hiking, r/Madeira, r/travel, and European trekking forums.
+          </p>
+        </div>
+
+        <div class="reviews-grid">
+          
+          <div class="review-card">
+            <div class="review-quote">
+              "Nothing in mainland Europe touches Madeira for sheer visual adrenaline. Standing at Pico do Arieiro looking at cloud inversions below your feet at sunrise is in my top 3 travel memories of all time. It’s like Hawaii and Patagonia mashed into one island."
+            </div>
+            <div class="review-author">
+              <div class="author-avatar">🏔️</div>
+              <div class="author-info">
+                <div class="author-name">r/hiking Trekker</div>
+                <div class="author-source">Completed both in 2024 & 2025</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-quote">
+              "The Fisherman's Trail was the most peaceful, rejuvenating vacation I've ever taken. Walking out your guesthouse into the morning mist, smelling wild lavender and eucalyptus, hearing the Atlantic waves crash, and arriving in a fishing village for grilled fish... it cleanses your soul."
+            </div>
+            <div class="review-author">
+              <div class="author-avatar">🌊</div>
+              <div class="author-info">
+                <div class="author-name">r/travel Nomad</div>
+                <div class="author-source">Hiked Rota Vicentina Spring 2025</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-quote">
+              "Don't underestimate the sand on Fisherman's Trail—it's like walking on a stairmaster wrapped in sandpaper! Madeira is physically harder on the knees with all the steep stone stairs, but Madeira's scenery pays you back tenfold with mind-bending views around every bend."
+            </div>
+            <div class="review-author">
+              <div class="author-avatar">⚖️</div>
+              <div class="author-info">
+                <div class="author-name">r/Madeira Contributor</div>
+                <div class="author-source">Alpine & Coastal Thru-Hiker</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Decision Engine / Quiz -->
+    <section id="quiz" class="section-block">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">Personalized Selector</span>
+          <h2 class="section-title">Which Trip Is Right for You?</h2>
+          <p class="section-desc">
+            Answer these 5 quick questions to calculate your personalized compatibility score.
+          </p>
+        </div>
+
+        <div class="quiz-card">
+          <form id="quiz-form">
+            
+            <!-- Q1: Priority -->
+            <div class="quiz-question-block">
+              <div class="question-title">
+                <span class="question-num">1</span>
+                <span>What is your absolute #1 priority for this vacation?</span>
+              </div>
+              <div class="options-grid">
+                <div class="quiz-option" data-vote="fishermans" onclick="selectQuizOption(this, 1)">
+                  <span class="opt-label">🧘 Meditative Coastal Peace <span>🌊</span></span>
+                  <span class="opt-desc">Restorative ocean rhythm, endless Atlantic horizons, and barefoot beach wandering.</span>
+                </div>
+                <div class="quiz-option" data-vote="madeira" onclick="selectQuizOption(this, 1)">
+                  <span class="opt-label">🌋 Shock-and-Awe Scenery <span>🏔️</span></span>
+                  <span class="opt-desc">Razor-thin mountain ridges above clouds, dramatic waterfalls, and exotic microclimates.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q2: Heights & Elevation -->
+            <div class="quiz-question-block">
+              <div class="question-title">
+                <span class="question-num">2</span>
+                <span>How do you feel about vertical elevation and cliff heights?</span>
+              </div>
+              <div class="options-grid">
+                <div class="quiz-option" data-vote="fishermans" onclick="selectQuizOption(this, 2)">
+                  <span class="opt-label">🏖️ Keep Me Low & Level <span>🚶</span></span>
+                  <span class="opt-desc">I prefer rolling horizontal coastal bluffs without intense heights, ladders, or drop-offs.</span>
+                </div>
+                <div class="quiz-option" data-vote="madeira" onclick="selectQuizOption(this, 2)">
+                  <span class="opt-label">⚡ Bring On the Peaks! <span>🧗</span></span>
+                  <span class="opt-desc">I love 6,000-ft summits, steel cable handrails along vertical cliffs, and endless stone staircases.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q3: Driving & Logistics -->
+            <div class="quiz-question-block">
+              <div class="question-title">
+                <span class="question-num">3</span>
+                <span>What is your transportation and logistics preference?</span>
+              </div>
+              <div class="options-grid">
+                <div class="quiz-option" data-vote="fishermans" onclick="selectQuizOption(this, 3)">
+                  <span class="opt-label">🎒 Zero Driving Stress <span>🚶‍♂️</span></span>
+                  <span class="opt-desc">I want to hike directly out of my hotel every day with my bags forwarded to the next town.</span>
+                </div>
+                <div class="quiz-option" data-vote="madeira" onclick="selectQuizOption(this, 3)">
+                  <span class="opt-label">🚗 Road Trip Freedom <span>🗺️</span></span>
+                  <span class="opt-desc">I am comfortable driving mountain switchbacks to reach isolated trailheads across the island.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q4: Physical Strain Style -->
+            <div class="quiz-question-block">
+              <div class="question-title">
+                <span class="question-num">4</span>
+                <span>Which type of physical effort do you tolerate better?</span>
+              </div>
+              <div class="options-grid">
+                <div class="quiz-option" data-vote="fishermans" onclick="selectQuizOption(this, 4)">
+                  <span class="opt-label">🏖️ Soft Deep Sand Drag <span>👣</span></span>
+                  <span class="opt-desc">Walking 6–7 hours across shifting dune sand under open coastal sun.</span>
+                </div>
+                <div class="quiz-option" data-vote="madeira" onclick="selectQuizOption(this, 4)">
+                  <span class="opt-label">🧗 Vertical Stair Stepper <span>🦵</span></span>
+                  <span class="opt-desc">Climbing and descending 3,000+ vertical feet of uneven volcanic rock steps and tunnels.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q5: Basecamp Style -->
+            <div class="quiz-question-block">
+              <div class="question-title">
+                <span class="question-num">5</span>
+                <span>How do you prefer your nightly accommodations?</span>
+              </div>
+              <div class="options-grid">
+                <div class="quiz-option" data-vote="fishermans" onclick="selectQuizOption(this, 5)">
+                  <span class="opt-label">🏡 Changing Villages Daily <span>🗝️</span></span>
+                  <span class="opt-desc">Arriving at a new charming Portuguese guesthouse every single night.</span>
+                </div>
+                <div class="quiz-option" data-vote="madeira" onclick="selectQuizOption(this, 5)">
+                  <span class="opt-label">🏨 Fixed Luxury Hubs <span>🧳</span></span>
+                  <span class="opt-desc">Unpacking once in Funchal and once in Santana, returning to the same premium hotel room.</span>
+                </div>
+              </div>
+            </div>
+
+          </form>
+
+          <!-- Interactive Results Display -->
+          <div class="quiz-results-box" id="quiz-results">
+            <div class="result-meter">
+              <div class="meter-fishermans" id="meter-f" style="width: 50%;"></div>
+              <div class="meter-madeira" id="meter-m" style="width: 50%;"></div>
+            </div>
+            
+            <div class="meter-labels">
+              <span class="meter-label-f" id="score-f">Fisherman's Trail: 50%</span>
+              <span class="meter-label-m" id="score-m">Madeira: 50%</span>
+            </div>
+
+            <div style="margin-top:24px;">
+              <h3 class="result-verdict-title" id="verdict-title">Select your choices above</h3>
+              <p class="result-verdict-body" id="verdict-body">
+                Click through the 5 preferences above to calculate your customized match and decision report!
+              </p>
+              
+              <div style="display:flex; justify-content:center; gap:16px;">
+                <a href="https://echegor.github.io/fishermans-trail/" id="btn-result-f" target="_blank" class="btn btn-fishermans">
+                  Explore Fisherman's Trail Deck ➔
+                </a>
+                <a href="https://echegor.github.io/madeira/" id="btn-result-m" target="_blank" class="btn btn-madeira">
+                  Explore Madeira Deck ➔
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand">
+            <div class="brand-icon">⚔️</div>
+            <div class="brand-text">
+              <span>PORTUGAL TREK SHOWDOWN</span>
+              <span>Fisherman's Trail vs. Madeira</span>
+            </div>
+          </div>
+          <p>
+            An independent comparative research tool built for hikers and travelers choosing between Portugal's 
+            two premier multi-day trekking adventures.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Expedition Decks</h4>
+          <ul>
+            <li><a href="https://echegor.github.io/fishermans-trail/" target="_blank">🌊 Fisherman's Trail Live Site</a></li>
+            <li><a href="https://echegor.github.io/madeira/" target="_blank">🌋 Madeira Expedition Live Site</a></li>
+            <li><a href="https://github.com/Echegor/fishermans-trail" target="_blank">💻 Fisherman's Trail GitHub</a></li>
+            <li><a href="https://github.com/Echegor/madeira" target="_blank">💻 Madeira GitHub</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Comparison Specs</h4>
+          <ul>
+            <li><a href="#scenery">Visual Scenery Face-Off</a></li>
+            <li><a href="#comparison">Technical Matrix</a></li>
+            <li><a href="#finances">Shared Financial Ledger</a></li>
+            <li><a href="#quiz">Interactive Decision Quiz</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Portugal Expedition Archive. Both itineraries curated for 2 travelers, 1-stop flights, and zero alcohol.</span>
+        <span>Hosted via GitHub Pages</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Quiz Logic Script -->
+  <script>
+    const userAnswers = {
+      1: null,
+      2: null,
+      3: null,
+      4: null,
+      5: null
+    };
+
+    function selectQuizOption(element, questionNum) {
+      const parent = element.parentElement;
+      const options = parent.querySelectorAll('.quiz-option');
+      
+      options.forEach(opt => {
+        opt.classList.remove('selected-fishermans', 'selected-madeira');
+      });
+
+      const vote = element.getAttribute('data-vote');
+      if (vote === 'fishermans') {
+        element.classList.add('selected-fishermans');
+      } else {
+        element.classList.add('selected-madeira');
+      }
+
+      userAnswers[questionNum] = vote;
+      calculateScore();
+    }
+
+    function calculateScore() {
+      let fCount = 0;
+      let mCount = 0;
+      let answered = 0;
+
+      for (let i = 1; i <= 5; i++) {
+        if (userAnswers[i] === 'fishermans') {
+          fCount++;
+          answered++;
+        } else if (userAnswers[i] === 'madeira') {
+          mCount++;
+          answered++;
+        }
+      }
+
+      if (answered === 0) return;
+
+      const fPct = Math.round((fCount / answered) * 100);
+      const mPct = 100 - fPct;
+
+      const meterF = document.getElementById('meter-f');
+      const meterM = document.getElementById('meter-m');
+      const scoreF = document.getElementById('score-f');
+      const scoreM = document.getElementById('score-m');
+      const verdictTitle = document.getElementById('verdict-title');
+      const verdictBody = document.getElementById('verdict-body');
+
+      meterF.style.width = fPct + '%';
+      meterM.style.width = mPct + '%';
+      scoreF.textContent = `Fisherman's Trail: ${fPct}%`;
+      scoreM.textContent = `Madeira: ${mPct}%`;
+
+      if (mPct > fPct) {
+        verdictTitle.innerHTML = `<span style="color:var(--madeira-accent)">🌋 Your Best Match: Madeira Island Expedition!</span>`;
+        verdictBody.textContent = `Based on your love for vertical drama, varied microclimates, and jaw-dropping visual rewards, Madeira is your ideal Portuguese adventure. Prepare for sunrise above the clouds at Pico do Arieiro and lush levada waterfall canyons.`;
+      } else if (fPct > mPct) {
+        verdictTitle.innerHTML = `<span style="color:var(--fishermans-accent)">🌊 Your Best Match: Fisherman's Trail!</span>`;
+        verdictBody.textContent = `Based on your preference for relaxing coastal rhythms, zero-driving point-to-point pacing, and meditative Atlantic sea cliff walking, the Rota Vicentina is your perfect vacation. Prepare for ocean breezes, sandy trails, and authentic fishing village dinners.`;
+      } else {
+        verdictTitle.textContent = `🤝 Dead Even Split (50% / 50%)`;
+        verdictBody.textContent = `You appreciate both the meditative peace of the coastline and the heart-pounding drama of alpine peaks! If you want pure relaxation without a rental car, choose Fisherman's Trail. If you want maximum photographic 'wow' factor, choose Madeira.`;
+      }
+    }
+  </script>
+</body>
+</html>
