@@ -1348,6 +1348,44 @@
       gap: 5px;
     }
 
+    .itin-card-image-wrap {
+      position: relative;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      border: 1px solid var(--border);
+      background: #000;
+      margin: 10px 0 16px;
+    }
+
+    .itin-card-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .itin-card-image-wrap:hover img {
+      transform: scale(1.04);
+    }
+
+    .itin-img-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
+      padding: 10px 14px 8px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      letter-spacing: 0.02em;
+    }
+
     .itin-timeline-block {
       display: flex;
       flex-direction: column;
@@ -2030,6 +2068,10 @@
                   <div class="itin-metric-chip">🚐 2h private transfer from LIS</div>
                   <div class="itin-metric-chip">🏨 Monte da Bemposta / Village inn</div>
                 </div>
+                <div class="itin-card-image-wrap">
+                  <img src="images/slide09_portocovo.jpg" alt="Porto Covo Historic Fishing Village" loading="lazy" />
+                  <div class="itin-img-caption">📍 Porto Covo Village Square & Coastal Trailhead</div>
+                </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
                     <div class="itin-step-dot">1</div>
@@ -2064,6 +2106,10 @@
                   <div class="itin-metric-chip">📍 0 km hiking</div>
                   <div class="itin-metric-chip">🚗 35m scenic mountain drive</div>
                   <div class="itin-metric-chip">🏨 Boutique Santana Quinta</div>
+                </div>
+                <div class="itin-card-image-wrap">
+                  <img src="images/slide18_santana.jpg" alt="Traditional Thatched Palheiros in Santana" loading="lazy" />
+                  <div class="itin-img-caption">📍 Santana Traditional Palheiros & Mountain Basecamp</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -2125,6 +2171,10 @@
                   <div class="itin-metric-chip">⏱️ 5.5 – 6.5 hrs</div>
                   <div class="itin-metric-chip">🏖️ 65% deep loose sand</div>
                 </div>
+                <div class="itin-card-image-wrap">
+                  <img src="images/ft_sand_trail_hiker.jpg" alt="Hiker in deep quartz sand dunes" loading="lazy" />
+                  <div class="itin-img-caption">📍 Deep Sand Dunes Heading into Vila Nova de Milfontes</div>
+                </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
                     <div class="itin-step-dot">1</div>
@@ -2159,6 +2209,10 @@
                   <div class="itin-metric-chip">📈 +1,000 m / -1,000 m</div>
                   <div class="itin-metric-chip">⏱️ 4.5 – 5.5 hrs</div>
                   <div class="itin-metric-chip">🧗 High verticality & stairways</div>
+                </div>
+                <div class="itin-card-image-wrap">
+                  <img src="images/slide14_pr1.jpg" alt="PR1 Pico do Arieiro to Pico Ruivo Knife-Edge Ridge" loading="lazy" />
+                  <div class="itin-img-caption">📍 PR1 Pico do Arieiro to Pico Ruivo Knife-Edge Ridge</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -2219,6 +2273,10 @@
                   <div class="itin-metric-chip">⏱️ 4.0 – 4.5 hrs</div>
                   <div class="itin-metric-chip">🌾 40% sand & coastal scrub</div>
                 </div>
+                <div class="itin-card-image-wrap">
+                  <img src="images/ft_cabo_sardao_storks.jpg" alt="White stork nesting on sea stacks at Cabo Sardao" loading="lazy" />
+                  <div class="itin-img-caption">📍 White Stork Nests on Cabo Sardão Sea Stacks</div>
+                </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
                     <div class="itin-step-dot">1</div>
@@ -2253,6 +2311,10 @@
                   <div class="itin-metric-chip">📈 +120 m / -120 m</div>
                   <div class="itin-metric-chip">⏱️ 4.0 hrs</div>
                   <div class="itin-metric-chip">🔦 4 pitch-black basalt tunnels</div>
+                </div>
+                <div class="itin-card-image-wrap">
+                  <img src="images/slide17_caldeirao.jpg" alt="PR9 Levada do Caldeirao Verde waterfall pool" loading="lazy" />
+                  <div class="itin-img-caption">📍 PR9 Levada do Caldeirão Verde Waterfall Amphitheater</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -2313,6 +2375,10 @@
                   <div class="itin-metric-chip">⏱️ 6.0 – 6.5 hrs</div>
                   <div class="itin-metric-chip">🚢 Porto das Barcas harbor</div>
                 </div>
+                <div class="itin-card-image-wrap">
+                  <img src="images/slide19_zambujeira.jpg" alt="Zambujeira do Mar Dramatic Beach and Sea Cliffs" loading="lazy" />
+                  <div class="itin-img-caption">📍 Zambujeira do Mar Crescent Beach & Sea Cliffs</div>
+                </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
                     <div class="itin-step-dot">1</div>
@@ -2347,6 +2413,10 @@
                   <div class="itin-metric-chip">📈 +300 m / -300 m</div>
                   <div class="itin-metric-chip">⏱️ 4.5 hrs</div>
                   <div class="itin-metric-chip">🌊 Natural lava pools</div>
+                </div>
+                <div class="itin-card-image-wrap">
+                  <img src="images/slide21_portomoniz.jpg" alt="Porto Moniz Natural Volcanic Ocean Pools" loading="lazy" />
+                  <div class="itin-img-caption">📍 Porto Moniz Natural Volcanic Ocean Lava Pools</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -2407,6 +2477,10 @@
                   <div class="itin-metric-chip">⏱️ 5.0 – 5.5 hrs</div>
                   <div class="itin-metric-chip">🌊 Alentejo/Algarve river border</div>
                 </div>
+                <div class="itin-card-image-wrap">
+                  <img src="images/ft_odeceixe_horseshoe.jpg" alt="Seixe River Horseshoe Bend at Praia de Odeceixe" loading="lazy" />
+                  <div class="itin-img-caption">📍 Seixe River Horseshoe Bend at Praia de Odeceixe</div>
+                </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
                     <div class="itin-step-dot">1</div>
@@ -2441,6 +2515,10 @@
                   <div class="itin-metric-chip">📈 +200 m / -200 m</div>
                   <div class="itin-metric-chip">⏱️ 3.5 hrs</div>
                   <div class="itin-metric-chip">🌫️ 600-year-old laurel trees</div>
+                </div>
+                <div class="itin-card-image-wrap">
+                  <img src="images/slide20_fanal.jpg" alt="Ancient Twisted Laurel Trees in Fanal Forest" loading="lazy" />
+                  <div class="itin-img-caption">📍 Ethereal 600-Year-Old Ancient Til Trees in Fanal Fog</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -2501,6 +2579,10 @@
                   <div class="itin-metric-chip">⏱️ 6.0 hrs</div>
                   <div class="itin-metric-chip">🏰 Moorish Castle ruins</div>
                 </div>
+                <div class="itin-card-image-wrap">
+                  <img src="images/ft_aljezur_castle.jpg" alt="10th Century Moorish Castle in Aljezur" loading="lazy" />
+                  <div class="itin-img-caption">📍 10th-Century Moorish Castle Battlements in Aljezur</div>
+                </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
                     <div class="itin-step-dot">1</div>
@@ -2535,6 +2617,10 @@
                   <div class="itin-metric-chip">📈 +450 m / -450 m</div>
                   <div class="itin-metric-chip">⏱️ 3.5 hrs</div>
                   <div class="itin-metric-chip">🚠 Funchal cable car & Monte</div>
+                </div>
+                <div class="itin-card-image-wrap">
+                  <img src="images/slide26_curral_freiras.jpg" alt="Curral das Freiras Valley of the Nuns Caldera" loading="lazy" />
+                  <div class="itin-img-caption">📍 Curral das Freiras (Valley of the Nuns) Mountain Caldera</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -2595,6 +2681,10 @@
                   <div class="itin-metric-chip">⏱️ 3.5 – 4.0 hrs</div>
                   <div class="itin-metric-chip">🏄 World-class surf breaks</div>
                 </div>
+                <div class="itin-card-image-wrap">
+                  <img src="images/ft_arrifana_beach.jpg" alt="Praia da Arrifana Atlantic Surf Bay" loading="lazy" />
+                  <div class="itin-img-caption">📍 Praia da Arrifana Atlantic Surf Cove & Sea Cliffs</div>
+                </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
                     <div class="itin-step-dot">1</div>
@@ -2629,6 +2719,10 @@
                   <div class="itin-metric-chip">📈 +400 m / -400 m</div>
                   <div class="itin-metric-chip">⏱️ 3.5 hrs</div>
                   <div class="itin-metric-chip">🌊 Red volcanic coastal cliffs</div>
+                </div>
+                <div class="itin-card-image-wrap">
+                  <img src="images/slide11_saolourenco.jpg" alt="PR8 Ponta de Sao Lourenco Red Ridge" loading="lazy" />
+                  <div class="itin-img-caption">📍 PR8 Ponta de São Lourenço Treeless Red Volcanic Ridge</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
@@ -2688,6 +2782,10 @@
                   <div class="itin-metric-chip">🚐 2.5h private transfer to LIS</div>
                   <div class="itin-metric-chip">✈️ 1-stop transatlantic flight</div>
                 </div>
+                <div class="itin-card-image-wrap">
+                  <img src="images/slide28_lisbon.jpg" alt="Lisbon Gateway & Alentejo Departure" loading="lazy" />
+                  <div class="itin-img-caption">📍 Lisbon Historic Gateway & Alentejo Departure</div>
+                </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
                     <div class="itin-step-dot">1</div>
@@ -2717,6 +2815,10 @@
                   <div class="itin-metric-chip">📍 0 km hiking</div>
                   <div class="itin-metric-chip">🚗 20 min airport drive</div>
                   <div class="itin-metric-chip">✈️ 1-stop flight via Lisbon</div>
+                </div>
+                <div class="itin-card-image-wrap">
+                  <img src="images/slide25_funchal_sea.jpg" alt="Funchal Bay & Coastal Mountain Backdrop" loading="lazy" />
+                  <div class="itin-img-caption">📍 Funchal Bay & Coastal Mountain Backdrop</div>
                 </div>
                 <div class="itin-timeline-block">
                   <div class="itin-time-step">
